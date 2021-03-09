@@ -54,7 +54,7 @@ class B implements A{
 	public void showA() {
 		System.out.println("AAA");
 	}
-	
+
 }
 ```
 {: id="20210309203838-uz5yj9t"}
@@ -81,8 +81,10 @@ class B implements A{
    {: id="20210309203838-g9iwd8z"}
 3. {: id="20210309203838-0k6mkz7"}定义普通类Sun，
    {: id="20210309203838-qbnw02k"}
+
    继承Star类，重写shine方法，打印"sun:光照八分钟，到达地球"
    {: id="20210309203838-o3cxytq"}
+
    实现Universe接口，实现doAnything，打印"sun:太阳吸引着9大行星旋转"
    {: id="20210309203838-hctmq4z"}
 4. {: id="20210309203838-4biqm3l"}测试类中，创建Star对象，调用shine方法
@@ -98,7 +100,7 @@ public class Test02 {
 	public static void main(String[] args) {
 		Star s = new Star();
 		s.shine();
-		
+	
 		System.out.println("======================");
 		Universe u = new Sun();
 		u.doAnything();
@@ -123,7 +125,7 @@ class Sun extends Star implements Universe{
 	public void doAnything() {
 		System.out.println("sun:太阳吸引着9大行星旋转");
 	}
-	
+
 }
 ```
 {: id="20210309203838-uadqmmd"}
@@ -135,6 +137,7 @@ class Sun extends Star implements Universe{
   {: id="20210309203838-t7gek93"}
 * {: id="20210309203838-ilrr6tx"}定义接口FightAble：
   {: id="20210309203838-dpgicce"}
+
   * {: id="20210309203838-ni3a6to"}抽象方法：specialFight。
     {: id="20210309203838-i8atao1"}
   * {: id="20210309203838-szjxfr7"}默认方法：commonFight,方法中打印"普通打击"。
@@ -142,18 +145,22 @@ class Sun extends Star implements Universe{
   {: id="20210309203838-ntnonbo"}
 * {: id="20210309203838-1psn3ug"}定义战士类：
   {: id="20210309203838-r2sfji9"}
+
   * {: id="20210309203838-yekdkkz"}实现FightAble接口,重写方法中打印"武器攻击"。
     {: id="20210309203838-2rdgmuf"}
   {: id="20210309203838-rnmffbq"}
 * {: id="20210309203838-32i4pxv"}定义法师类Mage：
   {: id="20210309203838-ms61aqv"}
+
   * {: id="20210309203838-gjvbivi"}实现FightAble接口,重写方法中打印"法术攻击"。
     {: id="20210309203838-6imkqlg"}
   {: id="20210309203838-a5utd4l"}
 * {: id="20210309203838-mxztqcl"}定义玩家类Player：
   {: id="20210309203838-68qw2wc"}
+
   * {: id="20210309203838-15wqlgr"}静态方法：FightAble select(String str)，根据指令选择角色。
     {: id="20210309203838-lkdepds"}
+
     * {: id="20210309203838-akucgy6"}法力角色，选择法师。
       {: id="20210309203838-yjdgm9m"}
     * {: id="20210309203838-3jqpruh"}武力角色，选择战士。
@@ -175,23 +182,23 @@ import java.util.Scanner;
 public class Test3 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		
+	
 		System.out.print("选择：");
 		String role1 = input.next();
-		
+	
 		FightAble f1 = Player.select(role1);
 		f1.specialFight();
 		f1.commonFight();
-		
+	
 		System.out.println("====================");
-		
+	
 		System.out.print("选择：");
 		String role2 = input.next();
-		
+	
 		FightAble f2 = Player.select(role2);
 		f2.specialFight();
 		f2.commonFight();
-		
+	
 		input.close();
 	}
 }
@@ -207,7 +214,7 @@ class Soldier implements FightAble{
 	public void specialFight() {
 		System.out.println("武器攻击");
 	}
-	
+
 }
 class Mage implements FightAble{
 
@@ -215,7 +222,7 @@ class Mage implements FightAble{
 	public void specialFight() {
 		System.out.println("法术攻击");
 	}
-	
+
 }
 class Player{
 
@@ -227,7 +234,7 @@ class Player{
 		}
 		return null;
 	}
-	
+
 }
 ```
 {: id="20210309203838-dm4tdmr"}
@@ -239,6 +246,7 @@ class Player{
   {: id="20210309203838-vh10vpa"}
 * {: id="20210309203838-lmm0k5b"}定义苹果类：
   {: id="20210309203838-i7uy2b6"}
+
   * {: id="20210309203838-emuuyd0"}属性：大小，颜色。
     {: id="20210309203838-b8053vv"}
   * {: id="20210309203838-ogvrd6k"}提供基本的构造方法和get方法，set方法
@@ -246,6 +254,7 @@ class Player{
   {: id="20210309203838-c9rj8tw"}
 * {: id="20210309203838-pe4cjcr"}定义接口CompareAble：
   {: id="20210309203838-t2njf4l"}
+
   * {: id="20210309203838-43fuvxv"}定义默认方法compare，挑选较大苹果。
     {: id="20210309203838-6z68jrb"}
   {: id="20210309203838-8kubs9k"}
@@ -255,11 +264,13 @@ class Player{
   {: id="20210309203838-3437smd"}
 * {: id="20210309203838-j54v7mj"}定义工人类：
   {: id="20210309203838-jssgh4i"}
+
   * {: id="20210309203838-tmopf92"}成员方法：挑选苹果public void pickApple(CompareAble c,Apple a1,Apple a2)。
     {: id="20210309203838-j9l8ph6"}
   {: id="20210309203838-hy81iwk"}
 * {: id="20210309203838-pm1q22r"}测试类：
   {: id="20210309203838-n8tn97e"}
+
   * {: id="20210309203838-1fyprm1"}创建Worker对象。
     {: id="20210309203838-r4mxpg2"}
   * {: id="20210309203838-zmo7b3a"}创建两个Apple对象，一个Apple（5，"青色"）,一个Apple（3，"红色"）
@@ -280,7 +291,7 @@ public class Test04 {
 		Worker w = new Worker();
 		Apple a1 = new Apple(5, "青色");
 		Apple a2 = new Apple(3, "红色");
-		
+	
 		w.pickApple(new CompareBig(), a1, a2);
 		w.pickApple(new CompareColor(), a1, a2);
 	}
@@ -312,7 +323,7 @@ class Apple{
 	public String toString() {
 		return size + "-" + color;
 	}
-	
+
 }
 interface CompareAble{
 	default void compare(Apple a1,Apple a2){
@@ -325,7 +336,7 @@ interface CompareAble{
 	}
 }
 class CompareBig implements CompareAble{
-	
+
 }
 class CompareColor  implements CompareAble{
 
@@ -339,7 +350,7 @@ class CompareColor  implements CompareAble{
 			System.out.println(a2);
 		}
 	}
-	
+
 }
 class Worker{
 	public void pickApple(CompareAble c,Apple a1,Apple a2){
@@ -356,6 +367,7 @@ class Worker{
   {: id="20210309203838-9eyg01i"}
 * {: id="20210309203838-ojbmfva"}定义用户类：
   {: id="20210309203838-nvnrbyu"}
+
   * {: id="20210309203838-ltm2all"}属性：用户类型，用户id
     {: id="20210309203838-fuclj99"}
   * {: id="20210309203838-d3oiqss"}提供基本的构造方法和get方法，set方法
@@ -363,6 +375,7 @@ class Worker{
   {: id="20210309203838-nawi2re"}
 * {: id="20210309203838-c3p1u6p"}定义接口Filter：
   {: id="20210309203838-i1bst6i"}
+
   * {: id="20210309203838-5lagoo2"}提供抽象方法filterUser（User u）
     {: id="20210309203838-twwe8hz"}
   {: id="20210309203838-6tbd3uf"}
@@ -374,6 +387,7 @@ class Worker{
   {: id="20210309203838-gutb80m"}
 * {: id="20210309203838-1d6cz1x"}定义接待员类Receptionist：
   {: id="20210309203838-8gt1j1k"}
+
   * {: id="20210309203838-ler8ill"}属性：接口Filter
     {: id="20210309203838-73l5h92"}
   * {: id="20210309203838-vzf8754"}提供基本的构造方法和get方法，set方法
@@ -383,10 +397,12 @@ class Worker{
   {: id="20210309203838-8wdh1sz"}
 * {: id="20210309203838-fwaevqb"}测试类：
   {: id="20210309203838-b9ecwoe"}
+
   * {: id="20210309203838-kt1986p"}初始化15个User对象，id为1-15。
     {: id="20210309203838-8vp78rw"}
   * {: id="20210309203838-yn1fwbn"}创建三个接待员对象。
     {: id="20210309203838-ix8jjo5"}
+
     * {: id="20210309203838-q2t1tst"}第一个接待员，设置接待规则，将1-5号用户类型设置为v1。
       {: id="20210309203838-h3cl2xg"}
     * {: id="20210309203838-xotur56"}第二个接待员，设置接待规则，将6-10号用户类型设置为v2。
@@ -468,7 +484,7 @@ class V1Filter implements Filter{
 	public void filterUser(User u) {
 		u.setType("v1");
 	}
-	
+
 }
 class V2Filter implements Filter{
 
@@ -476,7 +492,7 @@ class V2Filter implements Filter{
 	public void filterUser(User u) {
 		u.setType("v2");
 	}
-	
+
 }
 class AFilter implements Filter{
 
@@ -484,7 +500,7 @@ class AFilter implements Filter{
 	public void filterUser(User u) {
 		u.setType("A");
 	}
-	
+
 }
 
 class Receptionist{
@@ -584,13 +600,22 @@ class Receptionist{
 案例：
 {: id="20210309203838-cv35iqq"}
 
-​	1、声明颜色枚举类：
+```
+1、声明颜色枚举类：
+```
+
 {: id="20210309203838-zmskwuw"}
 
-​		7个常量对象：赤、橙、黄、绿、青、蓝、紫。
+```
+7个常量对象：赤、橙、黄、绿、青、蓝、紫。
+```
+
 {: id="20210309203838-uh33c1j"}
 
-​	2、在测试类中，使用枚举类，获取绿色对象，并打印对象。
+```
+2、在测试类中，使用枚举类，获取绿色对象，并打印对象。
+```
+
 {: id="20210309203838-6bz4ewx"}
 
 ```java
@@ -614,28 +639,52 @@ enum Color{
 案例：
 {: id="20210309203838-5vwmpgk"}
 
-​	1、声明月份枚举类Month：
+```
+1、声明月份枚举类Month：
+```
+
 {: id="20210309203838-5peue02"}
 
-​	（1）创建：1-12月常量对象
+```
+（1）创建：1-12月常量对象
+```
+
 {: id="20210309203838-0n4ei3u"}
 
-​	（2）声明两个属性：value（月份值，例如：JANUARY的value为1），
+```
+（2）声明两个属性：value（月份值，例如：JANUARY的value为1），
+```
+
 {: id="20210309203838-9fx9fic"}
 
-​						description（描述，例如：JANUARY的description为1月份是一年的开始）。
+```
+description（描述，例如：JANUARY的description为1月份是一年的开始）。
+```
+
 {: id="20210309203838-dnos4j6"}
 
-​	（3）声明一个有参构造，创建12个对象
+```
+（3）声明一个有参构造，创建12个对象
+```
+
 {: id="20210309203838-8lhcg4r"}
 
-​	（4） 声明一个方法：public static Month getByValue(int value)
+```
+（4） 声明一个方法：public static Month getByValue(int value)
+```
+
 {: id="20210309203838-8fzc5sj"}
 
-​	（5）重写toString()：返回对象信息，例如：1->JANUARY->1月份是一年的开始。
+```
+（5）重写toString()：返回对象信息，例如：1->JANUARY->1月份是一年的开始。
+```
+
 {: id="20210309203838-s36lot3"}
 
-​	2、在测试类中，从键盘输入1个1-12的月份值，获取对应的月份对象，并打印对象
+```
+2、在测试类中，从键盘输入1个1-12的月份值，获取对应的月份对象，并打印对象
+```
+
 {: id="20210309203838-4odensu"}
 
 ```java
@@ -648,10 +697,10 @@ public class Test02 {
 		Scanner input = new Scanner(System.in);
 		System.out.print("请输入月份值（1-12）：");
 		int m = input.nextInt();
-		
+	
 		Month month = Month.getByValue(m);
 		System.out.println(month);
-		
+	
 		input.close();
 	}
 }
@@ -668,19 +717,19 @@ enum Month{
 	OCTOBER(10,"10月全国同欢"),
 	NOVEMBER(11,"11月寻找秋裤"),
 	DECMEBER(12,"12月冰天雪地");
-	
+
 	private int value;
 	private String description;
-	
+
 	private Month(int value,String description){
 		this.value = value;
 		this.description = description;
 	}
-	
+
 	public static Month getByValue(int value){
 		return Month.values()[value-1];
 	}
-	
+
 	public String toString(){
 		return value + "->" + name() + "->" + description;
 	}
@@ -694,28 +743,52 @@ enum Month{
 案例：
 {: id="20210309203838-c5uf6xe"}
 
-​	1、声明可支付接口Payable：
+```
+1、声明可支付接口Payable：
+```
+
 {: id="20210309203838-gtusofo"}
 
-​		包含抽象方法：void pay();
+```
+包含抽象方法：void pay();
+```
+
 {: id="20210309203838-8l5xjkf"}
 
-​	2、声明支付枚举类Payment：
+```
+2、声明支付枚举类Payment：
+```
+
 {: id="20210309203838-ul2cigm"}
 
-​	（1）创建常量对象：支付宝（ALIPAY），微信（WECHAT），信用卡（CREDIT_CARD），储蓄卡（DEPOSIT_CARD）
+```
+（1）创建常量对象：支付宝（ALIPAY），微信（WECHAT），信用卡（CREDIT_CARD），储蓄卡（DEPOSIT_CARD）
+```
+
 {: id="20210309203838-m40iv76"}
 
-​	（2）枚举类Payment实现接口Payable
+```
+（2）枚举类Payment实现接口Payable
+```
+
 {: id="20210309203838-zwk0crw"}
 
-​	①支付宝/微信：对接口的实现是打印“扫码支付”
+```
+①支付宝/微信：对接口的实现是打印“扫码支付”
+```
+
 {: id="20210309203838-w58zb7q"}
 
-​	②信用卡/储蓄卡：对接口的实现是打印“输入卡号支付”
+```
+②信用卡/储蓄卡：对接口的实现是打印“输入卡号支付”
+```
+
 {: id="20210309203838-16s5nl5"}
 
-​	3、在测试类中，获取所有支付对象，并调用它们的pay()
+```
+3、在测试类中，获取所有支付对象，并调用它们的pay()
+```
+
 {: id="20210309203838-70ugf9a"}
 
 ```java
