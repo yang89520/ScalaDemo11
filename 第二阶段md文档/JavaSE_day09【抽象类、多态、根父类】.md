@@ -70,10 +70,10 @@
 
 ```java
 【权限修饰符】 abstract class 类名{
-    
+  
 }
 【权限修饰符】 abstract class 类名 extends 父类{
-    
+  
 }
 ```
 {: id="20210309181757-9fym2pp"}
@@ -114,7 +114,7 @@ public class CatTest {
  	 public static void main(String[] args) {
         // 创建子类对象
         Cat c = new Cat(); 
-       
+   
         // 调用run方法
         c.run();
   	}
@@ -142,18 +142,21 @@ public class CatTest {
    {: id="20210309181757-j27vary"}
 2. {: id="20210309181757-hqsbuab"}抽象类中，也有构造方法，是供子类创建对象时，初始化父类成员变量使用的。
    {: id="20210309181757-6ajxfa6"}
+
    > 理解：子类的构造方法中，有默认的super()或手动的super(实参列表)，需要访问父类构造方法。
    > {: id="20210309181757-9q59llc"}
    >
    {: id="20210309181757-tptmb8k"}
 3. {: id="20210309181757-nglto3f"}抽象类中，不一定包含抽象方法，但是有抽象方法的类必定是抽象类。
    {: id="20210309181757-q7xjqkp"}
+
    > 理解：未包含抽象方法的抽象类，目的就是不想让调用者创建该类对象，通常用于某些特殊的类结构设计。
    > {: id="20210309181757-2qoh9w2"}
    >
    {: id="20210309181757-36o5ak1"}
 4. {: id="20210309181757-vwmg2nr"}抽象类的子类，必须重写抽象父类中**所有的**抽象方法，否则，编译无法通过而报错。除非该子类也是抽象类。
    {: id="20210309181757-tmelq24"}
+
    > 理解：假设不重写所有抽象方法，则类中可能包含抽象方法。那么创建对象后，调用抽象的方法，没有意义。
    > {: id="20210309181757-h2jf9vl"}
    >
@@ -197,7 +200,7 @@ class Circle extends Graphic{
 	public double getArea() {
 		return Math.PI * radius * radius;
 	}
-	
+
 }
 class Rectangle extends Graphic{
 	private double length;
@@ -294,7 +297,7 @@ public class Woman extends Person {
 	public void eat() {
 		System.out.println("细嚼慢咽吃饭");
 	}
-	
+
 	public void buy(){
 		System.out.println("买买买...");
 	}
@@ -310,9 +313,9 @@ public class TestExer1 {
 		m.eat();
 		m.walk();
 		m.smoke();
-		
+
 		System.out.println("-------------------------");
-		
+
 		Woman w = new Woman();
 		w.eat();
 		w.walk();
@@ -362,10 +365,10 @@ Rectangle[] arr = new Rectangle[长度]; //只能装矩形对象
 
 //需要重载很多个方法，增加一种具体的图形，就需要增加一个方法
 public static Circle maxArea(Circle c1, Circle c2){//只能比较两个圆对象
-    
+  
 }
 public static Rectangle maxArea(Rectangle r1, Rectangle r2){//只能比较两个矩形对象
-    
+  
 }
 ```
 {: id="20210309181757-4q2eksa"}
@@ -395,12 +398,12 @@ public static Rectangle maxArea(Rectangle r1, Rectangle r2){//只能比较两个
 class Person{
 	private String name;
 	private int age;
-	
+
     Person(String name, int age){
         this.name = name;
         this.age = age;
     }
-    
+  
 	public void speak(){
 		System.out.println(name + "说：我今年" + age);
 	}
@@ -424,16 +427,16 @@ class Test{
 		Person[] arr = new Person[2];
 		arr[0] = new Man("张三",23);
 		arr[1] = new Woman("如花",18);
-		
+
 		for(int i=0; i<arr.length; i++){
 			arr[i].speak();
 		}
 		System.out.println("------------------------");
-		
+
 		show(new Man("张三",23));
 		show(new Woman("如花",18));
 	}
-	
+
 	public static void show(Person p){
 		p.speak();
 	}
@@ -493,7 +496,7 @@ public class Test {
         // 多态形式，创建对象
         Animal a1 = new Cat();  
         // 调用的是 Cat 的 eat
-        a1.eat();    
+        a1.eat();  
         //a1.catchMouse();//错误，catchMouse()是子类扩展的方法，父类中没有
         /*
         多态引用，编译时，看“父类”，只能调用父类声明的方法；
@@ -503,7 +506,7 @@ public class Test {
         // 多态形式，创建对象
         Animal a2 = new Dog(); 
         // 调用的是 Dog 的 eat
-        a2.eat();               
+        a2.eat();   
     }  
 }
 ```
@@ -610,7 +613,7 @@ public class TestAnimal {
 		all[1] = new Cat();
 		all[2] = new Dog();
 		all[3] = new Dog();
-		
+
 		for (int i = 0; i < all.length; i++) {
 			all[i].eat();//all[i]编译时是Animal类型，运行时看存储的是什么对象
 		}
@@ -717,7 +720,7 @@ public class TestPerson {
 		goToToilet(new Woman());//隐含了Person p = new Woman();
 		goToToilet(new Man());//隐含了Person p = new Man();
 	}
-	
+
 	public static void goToToilet(Person p){
 		p.toilet();
 	}
@@ -838,7 +841,7 @@ public class SalaryEmployee extends Employee {
 public class HourEmployee extends Employee {
 	private double moneyPerHour;
 	private double hours;
-	
+
 	public HourEmployee() {
 		super();
 	}
@@ -867,7 +870,7 @@ public class HourEmployee extends Employee {
 
 	/*
 	 * 重写方法，public double earning()返回实发工资， 
-		实发工资 = 每小时多少钱 * 小时数	
+		实发工资 = 每小时多少钱 * 小时数
 	 */
 	@Override
 	public double earning() {
@@ -912,11 +915,11 @@ public class Manager extends SalaryEmployee {
 public class TestEmployee {
 	public static void main(String[] args) {
 		Employee[] all = new Employee[3];
-		
+
 		all[0] = new HourEmployee("张三", 50, 50);
 		all[1] = new SalaryEmployee("李四", 10000, 22, 1);
 		all[2] = new Manager("老王", 20000, 22, 0, 0.3);
-		
+
 		double sum = 0;
 		for (int i = 0; i < all.length; i++) {
 			System.out.println(all[i].getInfo());
@@ -1015,7 +1018,7 @@ public class Test {
         a.eat(); 				// 调用的是 Cat 的 eat
 
         // 向下转型  
-        Cat c = (Cat)a;       
+        Cat c = (Cat)a;   
         c.catchMouse(); 		// 调用的是 Cat 的 catchMouse
     }  
 }
@@ -1036,7 +1039,7 @@ public class Test {
         a.eat();               // 调用的是 Cat 的 eat
 
         // 向下转型  
-        Dog d = (Dog)a;       
+        Dog d = (Dog)a;   
         d.watchHouse();        // 调用的是 Dog 的 watchHouse 【运行报错】
     }  
 }
@@ -1057,15 +1060,15 @@ public class Test {
 {: id="20210309181757-re938kn"}
 
 格式如下：
-{: id="20210309181757-pafvr64"}
+{: id="20210309181757-pafvr64" updated="20210309200955"}
 
-```java
-变量名/对象 instanceof 数据类型 
-
-如果变量/对象属于该数据类型，返回true。
-如果变量/对象不属于该数据类型，返回false。
-```
-{: id="20210309181757-8mxjidt"}
+> 变量名/对象 instanceof 数据类型
+> {: id="20210309200946-32staq2"}
+>
+> 如果变量/对象属于该数据类型，返回true。
+> 如果变量/对象不属于该数据类型，返回false。
+> {: id="20210309181757-8mxjidt" updated="20210309200946"}
+{: id="20210309200952-gfyvh1x"}
 
 所以，转换前，我们最好先做一个判断，代码如下：
 {: id="20210309181757-yxakudh"}
@@ -1079,10 +1082,10 @@ public class Test {
 
         // 向下转型  
         if (a instanceof Cat){
-            Cat c = (Cat)a;       
+            Cat c = (Cat)a;   
             c.catchMouse();        // 调用的是 Cat 的 catchMouse
         } else if (a instanceof Dog){
-            Dog d = (Dog)a;       
+            Dog d = (Dog)a;   
             d.watchHouse();       // 调用的是 Dog 的 watchHouse
         }
     }  
@@ -1115,9 +1118,9 @@ class ChineseWoman extends Woman{
          Person p1 = new Person();
          Person p2 = new Woman();
          Person p3 = new ChineseWoman();
-         
+   
          if(p1 instanceof Woman){//false
-             
+   
          }
          if(p2 instanceof Woman){//true
              //p2转为Woman类型安全
@@ -1192,9 +1195,9 @@ public abstract class Employee {
 	public void setBirthday(MyDate birthday) {
 		this.birthday = birthday;
 	}
-	
+
 	public abstract double earning();
-	
+
 	public String getInfo(){
 		return "姓名：" + name + "，生日：" + birthday.getInfo() +"，实发工资：" + earning();
 	}
@@ -1258,7 +1261,7 @@ public class SalaryEmployee extends Employee {
 	public double earning() {
 		return salary - salary/workingDays * offDays;
 	}
-	
+
 	@Override
 	public String getInfo() {
 		return super.getInfo() + "，月薪：" + salary + "，工作日：" + workingDays +"，请假天数：" + offDays;
@@ -1271,7 +1274,7 @@ public class SalaryEmployee extends Employee {
 public class HourEmployee extends Employee {
 	private double moneyPerHour;
 	private double hours;
-	
+
 	public HourEmployee() {
 		super();
 	}
@@ -1306,7 +1309,7 @@ public class HourEmployee extends Employee {
 
 	/*
 	 * 重写方法，public double earning()返回实发工资， 
-		实发工资 = 每小时多少钱 * 小时数	
+		实发工资 = 每小时多少钱 * 小时数
 	 */
 	@Override
 	public double earning() {
@@ -1373,11 +1376,11 @@ public class TestEmployee {
 		/*all[0] = new HourEmployee("张三", new MyDate(1990, 5, 1), 50, 50);
 		all[1] = new SalaryEmployee("李四", new MyDate(1991, 1, 1), 10000, 22, 1);
 		all[2] = new Manager("老王", new MyDate(1987, 12, 8), 20000, 22, 0, 0.3);*/
-		
+
 		all[0] = new HourEmployee("张三", 1990, 5, 1, 50, 50);
 		all[1] = new SalaryEmployee("李四", 1991, 1, 1, 10000, 22, 1);
 		all[2] = new Manager("老王", 1987, 12, 8, 20000, 22, 0, 0.3);
-		
+
 		//从键盘输入当前的月份
 		Scanner input = new Scanner(System.in);
 		System.out.print("请输入当前月份：");
@@ -1389,7 +1392,7 @@ public class TestEmployee {
 			}
 		}
 		input.close();
-		
+
 		for (int i = 0; i < all.length; i++) {
 			System.out.println(all[i].getInfo());
 			if(all[i] instanceof SalaryEmployee){
@@ -1439,6 +1442,7 @@ class Son extends Father{
 
 * {: id="20210309181757-yqjzppi"}静态方法、私有方法、final方法、实例构造器、通过super调用的父类方法都是非虚方法。
   {: id="20210309181757-albnvec"}
+
   * {: id="20210309181757-p1awvt1"}静态方法与类型直接关联
     {: id="20210309181757-hdaiafm"}
   * {: id="20210309181757-pskxqf6"}私有方法在外部不可访问
@@ -1531,13 +1535,13 @@ class MyClass{
 	}
 }
 class Father{
-	
+
 }
 class Son extends Father{
-	
+
 }
 class Daughter extends Father{
-	
+
 }
 ```
 {: id="20210309181757-uzytc7t"}
@@ -1549,7 +1553,7 @@ public class TestOverload {
 		Father f = new Father();
 		Father s = new Son();
 		Father d = new Daughter();
-        
+  
 		my.method(f);//father
 		my.method(s);//father
 		my.method(d);//father
@@ -1583,13 +1587,13 @@ class MyClass{
 	}
 }
 class Father{
-	
+
 }
 class Son extends Father{
-	
+
 }
 class Daughter extends Father{
-	
+
 }
 ```
 {: id="20210309181757-a2qbrlm"}
@@ -1639,13 +1643,13 @@ class MySub extends MyClass{
 	}
 }
 class Father{
-	
+
 }
 class Son extends Father{
-	
+
 }
 class Daughter extends Father{
-	
+
 }
 ```
 {: id="20210309181757-grbxshp"}
@@ -1692,6 +1696,7 @@ public class TestOverload {
   {: id="20210309181757-zpw2rsh"}
 * {: id="20210309181757-xruzl3w"}方法的所有者：
   {: id="20210309181757-lyyvk37"}
+
   * {: id="20210309181757-yx3q5t7"}如果没有重写，就按照编译时类型处理
     {: id="20210309181757-8xx1r76"}
   * {: id="20210309181757-e6f3n82"}如果有重写，就按照运行时类型处理
@@ -1706,13 +1711,19 @@ native：本地的，原生的
 用法：
 {: id="20210309181757-nrc4z44"}
 
-​	只能修饰方法
+```
+只能修饰方法
+```
 {: id="20210309181757-7hhu63w"}
 
-​	表示这个方法的方法体代码不是用Java语言实现的，而是由C/C++语言编写的。
+```
+表示这个方法的方法体代码不是用Java语言实现的，而是由C/C++语言编写的。
+```
 {: id="20210309181757-5kwwk9w"}
 
-​	但是对于Java程序员来说，可以当做Java的方法一样去正常调用它，或者子类重写它。
+```
+但是对于Java程序员来说，可以当做Java的方法一样去正常调用它，或者子类重写它。
+```
 {: id="20210309181757-wtwsvz5"}
 
 JVM内存的管理：
@@ -1722,7 +1733,7 @@ JVM内存的管理：
 {: id="20210309181757-p7a312l"}
 
 | 区域名称   | 作用                                                                                                                             |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
 | 程序计数器 | 程序计数器是CPU中的寄存器，它包含每一个线程下一条要执行的指令的地址                                                              |
 | 本地方法栈 | 当程序中调用了native的本地方法时，本地方法执行期间的内存区域                                                                     |
 | 方法区     | 存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。                                                       |
@@ -1734,7 +1745,7 @@ JVM内存的管理：
 {: id="20210309181757-p7hd2l4"}
 
 |           | 外部类 | 成员变量 | 代码块 | 构造器 | 方法 | 局部变量 |
-| --------- | ------ | -------- | ------ | ------ | ---- | -------- |
+| ----------- | -------- | ---------- | -------- | -------- | ------ | ---------- |
 | public    | √     | √       | ×     | √     | √   | ×       |
 | protected | ×     | √       | ×     | √     | √   | ×       |
 | private   | ×     | √       | ×     | √     | √   | ×       |
@@ -1804,10 +1815,17 @@ public class MyClass /*extends Object*/ {
 ### 6.11.2 Object类的API
 {: id="20210309181757-isr5mi9"}
 
-​	**API(Application Programming Interface)**，应用程序编程接口。Java API是一本程序员的`字典` ，是JDK中提供给我们使用的类的说明文档。所以我们可以通过查询API的方式，来学习Java提供的类，并得知如何使用它们。在API文档中是无法得知这些类具体是如何实现的，如果要查看具体实现代码，那么我们需要查看**src源码**。
+```
+
+```
+{: id="20210309184209-x5ysdcb"}
+
+**API(Application Programming Interface)**，应用程序编程接口。Java API是一本程序员的`字典` ，是JDK中提供给我们使用的类的说明文档。所以我们可以通过查询API的方式，来学习Java提供的类，并得知如何使用它们。在API文档中是无法得知这些类具体是如何实现的，如果要查看具体实现代码，那么我们需要查看**src源码**。
 {: id="20210309181757-61y9wb0"}
 
-​	根据JDK源代码及Object类的API文档，Object类当中包含的方法有11个。今天我们主要学习其中的5个：
+```
+根据JDK源代码及Object类的API文档，Object类当中包含的方法有11个。今天我们主要学习其中的5个：
+```
 {: id="20210309181757-hrgnrid"}
 
 #### （1）toString()
@@ -1877,9 +1895,9 @@ public class TestFinalize {
 		for (int i = 0; i < 10; i++) {
 			MyData my = new MyData();
 		}
-		
+
 		System.gc();//通知垃圾回收器来回收垃圾
-		
+
 		try {
 			Thread.sleep(2000);//等待2秒再结束main，为了看效果
 		} catch (InterruptedException e) {
@@ -1893,7 +1911,7 @@ class MyData{
 	protected void finalize() throws Throwable {
 		System.out.println("轻轻的我走了...");
 	}
-	
+
 }
 ```
 {: id="20210309181757-ubl7fq3"}
@@ -1952,31 +1970,47 @@ public boolean equals(Object obj)：用于判断当前对象this与指定对象o
 A：如果重写equals，那么一定要一起重写hashCode()方法，因为规定：
 {: id="20210309181757-ba2qp7h"}
 
-​	a：如果两个对象调用equals返回true，那么要求这两个对象的hashCode值一定是相等的；
+```
+a：如果两个对象调用equals返回true，那么要求这两个对象的hashCode值一定是相等的；
+```
 {: id="20210309181757-ccuiwnj"}
 
-​	b：如果两个对象的hashCode值不同的，那么要求这个两个对象调用equals方法一定是false；
+```
+b：如果两个对象的hashCode值不同的，那么要求这个两个对象调用equals方法一定是false；
+```
 {: id="20210309181757-b9ga4yx"}
 
-​	c：如果两个对象的hashCode值相同的，那么这个两个对象调用equals可能是true，也可能是false
+```
+c：如果两个对象的hashCode值相同的，那么这个两个对象调用equals可能是true，也可能是false
+```
 {: id="20210309181757-ieeu7x4"}
 
 B：如果重写equals，那么一定要遵循如下几个原则：
 {: id="20210309181757-kt4mwxs"}
 
-​	a：自反性：x.equals(x)返回true
+```
+a：自反性：x.equals(x)返回true
+```
 {: id="20210309181757-mtjo9le"}
 
-​	b：传递性：x.equals(y)为true, y.equals(z)为true，然后x.equals(z)也应该为true
+```
+b：传递性：x.equals(y)为true, y.equals(z)为true，然后x.equals(z)也应该为true
+```
 {: id="20210309181757-37k0m1y"}
 
-​	c：一致性：只要参与equals比较的属性值没有修改，那么无论何时调用结果应该一致
+```
+c：一致性：只要参与equals比较的属性值没有修改，那么无论何时调用结果应该一致
+```
 {: id="20210309181757-jco4v2w"}
 
-​	d：对称性：x.equals(y)与y.equals(x)结果应该一样
+```
+d：对称性：x.equals(y)与y.equals(x)结果应该一样
+```
 {: id="20210309181757-aoxpvrm"}
 
-​	e：非空对象与null的equals一定是false
+```
+e：非空对象与null的equals一定是false
+```
 {: id="20210309181757-26e2jm9"}
 
 ```java
@@ -2050,7 +2084,7 @@ class User{
 			return false;
 		return true;
 	}
-	
+
 }
 ```
 {: id="20210309181757-mc4h9cc"}
