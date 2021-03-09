@@ -801,8 +801,8 @@ USB3.0规范中规定最大传输速率是5Gbps(500MB/s)，最大输出电流是
    > {: id="20210309181757-dofjj7i"}
    >
    {: id="20210309181757-dbgpbv3"}
-3. {: id="20210309181757-k8y3k19"}**不能重写静态方法**{: style="color: rgb(252, 13, 27);"}
-   {: id="20210309181757-twfbj6r"}
+3. {: id="20210309181757-k8y3k19"}**不能重写静态方法，因为静态方法在继承或实现的时候是被隐藏的，子类不能调用，所以不能重写静态方法**{: style="color: rgb(252, 13, 27);"}
+   {: id="20210309181757-twfbj6r" updated="20210309191254"}
 {: id="20210309181757-mcue9bx"}
 
 示例代码：
@@ -831,13 +831,13 @@ class MobileHDD implements Usb3{
 #### 2、如何调用对应的方法
 {: id="20210309181757-fjlt6q1"}
 
-* {: id="20210309181757-fr8b68u"}对于接口的静态方法，直接使用“接口名.”进行调用即可
+* {: id="20210309181757-fr8b68u"}对于接口的**静态方法**{: style="background-color: rgb(255, 253, 56);"}，直接使用“接口名.”进行调用即可
   {: id="20210309181757-062v88z"}
 
   * {: id="20210309181757-k58lw50"}也只能使用“接口名."进行调用，**不能**{: style="color: rgb(252, 13, 27);"}通过实现类的**对象进行调用**{: style="color: rgb(252, 13, 27);"}
     {: id="20210309181757-kz5tzwj"}
   {: id="20210309181757-f6yyu94"}
-* {: id="20210309181757-frgqa8i"}对于接口的抽象方法、默认方法，只能通过实现类对象才可以调用
+* {: id="20210309181757-frgqa8i"}对于接口的**抽象方法、默认方法**{: style="background-color: rgb(255, 253, 56);"}，只能通过实现类对象才可以调用
   {: id="20210309181757-zv4ybob"}
 
   * {: id="20210309181757-2bphjfb"}接口不能直接创建对象，只能创建实现类的对象
@@ -930,8 +930,8 @@ public interface LiveAble {
 {: id="20210309181757-mfh1g4s"}
 
 ```java
-public Animal implements LiveAble {
-	//重写/实现接口的抽象方法
+public class Animal implements LiveAble {
+    //重写/实现接口的抽象方法
     @Override
     public void eat() {
         System.out.println("吃东西");
@@ -950,7 +950,7 @@ public Animal implements LiveAble {
     }
 }
 ```
-{: id="20210309181757-doizj5b"}
+{: id="20210309181757-doizj5b" updated="20210309191736"}
 
 ```java
 public class Plant implements LiveAble {
