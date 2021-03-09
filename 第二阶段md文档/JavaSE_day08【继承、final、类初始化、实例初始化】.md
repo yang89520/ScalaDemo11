@@ -1451,6 +1451,9 @@ Father(info)有参构造
 #### 示例代码2：父子类
 {: id="20210309181757-0o5gdkp"}
 
+**运行步骤：**{: style="background-color: rgb(255, 253, 56);"} **子类构造器调用父类构造器然后父类中属性和代码块从上到下按顺序初始化，最后运行构造器内的方法，再回到下一级子类重复上述步骤**
+{: id="20210309195409-bsa11hp" updated="20210309195624"}
+
 ```java
 public class Test{
     public static void main(String[] args){
@@ -1534,6 +1537,8 @@ Son(info)：有参构造
 
 #### 示例代码3：父子类，方法有重写
 {: id="20210309181757-6xzfsmm"}
+
+{: id="20210309195635-cg71bi3"}
 
 ```java
 public class Test{
