@@ -57,14 +57,18 @@
   {: id="20210309181757-20xzbzi"}
 * {: id="20210309181757-zawodx0"}样貌：如图所示：
   {: id="20210309181757-qvbhtnz"}
+
   ![](imgs8\继承1.jpg)
   {: id="20210309181757-mlic3sj"}
+
   ![](imgs8\继承2.jpg)
   {: id="20210309181757-o4y06ah"}
+
   ![](imgs8\继承3.jpg)
   {: id="20210309181757-51wpg6h"}
 * {: id="20210309181757-kpz2ud0"}才华：如图所示：
   {: id="20210309181757-lnnwh5f"}
+
   ![](imgs8\继承4.jpg)
   {: id="20210309181757-g08p3by"}
 {: id="20210309181757-0qrlfw6"}
@@ -154,16 +158,16 @@ public class ExtendDemo01 {
 	public static void main(String[] args) {
         // 创建一个猫类对象
 		Cat cat = new Cat()；
-      
+    
         // 为该猫类对象的name属性进行赋值
 		cat.name = "Tom";
-      
+    
       	// 为该猫类对象的age属性进行赋值
 		cat.age = 2;
-        
+      
         // 调用该猫的catchMouse()方法
 		cat.catchMouse();
-		
+	
       	// 调用该猫继承来的eat()方法
       	cat.eat();
 	}
@@ -225,16 +229,16 @@ public class ExtendDemo01 {
 	public static void main(String[] args) {
         // 创建一个猫类对象
 		Cat cat = new Cat()；
-      
+    
         // 为该猫类对象的name属性进行赋值
 		//cat.name = "Tom";// 编译报错
-      
+    
       	// 为该猫类对象的age属性进行赋值
 		cat.age = 2;
-        
+      
         // 调用该猫的catchMouse()方法
 		cat.catchMouse();
-		
+	
       	// 调用该猫继承来的eat()方法
       	cat.eat();
 	}
@@ -289,7 +293,7 @@ public class Son extends Father{
 	public int i=2;
 	private int j=2;
 	public int m=2;
-}	
+}
 ```
 {: id="20210309181757-bna2k9e"}
 
@@ -301,7 +305,7 @@ public class Son extends Father{
 	public int i=2;
 	private int j=2;
 	public int m=2;
-	
+
 	public void test() {
 		System.out.println("父类继承的i：" + super.i);
 		System.out.println("子类的i：" +i);
@@ -310,8 +314,8 @@ public class Son extends Father{
 		System.out.println("子类的j：" +j);
 		System.out.println("父类继承的k：" +k);
 		System.out.println("子类的m：" +m);
-	}	
-}	
+	}
+}
 ```
 {: id="20210309181757-6m1k2lh"}
 
@@ -377,7 +381,7 @@ idea中Debug查看对象的成员变量的值截图如下：
 我们说父类的所有方法子类都会继承，但是当某个方法被继承到子类之后，子类觉得父类原来的实现不适合于子类，该怎么办呢？我们可以进行方法重写 (Override)
 {: id="20210309181757-ji9djuo"}
 
-#### 1、方法重写
+#### 1、**方法重写**{: style="color: rgb(252, 13, 27);"}
 {: id="20210309181757-0e94r9a"}
 
 比如新的手机增加来电显示头像的功能，代码如下：
@@ -398,7 +402,7 @@ class Phone {
 
 //智能手机类
 class NewPhone extends Phone {
-	
+
 	//重写父类的来电显示号码功能，并增加自己的显示姓名和图片功能
 	public void showNum(){
 		//调用父类已经存在的功能使用super
@@ -413,10 +417,10 @@ public class ExtendsDemo06 {
 	public static void main(String[] args) {
       	// 创建子类对象
       	NewPhone np = new NewPhone()；
-        
+      
         // 调用父类继承而来的方法
         np.call();
-      
+    
       	// 调用子类重写的方法
       	np.showNum();
 
@@ -448,18 +452,18 @@ public class ExtendsDemo06 {
 小扩展提示：public > protected > 缺省 > private
 {: id="20210309181757-rtixebw"}
 
-5.几种特殊的方法不能被重写
+**5.几种特殊的方法**{: style="background-color: rgb(255, 253, 56);"}不能被重写****
 {: id="20210309181757-ji1nzei"}
 
-* {: id="20210309181757-0dtlfgf"}静态方法不能被重写
+* {: id="20210309181757-0dtlfgf"}**静态方法**{: style="color: rgb(252, 13, 27);"}不能被重写
   {: id="20210309181757-97waei2"}
-* {: id="20210309181757-u0ugwi9"}私有等在子类中不可见的方法不能被重写
+* {: id="20210309181757-u0ugwi9"}私有等在**子类中不可见的方法**{: style="color: rgb(252, 13, 27);"}不能被重写
   {: id="20210309181757-wvp0984"}
-* {: id="20210309181757-5od5nra"}final方法不能被重写
+* {: id="20210309181757-5od5nra"}**final**{: style="color: rgb(252, 13, 27);"}方法不能被重写
   {: id="20210309181757-jps5ezu"}
 {: id="20210309181757-7vnlf2w"}
 
-#### 2、方法的重载
+#### 2、**方法的重载**{: style="color: rgb(252, 13, 27);"}
 {: id="20210309181757-69d9yot"}
 
 （1）同一个类中
@@ -515,9 +519,10 @@ class Son extends Father{
 
    所以子类是**无法继承**父类构造方法的。
    {: id="20210309181757-nqgeiy2"}
-2. {: id="20210309181757-5tmucrk"}构造方法的作用是初始化实例变量的，而子类又会从父类继承所有成员变量
+2. {: id="20210309181757-5tmucrk"}**构造方法的作用是初始化实例变量**{: style="background-color: rgb(255, 253, 56);"}的，**而子类又会从父类继承所有成员变量**{: style="color: rgb(252, 13, 27);"}
    {: id="20210309181757-sj5t717"}
-   所以子类的初始化过程中，**必须**先执行父类的初始化动作。子类的构造方法中默认有一个`super()` ，表示调用父类的实例初始化方法，父类成员变量初始化后，才可以给子类使用。代码如下：
+
+   **所以子类的初始化过程中，**必须**先执行父类的初始化动作**{: style="color: rgb(252, 13, 27);"}。子类的构造方法中默认有一个`super()` ，表示调用父类的实例初始化方法，父类成员变量初始化后，才可以给子类使用。代码如下：
    {: id="20210309181757-p5eove5"}
 {: id="20210309181757-5qfdaw8"}
 
@@ -546,8 +551,8 @@ Zi（）
 ```
 {: id="20210309181757-8n0emwg"}
 
-如果父类没有无参构造怎么办？
-{: id="20210309181757-rri2ube"}
+**如果父类没有无参构造子类又没有传有参构造器怎么办？**{: style="background-color: rgb(255, 253, 56);"}
+{: id="20210309181757-rri2ube" updated="20210309193627"}
 
 ```java
 public class Person {
@@ -586,7 +591,7 @@ public class Student extends Person{
 		super(name, age);
 		this.score = score;
 	}
-	
+
 	//其他成员方法省略
 }
 ```
@@ -735,7 +740,7 @@ public class Circle extends Graphic {
 	public String getInfo() {
 		return super.getInfo() + "，半径：" + radius;
 	}*/
-	
+
 }
 
 ```
@@ -745,7 +750,7 @@ public class Circle extends Graphic {
 public class Rectangle extends Graphic {
 	private double length;
 	private double width;
-	
+
 	public Rectangle(String name, double length, double width) {
 		super(name);
 		this.length = length;
@@ -787,10 +792,10 @@ public class TestGraphicExer3 {
 	public static void main(String[] args) {
 		Graphic g = new Graphic("通用图形");
 		System.out.println(g.getInfo());
-		
+	
 		Circle c = new Circle("圆", 1.2);
 		System.out.println(c.getInfo());//调用getInfo()方法的对象是c
-		
+	
 		Rectangle r = new Rectangle("矩形", 3, 5);
 		System.out.println(r.getInfo());
 	}
@@ -804,28 +809,49 @@ public class TestGraphicExer3 {
 （1）声明一个银行储蓄卡类，
 {: id="20210309181757-u5d9cff"}
 
-​	包含属性：账户，余额
+```
+包含属性：账户，余额
+```
+
 {: id="20210309181757-tsvtr4a"}
 
-​	包含取款 public void withdraw(double money)
+```
+包含取款 public void withdraw(double money)
+```
+
 {: id="20210309181757-qzb38qy"}
 
-​		    存款 pubic void save(double money)
+```
+存款 pubic void save(double money)
+```
+
 {: id="20210309181757-ze9pt1m"}
 
-​           获取账户信息： public String getInfo() 可以返回账户和余额
+```
+获取账户信息： public String getInfo() 可以返回账户和余额
+```
+
 {: id="20210309181757-kgxvysf"}
 
 （2）声明一个银行信用卡类，继承储蓄卡类
 {: id="20210309181757-9xp9dzv"}
 
-​	增加属性：可透支额度，最多可透支金额
+```
+增加属性：可透支额度，最多可透支金额
+```
+
 {: id="20210309181757-rqsm1on"}
 
-​	重写存款 public void withdraw(double money)，可透支
+```
+重写存款 public void withdraw(double money)，可透支
+```
+
 {: id="20210309181757-ci983kp"}
 
-​	       存款 pubic void save(double money)，需要恢复可透支额度
+```
+存款 pubic void save(double money)，需要恢复可透支额度
+```
+
 {: id="20210309181757-ohwz6kv"}
 
 （3）在测试类中，分别创建两种卡对象，测试
@@ -884,7 +910,7 @@ public class Person {
 	public void setGender(char gender) {
 		this.gender = gender;
 	}
-	
+
 	//包含getInfo()方法：例如：姓名：张三，年龄：23，性别：男
 	public String getInfo(){
 		return "姓名：" + name + "，年龄：" + age +"，性别：" + gender;
@@ -918,11 +944,11 @@ public class Student extends Person {
 	public String getInfo(){
 		//方式一：
 //		return "姓名：" + getName() + "，年龄：" + getAge() + "，成绩：" + score;
-		
+	
 		//方法二：
 		return super.getInfo() + "，成绩：" + score;
 	}
-	
+
 }
 ```
 {: id="20210309181757-y3vi8lv"}
@@ -948,7 +974,7 @@ public class Teacher extends Person {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
-	
+
 	//包含getInfo()方法：例如：姓名：张三，年龄：23，性别：男，薪资：10000
 	public String getInfo(){
 		return super.getInfo() + "，薪资：" + salary;
@@ -963,10 +989,10 @@ public class TestPersonExer2 {
 	public static void main(String[] args) {
 		Person p = new Person("张三", 23, '男');
 		System.out.println(p.getInfo());
-		
+	
 		Student s = new Student("陈琦", 25, '男', 89);
 		System.out.println(s.getInfo());
-		
+	
 		Teacher t = new Teacher("柴林燕", 18, '女', 11111);
 		System.out.println(t.getInfo());
 	}
@@ -988,10 +1014,10 @@ final：最终的，不可更改的，它的用法有：
 
 ```java
 final class Eunuch{//太监类
-	
+
 }
 class Son extends Eunuch{//错误
-	
+
 }
 ```
 {: id="20210309181757-tuuv4e4"}
@@ -1034,7 +1060,7 @@ public class Test{
     }
 }
 class Chinese{
-	public static final String COUNTRY = "中华人民共和国";	
+	public static final String COUNTRY = "中华人民共和国";
 	private String name;
 	public Chinese( String name) {
 		super();
@@ -1067,7 +1093,7 @@ class Chinese{
 {: id="20210309181757-b160r7n"}
 
 | 类别     | 具体类型                       | 默认值   |
-| -------- | ------------------------------ | -------- |
+| ---------- | -------------------------------- | ---------- |
 | 基本类型 | 整数（byte，short，int，long） | 0        |
 |          | 浮点数（float，double）        | 0.0      |
 |          | 字符（char）                   | '\u0000' |
@@ -1140,7 +1166,7 @@ public class Student{
 	private static String school;
 	private String name;
 	private char gender;
-	
+
 	static{
 		//获取系统属性，这里只是说明school的初始化过程可能比较复杂
 		school = System.getProperty("school");
@@ -1234,12 +1260,12 @@ class Father{
 	static{
 		System.out.println("Father(2)");
 	}
-	
+
 	public static int getNumber(){
 		System.out.println("getNumber()");
 		return 1;
 	}
-	
+
 	public static void test(){
 		System.out.println("Father:test()");
 	}
@@ -1280,7 +1306,7 @@ class Father{
 	static{
 		System.out.println("Father(2)");
 	}
-	
+
 	public static int getNumber(){
 		System.out.println("Father:getNumber()");
 		return 1;
@@ -1295,15 +1321,15 @@ class Son extends Father{
 	static{
 		System.out.println("Son(2)");
 	}
-	
+
 	public static int getNumber(){
 		System.out.println("Son:getNumber()");
 		return 1;
 	}
-	
+
 	public static void test(){
 		System.out.println("Son:test()");
-	}	
+	}
 }
 ```
 {: id="20210309181757-6hm3t4p"}
@@ -1395,7 +1421,7 @@ class Father{
 	{
 		System.out.println("Father(2)");
 	}
-	
+
 	public int getNumber(){
 		System.out.println("Father:getNumber()");
 		return 1;
@@ -1450,7 +1476,7 @@ class Father{
 	{
 		System.out.println("Father(2)");
 	}
-	
+
 	public static int getNumber(){
 		System.out.println("Father:getNumber()");
 		return 1;
@@ -1534,7 +1560,7 @@ class Father{
 	{
 		System.out.println("Father(2)");
 	}
-	
+
 	public int getNumber(){
 		System.out.println("Father:getNumber()");
 		return 1;
@@ -1834,11 +1860,13 @@ class Son extends Father{
   {: id="20210309181757-38huvjx"}
 * {: id="20210309181757-i176iwk"}**this** ：代表当前对象
   {: id="20210309181757-zw5bxpa"}
+
   * {: id="20210309181757-ktnroga"}通过this找成员变量时，先从当前执行代码的本类中找，没有的会往上找父类的（非private，跨包还不能是缺省的）。
     {: id="20210309181757-s0dl7fc"}
   {: id="20210309181757-ajey98t"}
 * {: id="20210309181757-3907e14"}**super** ：代表父类的
   {: id="20210309181757-57tycmj"}
+
   * {: id="20210309181757-kljbpr6"}通过super找成员变量，直接从当前执行代码所在类的父类找
     {: id="20210309181757-wkwtc22"}
   * {: id="20210309181757-e8wturk"}super()或super(实参列表)只能从直接父类找
@@ -1863,11 +1891,13 @@ class Son extends Father{
   {: id="20210309181757-547a48b"}
 * {: id="20210309181757-x1kcad4"}this
   {: id="20210309181757-3gdxgal"}
+
   * {: id="20210309181757-45s49mx"}先从当前对象（调用方法的对象）的本类找，如果没有，再从父类继承的可见的方法列表中查找
     {: id="20210309181757-kxznbq8"}
   {: id="20210309181757-6xuviao"}
 * {: id="20210309181757-1qkvkuj"}super
   {: id="20210309181757-9jbgz0h"}
+
   * {: id="20210309181757-ux4z727"}直接从当前对象（调用方法的对象）的父类继承的可见的方法列表中查找
     {: id="20210309181757-9kgwy41"}
   {: id="20210309181757-idbub41"}
@@ -1895,26 +1925,26 @@ class Father{
 }
 class Son extends Father{
 	int a = 20;
-	
+
 	public void test(){
 		//子类与父类的属性同名，子类对象中就有两个a
 		System.out.println("父类的a：" + super.a);//10    直接从父类局部变量找
 		System.out.println("子类的a：" + this.a);//20   先从本类成员变量找
 		System.out.println("子类的a：" + a);//20  先找局部变量找，没有再从本类成员变量找
-		
+	
 		//子类与父类的属性不同名，是同一个b
 		System.out.println("b = " + b);//11  先找局部变量找，没有再从本类成员变量找，没有再从父类找
 		System.out.println("b = " + this.b);//11   先从本类成员变量找，没有再从父类找
 		System.out.println("b = " + super.b);//11  直接从父类局部变量找
 	}
-	
+
 	public void method(int a){
 		//子类与父类的属性同名，子类对象中就有两个成员变量a，此时方法中还有一个局部变量a
 		System.out.println("父类的a：" + super.a);//10  直接从父类局部变量找
 		System.out.println("子类的a：" + this.a);//20  先从本类成员变量找
 		System.out.println("局部变量的a：" + a);//30  先找局部变量
 	}
-    
+  
     public void fun(int b){
         System.out.println("b = " + b);//13  先找局部变量
 		System.out.println("b = " + this.b);//11  先从本类成员变量找
@@ -1926,11 +1956,11 @@ public class TestInherite2 {
 		Son son = new Son();
 		System.out.println(son.a);//20
 		System.out.println(son.b);//11
-		
+	
 		son.test();
-		
+	
 		son.method(30);
-        
+      
         son.fun(13);
 	}
 }
@@ -1945,7 +1975,7 @@ public class Test{
     public static void main(String[] args){
     	Son s = new Son();
     	System.out.println(s.getNum());//10   没重写，先找本类，没有，找父类
-    	
+  
     	Daughter d = new Daughter();
     	System.out.println(d.getNum());//20  重写了，先找本类
     }
@@ -1976,7 +2006,7 @@ public class Test{
     public static void main(String[] args){
     	Son s = new Son();
     	s.test();
-    	
+  
     	Daughter d = new Daughter();
     	d.test();
     }
