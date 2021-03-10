@@ -96,6 +96,7 @@
 
 * {: id="20210309181757-i8vli7m"}和其他类一样，它只是定义在外部类中的另一个完整的类结构
   {: id="20210309181757-7zcgjz4"}
+
   * {: id="20210309181757-wqwzopd"}可以继承自己的想要继承的父类，实现自己想要实现的父接口们，和外部类的父类和父接口无关
     {: id="20210309181757-nhp65za"}
   * {: id="20210309181757-suaj8m7"}可以在静态内部类中声明属性、方法、构造器等结构，包括静态成员
@@ -109,18 +110,24 @@
   {: id="20210309181757-dvpzzgp"}
 * {: id="20210309181757-jhet69d"}和外部类不同的是，它可以允许四种权限修饰符：public，protected，缺省，private
   {: id="20210309181757-3lpmh16"}
+
   * {: id="20210309181757-hl2i5pk"}外部类只允许public或缺省的
     {: id="20210309181757-ejs06k1"}
   {: id="20210309181757-jcfl4ji"}
-* {: id="20210309181757-ui7o328"}**只**可以在静态内部类中使用外部类的**静态成员**
-  {: id="20210309181757-kvoo0cm"}
-  * {: id="20210309181757-7a5z8qa"}在静态内部类中不能使用外部类的非静态成员哦
-    {: id="20210309181757-bm6m1h9"}
+* {: id="20210309181757-ui7o328"}**只**可以在静态内部类中使用**外部类**{: style="background-color: rgb(255, 253, 56);"}的**静态成员？**{: style="color: rgb(252, 13, 27); background-color: rgb(255, 253, 56);"}
+  {: id="20210309181757-kvoo0cm" updated="20210310101634"}
+
+  * {: id="20210309181757-bm6m1h9"}**随类的加载而加载,所以只能访问静态成员**{: style="color: rgb(252, 13, 27);"}
+    {: id="20210310101525-thj1vp5" updated="20210310101553"}
+  * {: id="20210310101525-yzmxcc3"}在静态内部类中不能使用外部类的非静态成员哦
+    {: id="20210310101525-5qnwr7q" updated="20210310101525"}
   {: id="20210309181757-ao4wbq4"}
 * {: id="20210309181757-4fe04ez"}在外部类的外面不需要通过外部类的对象就可以创建静态内部类的对象
   {: id="20210309181757-2laddis"}
 * {: id="20210309181757-ywzs4tu"}如果在内部类中有变量与外部类的静态成员变量同名，可以使用“外部类名."进行区别
   {: id="20210309181757-w3ytfa4"}
+* {: id="20210310101918-b4jbs1k"}
+  {: id="20210310101918-hyfy3i8"}
 {: id="20210309181757-0x10vko"}
 
 示例代码：
@@ -131,9 +138,9 @@ public class TestInner{
     public static void main(String[] args){
     	Outer.Inner in= new Outer.Inner();
     	in.inMethod();
-    	
+  
     	Outer.Inner.inTest();
-        
+      
         Outer.Inner.inFun(3);
     }
 }
@@ -196,6 +203,7 @@ class Outer{
   {: id="20210309181757-8jhc15e"}
 * {: id="20210309181757-9g1sp8j"}和外部类不同的是，它可以允许四种权限修饰符：public，protected，缺省，private
   {: id="20210309181757-kpbt61d"}
+
   * {: id="20210309181757-t8rew7m"}外部类只允许public或缺省的
     {: id="20210309181757-f6ea94d"}
   {: id="20210309181757-gkr58i2"}
@@ -203,11 +211,13 @@ class Outer{
   {: id="20210309181757-5r2opzm"}
 * {: id="20210309181757-3mfhqfk"}在外部类的静态成员中不可以使用非静态内部类哦
   {: id="20210309181757-r8zirdq"}
+
   * {: id="20210309181757-q7ngit4"}就如同静态方法中不能访问本类的非静态成员变量和非静态方法一样
     {: id="20210309181757-xgefnj6"}
   {: id="20210309181757-mp4h4n8"}
 * {: id="20210309181757-zfmavuu"}在外部类的外面必须通过外部类的对象才能创建非静态内部类的对象
   {: id="20210309181757-pw2yms8"}
+
   * {: id="20210309181757-2pxj3wi"}因此在非静态内部类的方法中有两个this对象，一个是外部类的this对象，一个是内部类的this对象
     {: id="20210309181757-89t5kl0"}
   {: id="20210309181757-fofwyj2"}
@@ -222,7 +232,7 @@ public class TestInner{
     	Outer out = new Outer();
     	Outer.Inner in= out.new Inner();
     	in.inMethod();
-    	
+  
     	Outer.Inner inner = out.getInner();
     	inner.inMethod();
     }
@@ -243,7 +253,7 @@ class Outer{
 			System.out.println("father.c = " + c);
 		}
 	}
-	
+
 	public static void outMethod(){
 //		Inner in = new Inner();//错误的
 	}
@@ -424,11 +434,11 @@ class Outer {
 	}
 }
 class Sub ________（1）__________{
-	
-	
-	
+
+
+
 	______（2）多行代码_______________
-	
+
 }
 ```
 {: id="20210309181757-0ftlpxu"}
@@ -459,7 +469,7 @@ class Sub extends Outer.Inner{
 	void method() {
 		System.out.println("hello inner");
 	}
-	
+
 }
 ```
 {: id="20210309181757-74vi0an"}
@@ -475,7 +485,7 @@ class Sub extends Outer.Inner{
     【修饰符】 返回值类型  方法名(【形参列表】){
             【final/abstract】 class 内部类{
     	}
-    }    
+    }  
 }
 ```
 {: id="20210309181757-or3q7dc"}
@@ -485,6 +495,7 @@ class Sub extends Outer.Inner{
 
 * {: id="20210309181757-vaq4j7k"}和外部类一样，它只是定义在外部类的某个方法中的另一个完整的类结构
   {: id="20210309181757-yzlcoz0"}
+
   * {: id="20210309181757-rn6svlp"}可以继承自己的想要继承的父类，实现自己想要实现的父接口们，和外部类的父类和父接口无关
     {: id="20210309181757-3cvtrnp"}
   * {: id="20210309181757-hrrbwya"}可以在局部内部类中声明属性、方法、构造器等结构，**但不包括静态成员，除非是从父类继承的或静态常量**
@@ -495,6 +506,7 @@ class Sub extends Outer.Inner{
     {: id="20210309181757-qw77pka"}
   * {: id="20210309181757-pt96kns"}编译后有自己的独立的字节码文件，只不过在内部类名前面冠以外部类名、$符号、编号。
     {: id="20210309181757-bxv1i4j"}
+
     * {: id="20210309181757-5wli2ot"}这里有编号是因为同一个外部类中，不同的方法中存在相同名称的局部内部类
       {: id="20210309181757-malpy9t"}
     {: id="20210309181757-td3md1p"}
@@ -507,6 +519,7 @@ class Sub extends Outer.Inner{
   {: id="20210309181757-2otgsds"}
 * {: id="20210309181757-rj7khl6"}局部内部类中还可以使用所在方法的局部常量，即用final声明的局部变量
   {: id="20210309181757-qqbobw6"}
+
   * {: id="20210309181757-4g1wgke"}JDK1.8之后，如果某个局部变量在局部内部类中被使用了，自动加final
     {: id="20210309181757-7w0h12r"}
   {: id="20210309181757-cmtkkdz"}
@@ -519,7 +532,7 @@ class Sub extends Outer.Inner{
 class Outer{
 	private static int a = 1;
 	private int b = 2;
-	
+
 	public static void outMethod(){
 		final int c = 3;
 		class Inner{
@@ -529,11 +542,11 @@ class Outer{
 				System.out.println("out.local.c = " + c);
 			}
 		}
-		
+	
 		Inner in = new Inner();
 		in.inMethod();
 	}
-	
+
 	public void outTest(){
 		final int c = 3;
 		class Inner{
@@ -543,11 +556,11 @@ class Outer{
 				System.out.println("method.c = " + c);
 			}
 		}
-		
+	
 		Inner in = new Inner();
 		in.inMethod();
 	}
-	
+
 }
 ```
 {: id="20210309181757-n79ktcc"}
@@ -621,7 +634,7 @@ public class MyRunnable implements Runnable{
             System.out.println("大家注意安全");
             try
             	Thread.sleep(1000);
-            }catch(Exception e){                
+            }catch(Exception e){              
             }
         }
     }
@@ -658,7 +671,7 @@ public class Test{
                     System.out.println("大家注意安全");
                     try
                         Thread.sleep(1000);
-                    }catch(Exception e){                
+                    }catch(Exception e){              
                     }
                 }
             }
@@ -744,7 +757,7 @@ public class Test{
     			System.out.println("ccccc");
     		}
     	}.b();
-    	
+  
     }
 }
 ```
@@ -801,7 +814,7 @@ public class Test{
     public static void test(A a){
     	a.method();
     }
-    
+  
     public static void main(String[] args){
     	test(new A(){
 
@@ -809,7 +822,7 @@ public class Test{
 			public void method() {
 				System.out.println("aaaa");
 			}
-    		
+    	
     	});
     }   
 }
@@ -889,13 +902,13 @@ public class TestInner {
 		arr[2] = new Employee(2,"李四",13000);
 		arr[3] = new Employee(4,"赵六",7000);
 		arr[4] = new Employee(5,"钱七",9000);
-		
+	
 		//原顺序
 		System.out.println("员工列表：");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
-		
+	
 		Arrays.sort(arr, new Comparator() {
 			@Override
 			public int compare(Object o1, Object o2) {
@@ -904,12 +917,12 @@ public class TestInner {
 				return Double.compare(e1.getSalary(), e2.getSalary());
 			}
 		});
-		
+	
 		System.out.println("按照薪资排序后员工列表：");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
-		
+	
 		Arrays.sort(arr, new Comparator() {
 			@Override
 			public int compare(Object o1, Object o2) {
@@ -918,7 +931,7 @@ public class TestInner {
 				return e1.getId() - e2.getId();
 			}
 		});
-				
+			
 		System.out.println("按照编号排序后员工列表：");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
@@ -952,7 +965,7 @@ public class TestExer1 {
 			public void method() {
 				System.out.println("hello 孩子");
 			}
-			
+		
 		}.method();
 	}
 }
@@ -1022,7 +1035,7 @@ public class TestExer2 {
 		arr[0]  = new Triangle(6, 1, 6);
 		arr[1]  = new Triangle(3, 4, 5);
 		arr[2]  = new Triangle(6, 6, 6);
-		
+	
 		System.out.println("原来的顺序：");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
@@ -1084,7 +1097,7 @@ result[total++] = arr[i];
 }
 }
 return Arrays.copyOf(result,total);
-}		
+}	
 这个方法的作用，就是用于在arr数组中筛选满足条件的元素
 4、在测试类中，创建EmployeeService对象，调用get(Predicate p)方法，通过匿名内部类的对象给形参p赋值，
 分别获取：
@@ -1181,7 +1194,7 @@ public class EmployeeService {
 public class TestExer5 {
 	public static void main(String[] args) {
 		EmployeeService es = new EmployeeService();
-		
+	
 		//（1）所有员工对象
 		Employee[] employees = es.get(new Predicate(){
 
@@ -1189,7 +1202,7 @@ public class TestExer5 {
 			public boolean test(Object obj) {
 				return true;
 			}
-			
+		
 		});
 		for (int i = 0; i < employees.length; i++) {
 			System.out.println(employees[i]);
@@ -1203,7 +1216,7 @@ public class TestExer5 {
 				Employee emp = (Employee) obj;
 				return emp.getAge()>25;
 			}
-			
+		
 		});
 		for (int i = 0; i < employees.length; i++) {
 			System.out.println(employees[i]);
@@ -1282,37 +1295,64 @@ static的方法被重写（错误）
 #### 1、@Override
 {: id="20210309181757-b74vo59"}
 
-​	用于检测被修饰的方法为有效的重写方法，如果不是，则报编译错误!
+```
+用于检测被修饰的方法为有效的重写方法，如果不是，则报编译错误!
+```
+
 {: id="20210309181757-ixbmh9y"}
 
-​	只能标记在方法上。
+```
+只能标记在方法上。
+```
+
 {: id="20210309181757-cekd1ly"}
 
-​	它会被编译器程序读取。
+```
+它会被编译器程序读取。
+```
+
 {: id="20210309181757-t5lmynl"}
 
 #### 2、@Deprecated
 {: id="20210309181757-t3ayr10"}
 
-​	用于表示被标记的数据已经过时，不建议使用。
+```
+用于表示被标记的数据已经过时，不建议使用。
+```
+
 {: id="20210309181757-zuabit2"}
 
-​	可以用于修饰 属性、方法、构造、类、包、局部变量、参数。
+```
+可以用于修饰 属性、方法、构造、类、包、局部变量、参数。
+```
+
 {: id="20210309181757-z80qjm7"}
 
-​	它会被编译器程序读取。
+```
+它会被编译器程序读取。
+```
+
 {: id="20210309181757-anm8icp"}
 
 #### 3、@SuppressWarnings
 {: id="20210309181757-m3mduto"}
 
-​	抑制编译警告。
+```
+抑制编译警告。
+```
+
 {: id="20210309181757-o0qq750"}
 
-​	可以用于修饰类、属性、方法、构造、局部变量、参数
+```
+可以用于修饰类、属性、方法、构造、局部变量、参数
+```
+
 {: id="20210309181757-45s1og3"}
 
-​	它会被编译器程序读取。
+```
+它会被编译器程序读取。
+```
+
 {: id="20210309181757-90pc5ff"}
 
 示例代码：
@@ -1322,14 +1362,14 @@ static的方法被重写（错误）
 public class TestAnnotation {
 	@SuppressWarnings({"unused","rawtypes", "unchecked"})
 	public static void main(String[] args) {
-		
-		int i;
 	
+		int i;
+
 		List list = new ArrayList();
 		list.add("");
 		list.add(123);
 		list.add("");
-		
+	
 		Father f = new Son();
 		f.show();
 		f.methodOl();
@@ -1341,7 +1381,7 @@ public class TestAnnotation {
 class Father{
 	@Deprecated
 	public void show() {
-		
+	
 	}
 	public void methodOl() {
 		System.out.println("Father Method");
@@ -1359,17 +1399,17 @@ class Father{
 }
 
 class Son extends Father{
-	
+
 /*	@Override
 	public void method01() {
 		System.out.println("Son Method");
 	}
-	
+
 	@Override
 	public void println(){
 		System.out.println("Father Method");
 	}
-	
+
 	@Override
 	public long sum(int[] nums){
 		int sum = 0;
@@ -1399,6 +1439,7 @@ class Son extends Father{
   {: id="20210309181757-ecl33kx"}
 * {: id="20210309181757-tp7l6gr"}@throws/@exception 对方法可能抛出的异常进行说明 ，如果方法没有用throws显式抛出的异常就不能写
   {: id="20210309181757-d0qur0o"}
+
   * {: id="20210309181757-2kl21fd"}其中 @param  @return 和 @exception 这三个标记都是只用于方法的。
     {: id="20210309181757-2ixa308"}
   * {: id="20210309181757-jlduvgy"}@param的格式要求：@param 形参名 形参类型  形参说明
@@ -1425,16 +1466,16 @@ javadoc.exe就是这些注解的信息处理流程。
  *
  */
 public class TestAnnotation2 {
-	
+
 	/**
 	 * 这是Java的主方法，是Java程序的入口
 	 * @param args String[] 命令行参数，使用java命令时，在后面传入参数，例如
 	 * 	java 类名   参数1  参数2 ....
 	 */
 	public static void main(String[] args) {
-		
-	}
 	
+	}
+
 	/**
 	 * 这是一个求两个整数中最大值的方法
 	 * @param a int 其中一个整数
@@ -1444,7 +1485,7 @@ public class TestAnnotation2 {
 	public static int getMax(int a, int b){
 		return a>b?a:b;
 	}
-	
+
 	/**
 	 * 这是复制一个文件的方法
 	 * @param src String 源文件
@@ -1455,12 +1496,12 @@ public class TestAnnotation2 {
 		FileInputStream fis = new FileInputStream(src);
 		//..
 	}
-	
+
 	/**
 	 * 
 	 */
 	public void println(){
-		
+	
 	}
 }
 ```
@@ -1627,7 +1668,7 @@ import org.junit.Test;
 public class TestJUnit {
 	private static Object[] array;
 	private static int total;
-	
+
 	@BeforeClass
 	public static void init(){
 		System.out.println("初始化数组");
@@ -1635,7 +1676,7 @@ public class TestJUnit {
 		//默认添加一个元素
 		array[total++] = "atguigu";
 	}
-	
+
 	@Before
 	public void before(){
 		System.out.println("调用之前total=" + total);
@@ -1656,13 +1697,13 @@ public class TestJUnit {
 		array[total++] = "world";
 		array[total++] = "java";
 	}
-	
+
 	@After
 	public void after(){
 		System.out.println("调用之后total=" + total);
 		System.out.println("调用之后array=" + Arrays.toString(array));
 	}
-	
+
 	@AfterClass
 	public static void destroy(){
 		array = null;
@@ -1795,7 +1836,7 @@ public class TestDefineAnnotation {
 
 @MyAnnotation("尚硅谷")
 class MyClass{
-	
+
 }
 
 @Documented
