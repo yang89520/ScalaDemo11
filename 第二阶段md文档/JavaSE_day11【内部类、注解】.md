@@ -514,9 +514,9 @@ class Sub extends Outer.Inner{
     {: id="20210309181757-3cvtrnp"}
   * {: id="20210309181757-hrrbwya"}可以在局部内部类中声明**属性、方法、构造器**{: style="color: rgb(252, 13, 27);"}等结构，**但不包括静态成员，除非是从父类继承的或静态常量**{: style="background-color: rgb(255, 253, 56);"}
     {: id="20210309181757-z44axls"}
-  * {: id="20210309181757-b9sspta"}**可以使用abstract**{: style="background-color: rgb(255, 253, 56);"}修饰，因此它也可以被**同一个方法**{: style="background-color: rgb(255, 253, 56);"}的**在它后面**{: style="background-color: rgb(255, 253, 56);"}的**其他内部类**{: style="background-color: rgb(255, 253, 56);"}继承
+  * {: id="20210309181757-b9sspta"}可以使用**abstract**{: style="background-color: rgb(255, 253, 56);"}修饰，因此它也可以被**同一个方法**{: style="background-color: rgb(255, 253, 56);"}的**在它后面**{: style="background-color: rgb(255, 253, 56);"}的**其他内部类**{: style="background-color: rgb(255, 253, 56);"}继承
     {: id="20210309181757-rpmapym"}
-  * {: id="20210309181757-zz7j7x0"}可以使用final修饰，表示不能被继承
+  * {: id="20210309181757-zz7j7x0"}可以使用**final**{: style="background-color: rgb(255, 253, 56);"}修饰，表示不能被继承
     {: id="20210309181757-qw77pka"}
   * {: id="20210309181757-pt96kns"}编译后有自己的独立的字节码文件，只不过在内部类名前面冠以外部类名、$符号、编号。
     {: id="20210309181757-bxv1i4j"}
