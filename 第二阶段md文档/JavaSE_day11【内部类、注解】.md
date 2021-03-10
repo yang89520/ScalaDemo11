@@ -591,7 +591,8 @@ class Outer{
 public class TestInner{
 	public static void main(String[] args) {
 		A obj = Outer.method();
-		//因为如果c不是final的，那么method方法执行完，method的栈空间就释放了，那么c也就消失了
+		//因为如果c不是final的，那么method方法执行完，
+		//method的栈空间就释放了，那么c也就消失了
 		obj.a();//这里打印c就没有中可取了，所以把c声明为常量，存储在方法区中
 	}
 }
@@ -612,7 +613,7 @@ class Outer{
 	}
 }
 ```
-{: id="20210309181757-yn1hg64"}
+{: id="20210309181757-yn1hg64" updated="20210310164556"}
 
 ### 7.4.5  匿名内部类
 {: id="20210309181757-9tin4xe"}
