@@ -1120,8 +1120,8 @@ result[total++] = arr[i];
 }
 }
 return Arrays.copyOf(result,total);
-}	
-这个方法的作用，就是用于在arr数组中筛选满足条件的元素
+}
+这个方法的作用，就是用于在arr数组中筛选满足件的元素
 4、在测试类中，创建EmployeeService对象，调用get(Predicate p)方法，通过匿名内部类的对象给形参p赋值，
 分别获取：
 （1）所有员工对象
@@ -1130,7 +1130,7 @@ return Arrays.copyOf(result,total);
 （4）所有编号是偶数的员工
 （5）名字是“张三”的员工
 （6）年龄超过25，薪资高于15000的员工
-{: id="20210309181757-vpcrpzv"}
+{: id="20210309181757-vpcrpzv" updated="20210310143615"}
 
 ```java
 public interface Predicate {
@@ -1285,7 +1285,7 @@ static的方法被重写（错误）
 {: id="20210309181757-uztaiky"}
 
 ```java
-@SuppressWarnings(value=”unchecked”) 
+@SuppressWarnings(value=”unchecked”) 抑制警告注解
 @Override 检查方法重写是否正确
 @Deprecated 
 	标注方法已过期
@@ -1295,7 +1295,7 @@ static的方法被重写（错误）
 @param 参数
 ....
 ```
-{: id="20210309181757-ml5ggws" updated="20210310142833"}
+{: id="20210309181757-ml5ggws" updated="20210310143927"}
 
 注解Annotation是从JDK5.0开始引入。
 {: id="20210309181757-1pvwvpb"}
