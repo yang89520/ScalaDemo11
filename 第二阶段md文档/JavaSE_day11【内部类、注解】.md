@@ -516,6 +516,8 @@ class Sub extends Outer.Inner{
     {: id="20210309181757-z44axls"}
   * {: id="20210309181757-b9sspta"}可以使用**abstract**{: style="background-color: rgb(255, 253, 56);"}修饰，因此它也可以被**同一个方法**{: style="background-color: rgb(255, 253, 56);"}的**在它后面**{: style="background-color: rgb(255, 253, 56);"}的**其他内部类**{: style="background-color: rgb(255, 253, 56);"}继承
     {: id="20210309181757-rpmapym"}
+  * {: id="20210310130108-psfp1x7"}**不允许定义接口**{: style="background-color: rgb(255, 253, 56);"}
+    {: id="20210310130108-joykfch" updated="20210310130122"}
   * {: id="20210309181757-zz7j7x0"}可以使用**final**{: style="background-color: rgb(255, 253, 56);"}修饰，表示不能被继承
     {: id="20210309181757-qw77pka"}
   * {: id="20210309181757-pt96kns"}编译后有自己的独立的字节码文件，只不过在内部类名前面冠以外部类名、$符号、编号。
@@ -525,7 +527,7 @@ class Sub extends Outer.Inner{
       {: id="20210309181757-malpy9t"}
     {: id="20210309181757-td3md1p"}
   {: id="20210309181757-2k230l8"}
-* {: id="20210309181757-otzk3qt"}和成员内部类不同的是，它前面不能有权限修饰符等
+* {: id="20210309181757-otzk3qt"}和成员内部类不同的是，它前面**不能有**{: style="background-color: rgb(255, 253, 56);"}权限修饰符等
   {: id="20210309181757-9kax3x6"}
 * {: id="20210309181757-4cyc9x7"}局部内部类如同局部变量一样，有作用域，**不能外部文件申明内部类对象**{: style="background-color: rgb(255, 253, 56);"}
   {: id="20210309181757-8a3g7vn" updated="20210310113133"}
