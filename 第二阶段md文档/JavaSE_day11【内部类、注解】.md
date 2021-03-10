@@ -148,7 +148,7 @@ public class TestInner{
     	in.inMethod();
   
     	Outer.Inner.inTest();
-      
+    
         Outer.Inner.inFun(3);
     }
 }
@@ -200,7 +200,7 @@ class Outer{
 
   * {: id="20210309181757-wrls1mf"}可以继承自己的想要继承的父类，实现自己想要实现的父接口们，和外部类的父类和父接口无关
     {: id="20210309181757-o56z6mj"}
-  * {: id="20210309181757-lxvi0th"}可以在非静态内部类中声明属性、方法、构造器等结构，但是**不允许声明静态成员**，但是可以**继承**父类的静态成员，而且**可以声明静态常量**。
+  * {: id="20210309181757-lxvi0th"}可以在非静态内部类中声明属性、方法、构造器等结构，但是**不允许声明静态成员**{: style="background-color: rgb(255, 253, 56);"}，但是可以**继承**父类的静态成员，而且**可以声明静态常量**{: style="background-color: rgb(255, 253, 56);"}。
     {: id="20210309181757-egyukhj"}
   * {: id="20210309181757-8c4jcn6"}可以使用abstract修饰，因此它也可以被其他类继承
     {: id="20210309181757-3x3zspc"}
@@ -234,6 +234,8 @@ class Outer{
 
   * {: id="20210310104904-unuxlu2"}非静态内部类需要逐层创建对象**外部类引用名.new 内部类()**{: style="background-color: rgb(255, 253, 56); color: rgb(252, 13, 27);"};
     {: id="20210310104904-o62dnoc" updated="20210310105011"}
+  * {: id="20210310184248-ykffnvn"}内部类成员变量不影响
+    {: id="20210310184248-ji2rfm1" updated="20210310184339"}
   {: id="20210310104905-w1iddem"}
 {: id="20210309181757-gcv0yxm"}
 
@@ -560,7 +562,7 @@ class Outer{
 				System.out.println("out.local.c = " + c);
 			}
 		}
-	
+
 		Inner in = new Inner();
 		in.inMethod();
 	}
@@ -574,7 +576,7 @@ class Outer{
 				System.out.println("method.c = " + c);
 			}
 		}
-	
+
 		Inner in = new Inner();
 		in.inMethod();
 	}
@@ -660,7 +662,7 @@ public class MyRunnable implements Runnable{
             System.out.println("大家注意安全");
             try
             	Thread.sleep(1000);
-            }catch(Exception e){              
+            }catch(Exception e){            
             }
         }
     }
@@ -697,7 +699,7 @@ public class Test{
                     System.out.println("大家注意安全");
                     try
                         Thread.sleep(1000);
-                    }catch(Exception e){              
+                    }catch(Exception e){            
                     }
                 }
             }
@@ -848,7 +850,7 @@ public class Test{
 			public void method() {
 				System.out.println("aaaa");
 			}
-    	
+  
     	});
     }   
 }
@@ -928,13 +930,13 @@ public class TestInner {
 		arr[2] = new Employee(2,"李四",13000);
 		arr[3] = new Employee(4,"赵六",7000);
 		arr[4] = new Employee(5,"钱七",9000);
-	
+
 		//原顺序
 		System.out.println("员工列表：");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
-	
+
 		Arrays.sort(arr, new Comparator() {
 			@Override
 			public int compare(Object o1, Object o2) {
@@ -943,12 +945,12 @@ public class TestInner {
 				return Double.compare(e1.getSalary(), e2.getSalary());
 			}
 		});
-	
+
 		System.out.println("按照薪资排序后员工列表：");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
-	
+
 		Arrays.sort(arr, new Comparator() {
 			@Override
 			public int compare(Object o1, Object o2) {
@@ -957,7 +959,7 @@ public class TestInner {
 				return e1.getId() - e2.getId();
 			}
 		});
-			
+		
 		System.out.println("按照编号排序后员工列表：");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
@@ -991,7 +993,7 @@ public class TestExer1 {
 			public void method() {
 				System.out.println("hello 孩子");
 			}
-		
+	
 		}.method();
 	}
 }
@@ -1061,7 +1063,7 @@ public class TestExer2 {
 		arr[0]  = new Triangle(6, 1, 6);
 		arr[1]  = new Triangle(3, 4, 5);
 		arr[2]  = new Triangle(6, 6, 6);
-	
+
 		System.out.println("原来的顺序：");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
@@ -1220,7 +1222,7 @@ public class EmployeeService {
 public class TestExer5 {
 	public static void main(String[] args) {
 		EmployeeService es = new EmployeeService();
-	
+
 		//（1）所有员工对象
 		Employee[] employees = es.get(new Predicate(){
 
@@ -1228,7 +1230,7 @@ public class TestExer5 {
 			public boolean test(Object obj) {
 				return true;
 			}
-		
+	
 		});
 		for (int i = 0; i < employees.length; i++) {
 			System.out.println(employees[i]);
@@ -1242,7 +1244,7 @@ public class TestExer5 {
 				Employee emp = (Employee) obj;
 				return emp.getAge()>25;
 			}
-		
+	
 		});
 		for (int i = 0; i < employees.length; i++) {
 			System.out.println(employees[i]);
@@ -1326,19 +1328,16 @@ static的方法被重写（错误）
 ```
 用于检测被修饰的方法为有效的重写方法，如果不是，则报编译错误!
 ```
-
 {: id="20210309181757-ixbmh9y"}
 
 ```
 只能标记在方法上。
 ```
-
 {: id="20210309181757-cekd1ly"}
 
 ```
 它会被编译器程序读取。
 ```
-
 {: id="20210309181757-t5lmynl"}
 
 #### 2、@Deprecated
@@ -1347,19 +1346,16 @@ static的方法被重写（错误）
 ```
 用于表示被标记的数据已经过时，不建议使用。
 ```
-
 {: id="20210309181757-zuabit2"}
 
 ```
 可以用于修饰 属性、方法、构造、类、包、局部变量、参数。
 ```
-
 {: id="20210309181757-z80qjm7"}
 
 ```
 它会被编译器程序读取。
 ```
-
 {: id="20210309181757-anm8icp"}
 
 #### 3、@SuppressWarnings
@@ -1368,19 +1364,16 @@ static的方法被重写（错误）
 ```
 抑制编译警告。
 ```
-
 {: id="20210309181757-o0qq750"}
 
 ```
 可以用于修饰类、属性、方法、构造、局部变量、参数
 ```
-
 {: id="20210309181757-45s1og3"}
 
 ```
 它会被编译器程序读取。
 ```
-
 {: id="20210309181757-90pc5ff"}
 
 示例代码：
@@ -1390,14 +1383,14 @@ static的方法被重写（错误）
 public class TestAnnotation {
 	@SuppressWarnings({"unused","rawtypes", "unchecked"})
 	public static void main(String[] args) {
-	
+
 		int i;
 
 		List list = new ArrayList();
 		list.add("");
 		list.add(123);
 		list.add("");
-	
+
 		Father f = new Son();
 		f.show();
 		f.methodOl();
@@ -1409,7 +1402,7 @@ public class TestAnnotation {
 class Father{
 	@Deprecated
 	public void show() {
-	
+
 	}
 	public void methodOl() {
 		System.out.println("Father Method");
@@ -1501,7 +1494,7 @@ public class TestAnnotation2 {
 	 * 	java 类名   参数1  参数2 ....
 	 */
 	public static void main(String[] args) {
-	
+
 	}
 
 	/**
@@ -1529,7 +1522,7 @@ public class TestAnnotation2 {
 	 * 
 	 */
 	public void println(){
-	
+
 	}
 }
 ```
