@@ -1816,8 +1816,16 @@ public @interface Deprecated {
 ```
 {: id="20210309181757-c1eut8u"}
 
+```java
+@Target()
+public @interface MyAnno{
+	public String name(); //注意这是个属性
+}
+```
+{: id="20210309181757-6brmfkw" updated="20210310161655"}
+
 #### 2、语法格式
-{: id="20210309181757-6brmfkw"}
+{: id="20210310161519-84budmu" updated="20210310161519"}
 
 ```java
 【@元注解】
