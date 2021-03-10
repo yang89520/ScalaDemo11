@@ -473,6 +473,8 @@ class Outer {
 		abstract void method();
 	}
 }
+//考察抽象内部类继承的写法
+//
 class Sub extends Outer.Inner{
 	static Outer out = new Outer();
 	Sub(){
@@ -486,7 +488,7 @@ class Sub extends Outer.Inner{
 
 }
 ```
-{: id="20210309181757-74vi0an"}
+{: id="20210309181757-74vi0an" updated="20210310165055"}
 
 ### 7.4.4 局部内部类
 {: id="20210309181757-t055qay"}
