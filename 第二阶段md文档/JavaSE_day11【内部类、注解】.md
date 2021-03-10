@@ -1285,15 +1285,17 @@ static的方法被重写（错误）
 {: id="20210309181757-uztaiky"}
 
 ```java
-@SuppressWarnings(value=”unchecked”)
-@Override
-@Deprecated
-@Test
-@author
-@param
+@SuppressWarnings(value=”unchecked”) 
+@Override 检查方法重写是否正确
+@Deprecated 
+	标注方法已过期
+	过期方法能正常使用
+@Test 测试
+@author 作者
+@param 参数
 ....
 ```
-{: id="20210309181757-ml5ggws"}
+{: id="20210309181757-ml5ggws" updated="20210310142833"}
 
 注解Annotation是从JDK5.0开始引入。
 {: id="20210309181757-1pvwvpb"}
