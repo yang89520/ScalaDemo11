@@ -442,11 +442,11 @@ Character.toLowerCase('X');
 {: id="20210309181757-h77m584"}
 
 ```java
-Integer.toBinaryString(int i) 
-Integer.toHexString(int i)
-Integer.toOctalString(int i)
+Integer.toBinaryString(int i)  //转二进制
+Integer.toHexString(int i)  //16进制
+Integer.toOctalString(int i)  //8进制
 ```
-{: id="20210309181757-zaic1bd"}
+{: id="20210309181757-zaic1bd" updated="20210311140408"}
 
 ### 7.2.4 包装类对象的缓存问题
 {: id="20210309181757-o0pjohe" bookmark="💡"}
