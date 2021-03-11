@@ -247,8 +247,11 @@ class Sub extends Base {
 		System.out.println("sub : " + j);
 	}
 }
+
+100
+70
 ```
-{: id="20210309203838-0z38fll"}
+{: id="20210309203838-0z38fll" updated="20210311101624"}
 
 ## 第4题
 {: id="20210309203838-nvc5dh2"}
@@ -311,10 +314,10 @@ class D extends B{
  * 2、方法重载：找最合适的形参类型
  * 3、方法重写：如果子类重写，就执行重写的
  * 4、分析执行结果
- * a1.show(b)：a1没有多态引用，直接找A类的方法，b是B类对象，只能选择public String show(A obj)   A and A
- * a2.show(d)：a2多态引用，执行子类的方法，d是D类对象，选最合适的public String show(D obj)   A and D
- * b.show(c)：b没有多态引用，直接找B类的方法，c是C类的对象，选择最合适的public String show(B obj) B and B
- * b.show(d)：b没有多态引用，直接找B类的方法，d是D类对象，选最合适的public String show(D obj)   A and D
+ * a1.show(b)：a1没有多态引用，直接找A类的方法，b是B类对象，只能选择show(A obj)   A and A
+ * a2.show(d)：a2多态引用，执行子类的方法，d是D类对象，选最合适的show(D obj)   A and D
+ * b.show(c)：b没有多态引用，直接找B类的方法，c是C类的对象，选择最合适的show(B obj) B and B
+ * b.show(d)：b没有多态引用，直接找B类的方法，d是D类对象，选最合适的show(D obj)   A and D
  */
 public class Test04 {
 	public static void main(String[] args) {
@@ -358,7 +361,7 @@ class D extends B {
 
 }
 ```
-{: id="20210309203838-m9ycqhh"}
+{: id="20210309203838-m9ycqhh" updated="20210311101922"}
 
 ## 第5题
 {: id="20210309203838-2nmq6xz"}
