@@ -151,8 +151,12 @@ class Son extends Father{
 		System.out.println("Son.x = " + x);
 	}
 }
+
+Son.x=0
+Son.x=30
+20
 ```
-{: id="20210309203838-mnmsgor"}
+{: id="20210309203838-mnmsgor" updated="20210311101334"}
 
 ## 第3题
 {: id="20210309203838-z4s8fcn"}
@@ -283,10 +287,10 @@ class B extends A{
 	}
 }
 class C extends B{
-	
+
 }
 class D extends B{
-	
+
 }
 ```
 {: id="20210309203838-4gk5x89"}
@@ -536,7 +540,7 @@ public class Father{
 }
 public class Child extends Father{
 	public String grade;
-	
+
 	public static void main(String[] args){
 		Father f = new Child();
 		System.out.println(f.name);
@@ -550,7 +554,7 @@ package com.atguigu.test07;
 
 public class Child extends Father{
 	public String grade;
-	
+
 	public static void main(String[] args){
 		Father f = new Child();
 //		System.out.println(f.name);//编译错误，因为name私有化
@@ -670,7 +674,7 @@ class C extends B{
 	public void showA() {
 		System.out.println("A类中numa:" + numa);
 	}
-	
+
 	public void showC(){
 		System.out.println("C类中numc:" + numc);
 	}
@@ -687,16 +691,28 @@ class C extends B{
 案例：
 {: id="20210309203838-gc5t2b3"}
 
-​	1、声明抽象父类Person，包含抽象方法public abstract void pee();
+```
+1、声明抽象父类Person，包含抽象方法public abstract void pee();
+```
+
 {: id="20210309203838-hg1uvw0"}
 
-​	2、声明子类Woman，重写抽象方法，打印坐着尿
+```
+2、声明子类Woman，重写抽象方法，打印坐着尿
+```
+
 {: id="20210309203838-v8p2tzl"}
 
-​	3、声明子类Man，重写抽象方法，打印站着上尿
+```
+3、声明子类Man，重写抽象方法，打印站着上尿
+```
+
 {: id="20210309203838-ovd427p"}
 
-​	4、声明测试类Test10，创建Person数组，存放Woman和Man对象，并遍历数组，调用pee()方法
+```
+4、声明测试类Test10，创建Person数组，存放Woman和Man对象，并遍历数组，调用pee()方法
+```
+
 {: id="20210309203838-9gmcpus"}
 
 ```java
@@ -745,7 +761,7 @@ public class Test10 {
 		Person[] all = new Person[2];
 		all[0] = new Woman();
 		all[1] = new Man();
-		
+	
 		for (int i = 0; i < all.length; i++) {
 			all[i].pee();
 		}
@@ -764,19 +780,34 @@ public class Test10 {
 案例：
 {: id="20210309203838-1za7rsh"}
 
-​	1、声明抽象父类Person，包含抽象方法public abstract void eat();
+```
+1、声明抽象父类Person，包含抽象方法public abstract void eat();
+```
+
 {: id="20210309203838-3pftnpi"}
 
-​	2、声明子类中国人Chinese，重写抽象方法，打印用筷子吃饭
+```
+2、声明子类中国人Chinese，重写抽象方法，打印用筷子吃饭
+```
+
 {: id="20210309203838-m4l0vz8"}
 
-​	3、声明子类美国人American，重写抽象方法，打印用刀叉吃饭
+```
+3、声明子类美国人American，重写抽象方法，打印用刀叉吃饭
+```
+
 {: id="20210309203838-cjpurqt"}
 
-​	4、声明子类印度人Indian，重写抽象方法，打印用手抓饭
+```
+4、声明子类印度人Indian，重写抽象方法，打印用手抓饭
+```
+
 {: id="20210309203838-qc64oid"}
 
-​	5、声明测试类Test11，创建Person数组，存储各国人对象，并遍历数组，调用eat()方法
+```
+5、声明测试类Test11，创建Person数组，存储各国人对象，并遍历数组，调用eat()方法
+```
+
 {: id="20210309203838-hrxxod0"}
 
 ```java
@@ -789,7 +820,7 @@ public class Test11 {
 		all[0] = new Chinese();
 		all[1] = new American();
 		all[2] = new Indian();
-		
+	
 		for (int i = 0; i < all.length; i++) {
 			all[i].eat();
 		}
@@ -805,7 +836,7 @@ class Chinese extends Person{
 	public void eat() {
 		System.out.println("中国人用筷子吃饭");
 	}
-	
+
 }
 class American extends Person{
 
@@ -813,7 +844,7 @@ class American extends Person{
 	public void eat() {
 		System.out.println("美国人用刀叉吃饭");
 	}
-	
+
 }
 class Indian extends Person{
 
@@ -821,7 +852,7 @@ class Indian extends Person{
 	public void eat() {
 		System.out.println("印度人用手抓饭");
 	}
-	
+
 }
 ```
 {: id="20210309203838-6v6l8yf"}
@@ -835,25 +866,46 @@ class Indian extends Person{
 案例：
 {: id="20210309203838-reqg3ot"}
 
-​	1、声明三角形类，包含a,b,c三边
+```
+1、声明三角形类，包含a,b,c三边
+```
+
 {: id="20210309203838-rdjdr1e"}
 
-​	（1）属性私有化，提供无参，有参构造，提供get/set
+```
+（1）属性私有化，提供无参，有参构造，提供get/set
+```
+
 {: id="20210309203838-ga6er83"}
 
-​	（2）重写：toString()
+```
+（2）重写：toString()
+```
+
 {: id="20210309203838-iofsqsx"}
 
-​	（3）重写：hashCode和equals方法
+```
+（3）重写：hashCode和equals方法
+```
+
 {: id="20210309203838-3izk8ey"}
 
-​	（4）编写  public double getArea()：求面积方法
+```
+（4）编写  public double getArea()：求面积方法
+```
+
 {: id="20210309203838-d32mh13"}
 
-​	（5）编写 public double getPiremeter()：求周长方法
+```
+（5）编写 public double getPiremeter()：求周长方法
+```
+
 {: id="20210309203838-j9vmycn"}
 
-​	2、声明测试类Test12，在测试类中创建两个三角形对象，调用以上方法进行测试
+```
+2、声明测试类Test12，在测试类中创建两个三角形对象，调用以上方法进行测试
+```
+
 {: id="20210309203838-cfhgpb1"}
 
 ```java
@@ -863,15 +915,15 @@ public class Test12 {
 	public static void main(String[] args) {
 		Triangle t1 = new Triangle(3,4,5);
 		Triangle t2 = new Triangle(3,3,3);
-		
+	
 		System.out.println(t1);
 		System.out.println(t2);
-		
+	
 		System.out.println("t1的面积：" + t1.getArea());
 		System.out.println("t1的周长：" + t1.getPiremeter());
 		System.out.println("t2的面积：" + t2.getArea());
 		System.out.println("t2的面积：" + t2.getPiremeter());
-		
+	
 		System.out.println("t1和t2是否相同：" + t1.equals(t2));
 	}
 }
@@ -957,7 +1009,10 @@ class Triangle{
 案例：
 {: id="20210309203838-nr97ehl"}
 
-​	1、在com.atguigu.test13包中声明员工类、程序员类、设计师类、架构师类，
+```
+1、在com.atguigu.test13包中声明员工类、程序员类、设计师类、架构师类，
+```
+
 {: id="20210309203838-4nky17t"}
 
 ![1558933215448](imgs/1558933215448.png)
@@ -971,12 +1026,16 @@ class Triangle{
   {: id="20210309203838-1z6hepz"}
 * {: id="20210309203838-94vhwnv"}架构师类属性：持有股票数量
   {: id="20210309203838-e40m0x8"}
+
   要求：属性私有化，无参有参构造，get/set，getInfo方法（考虑重写）
   {: id="20210309203838-7uvlg53"}
+
   2、在com.atguigu.test13包中声明Test13测试类
   {: id="20210309203838-fytkbv7"}
+
   （1）在main中有一些常量和一个二维数组
   {: id="20210309203838-eahk7sd"}
+
   ```
   final int EMPLOYEE = 10;//表示普通员工
   final int PROGRAMMER = 11;//表示程序员
@@ -999,12 +1058,16 @@ class Triangle{
       };
   ```
   {: id="20210309203838-c1xbqsw"}
+
   （2）创建一个员工数组
   {: id="20210309203838-0k2kbki"}
+
   （3）根据以上数据，初始化员工数组
   {: id="20210309203838-2ysrm03"}
+
   提示：把字符串转为int和double类型的值，可以使用如下方式：
   {: id="20210309203838-5enf1m9"}
+
   ```java
   String idStr = "1";
   int id = Integer.parseInt(idStr);
@@ -1013,13 +1076,16 @@ class Triangle{
   double salary = Double.parseDouble(salaryStr);
   ```
   {: id="20210309203838-jnkrn47"}
+
   （4）遍历数组，使用如下格式
   {: id="20210309203838-7pt4o90"}
+
   ```
   编号	姓名	年龄	薪资	语言	奖金	股票
   .....
   ```
   {: id="20210309203838-jbthvvx"}
+
   ```java
   package com.atguigu.test13;
 
@@ -1079,6 +1145,7 @@ class Triangle{
   }
   ```
   {: id="20210309203838-ozb41ij"}
+
   ```java
   package com.atguigu.test13;
 
@@ -1115,6 +1182,7 @@ class Triangle{
 
   ```
   {: id="20210309203838-0vmkebh"}
+
   ```java
   package com.atguigu.test13;
 
@@ -1152,6 +1220,7 @@ class Triangle{
 
   ```
   {: id="20210309203838-bax5rlh"}
+
   ```java
   package com.atguigu.test13;
 
@@ -1189,6 +1258,7 @@ class Triangle{
 
   ```
   {: id="20210309203838-88c0byw"}
+
   ```java
   package com.atguigu.test13;
 
@@ -1255,52 +1325,100 @@ class Triangle{
 案例：
 {: id="20210309203838-p9jos5a"}
 
-​	1、在com.atguigu.test14包中声明图形Graphic、圆Circle、矩形Rectangle类、三角形Triangle类
+```
+1、在com.atguigu.test14包中声明图形Graphic、圆Circle、矩形Rectangle类、三角形Triangle类
+```
+
 {: id="20210309203838-vq934hk"}
 
-​	2、图形Graphic类中有：
+```
+2、图形Graphic类中有：
+```
+
 {: id="20210309203838-zerddig"}
 
-​		①public double getArea()方法：返回面积
+```
+①public double getArea()方法：返回面积
+```
+
 {: id="20210309203838-achlvi5"}
 
-​		②public double getPerimeter()方法：返回周长
+```
+②public double getPerimeter()方法：返回周长
+```
+
 {: id="20210309203838-yq1rotn"}
 
-​		③public String getInfo()方法：返回图形信息
+```
+③public String getInfo()方法：返回图形信息
+```
+
 {: id="20210309203838-tryqf88"}
 
-​	3、圆类和矩形类重写这两个方法
+```
+3、圆类和矩形类重写这两个方法
+```
+
 {: id="20210309203838-5snfefz"}
 
-​	4、在com.atguigu.test14包中声明测试类Test14_1
+```
+4、在com.atguigu.test14包中声明测试类Test14_1
+```
+
 {: id="20210309203838-ieewk3h"}
 
-​	(1)请设计一个方法，可以用于比较两个图形的面积是否相等
+```
+(1)请设计一个方法，可以用于比较两个图形的面积是否相等
+```
+
 {: id="20210309203838-m1daiy5"}
 
-​	(2)请设计一个方法，可以用于找出两个图形中面积大的那个
+```
+(2)请设计一个方法，可以用于找出两个图形中面积大的那个
+```
+
 {: id="20210309203838-qxfpw11"}
 
-​	(3)public static void main(String[] args){}
+```
+(3)public static void main(String[] args){}
+```
+
 {: id="20210309203838-gwehytt"}
 
-​	在主方法中，创建1个圆、1个矩形、1个三角形对象，并分别调用(1)、(2)方法进行测试。
+```
+在主方法中，创建1个圆、1个矩形、1个三角形对象，并分别调用(1)、(2)方法进行测试。
+```
+
 {: id="20210309203838-ulf6qqk"}
 
-​	5、在com.atguigu.test14包中测试类Test14_2
+```
+5、在com.atguigu.test14包中测试类Test14_2
+```
+
 {: id="20210309203838-ietea93"}
 
-​	(1)请设计一个方法，可以用于遍历一个图形数组
+```
+(1)请设计一个方法，可以用于遍历一个图形数组
+```
+
 {: id="20210309203838-vmvm1q7"}
 
-​	(2)请设计一个方法，可以用于给一个图形数组进行按照面积从小到大排序
+```
+(2)请设计一个方法，可以用于给一个图形数组进行按照面积从小到大排序
+```
+
 {: id="20210309203838-vmyvyvz"}
 
-​	(3)public static void main(String[] args){}
+```
+(3)public static void main(String[] args){}
+```
+
 {: id="20210309203838-34f9cco"}
 
-​	在主方法中，创建1个圆、1个矩形、1个三角形对象，放到数组中，遍历显示，然后排序后再遍历显示。
+```
+在主方法中，创建1个圆、1个矩形、1个三角形对象，放到数组中，遍历显示，然后排序后再遍历显示。
+```
+
 {: id="20210309203838-jlo03p6"}
 
 ```java
@@ -1358,7 +1476,7 @@ public class Circle extends Graphic{
 	public String getInfo() {
 		return "半径：" + radius + "," + super.getInfo();
 	}
-	
+
 }
 
 ```
@@ -1402,7 +1520,7 @@ public class Rectangle extends Graphic{
 	public String getInfo() {
 		return "长：" + length + "，宽：" + width + "," + super.getInfo();
 	}
-	
+
 }
 
 ```
@@ -1455,7 +1573,7 @@ public class Triangle extends Graphic{
 	public String getInfo() {
 		return "边长为：" + a + "," + b +"," + c+"," + super.getInfo();
 	}
-	
+
 }
 
 ```
@@ -1472,11 +1590,11 @@ public class Test14_01 {
 		System.out.println("c1的面积：" + c1.getArea());
 		System.out.println("r1的面积：" + r1.getArea());
 		System.out.println("t1的面积：" + t1.getArea());
-		
+	
 		System.out.println("c1和r1的面积是否相等：" + equal(c1, r1));
 		System.out.println("c1和t1的面积是否相等：" + equal(c1, t1));
 		System.out.println("r1和t1的面积是否相等：" + equal(r1, t1));
-		
+	
 		Graphic max1 = getMax(c1, r1);
 		System.out.println("c1和r1中面积大的是：" + max1.getArea());
 		Graphic max2 = getMax(c1, t1);
@@ -1484,11 +1602,11 @@ public class Test14_01 {
 		Graphic max3 = getMax(r1, t1);
 		System.out.println("r1和t1中面积大的是：" + max3.getArea());
 	}
-	
+
 	public static boolean equal(Graphic g1, Graphic g2){
 		return g1.getArea() == g2.getArea();
 	}
-	
+
 	public static Graphic getMax(Graphic g1, Graphic g2){
 		return g1.getArea() > g2.getArea() ? g1 : g2;
 	}
@@ -1506,22 +1624,22 @@ public class Test14_02 {
 		all[0] = new Circle(2);
 		all[1] = new Rectangle(2, 3);
 		all[2] = new Triangle(3, 4, 5);
-		
+	
 		System.out.println("排序前：");
 		print(all);
-		
+	
 		sort(all);
-		
+	
 		System.out.println("排序后：");
 		print(all);
-		
+	
 	}
 	public static void print(Graphic[] all){
 		for (int i = 0; i < all.length; i++) {
 			System.out.println(all[i].getInfo());
 		}
 	}
-	
+
 	public static void sort(Graphic[] all){
 		for (int i = 1; i < all.length; i++) {
 			for (int j = 0; j < all.length-i; j++) {
@@ -1544,49 +1662,94 @@ public class Test14_02 {
 案例：
 {: id="20210309203838-rgor78q"}
 
-​	1、在com.atguigu.test15包中声明人Person、男人Man、女人Woman类
+```
+1、在com.atguigu.test15包中声明人Person、男人Man、女人Woman类
+```
+
 {: id="20210309203838-awmiwsu"}
 
-​	（1）在Person类中，包含
+```
+（1）在Person类中，包含
+```
+
 {: id="20210309203838-rxmqvev"}
 
-​		①public void eat()：打印吃饭
+```
+①public void eat()：打印吃饭
+```
+
 {: id="20210309203838-dak8ozw"}
 
-​		②public void toilet()：打印上洗手间
+```
+②public void toilet()：打印上洗手间
+```
+
 {: id="20210309203838-itbyzqa"}
 
-​	（2）在Man类中，包含
+```
+（2）在Man类中，包含
+```
+
 {: id="20210309203838-kmgav8i"}
 
-​		①重写上面的方法
+```
+①重写上面的方法
+```
+
 {: id="20210309203838-323k09t"}
 
-​		②增加  public void smoke()：打印抽烟
+```
+②增加  public void smoke()：打印抽烟
+```
+
 {: id="20210309203838-4vas3ks"}
 
-​	（3）在Woman类中，包含
+```
+（3）在Woman类中，包含
+```
+
 {: id="20210309203838-5tpkqig"}
 
-​		①重写上面的方法
+```
+①重写上面的方法
+```
+
 {: id="20210309203838-zjj6u5p"}
 
-​		②增加 public void makeup()：打印化妆
+```
+②增加 public void makeup()：打印化妆
+```
+
 {: id="20210309203838-8gnnkdf"}
 
-​	2、在com.atguigu.test15包中声明测试类Test15
+```
+2、在com.atguigu.test15包中声明测试类Test15
+```
+
 {: id="20210309203838-q2ha2fj"}
 
-​	（1）public static void meeting(Person...  ps)
+```
+（1）public static void meeting(Person...  ps)
+```
+
 {: id="20210309203838-ci4xqyi"}
 
-​		在该方法中，每一个人先吃饭，然后上洗手间，然后如果是男人，随后抽根烟，如果是女人，随后化个妆
+```
+在该方法中，每一个人先吃饭，然后上洗手间，然后如果是男人，随后抽根烟，如果是女人，随后化个妆
+```
+
 {: id="20210309203838-r3co3p8"}
 
-​	（2）public static void main(String[] args)
+```
+（2）public static void main(String[] args)
+```
+
 {: id="20210309203838-bar1mu4"}
 
-​		在主方法中，创建多个男人和女人对象，并调用meeting()方法进行测试
+```
+在主方法中，创建多个男人和女人对象，并调用meeting()方法进行测试
+```
+
 {: id="20210309203838-vhjrcx0"}
 
 ```java
@@ -1640,7 +1803,7 @@ public class Woman extends Person{
 	public void toilet() {
 		System.out.println("站着上洗手间");
 	}
-	
+
 	public void makeup(){
 		System.out.println("化妆美美");
 	}
@@ -1657,7 +1820,7 @@ public class Test15 {
 	public static void main(String[] args) {
 		meeting(new Woman(),new Man(), new Woman(), new Man());
 	}
-	
+
 	public static void meeting(Person... ps){
 		for (int i = 0; i < ps.length; i++) {
 			ps[i].eat();
