@@ -1577,8 +1577,8 @@ public class TestAnnotation2 {
 ### 7.6.4 JUnit单元测试
 {: id="20210309181757-bzbi123"}
 
-JUnit是由 Erich Gamma 和 Kent Beck 编写的一个回归测试框架（regression testing framework）,供Java开发人员编写单元测试之用。多数Java的开发环境都已经集成了JUnit作为单元测试的工具。JUnit测试是程序员测试，即所谓白盒测试，因为程序员知道被测试的软件如何（How）完成功能和完成什么样（What）的功能。
-{: id="20210309181757-ccj7mbv"}
+JUnit是由 Erich Gamma 和 Kent Beck 编写的一个回归测试框架（regression testing framework）,供Java开发人员编写单元测试之用。多数Java的开发环境都已经集成了JUnit作为单元测试的工具。JUnit测试是程序员测试，即所谓白盒测试，因为程序员知道被测试的软件如何（How）完成功能和完成什么样（What）的功能。![image.png](assets/image-20210311093545-ebst5jt.png)
+{: id="20210309181757-ccj7mbv" updated="20210311093545"}
 
 要使用JUnit，必须在项目的编译路径中必须引入JUnit的库，即相关的.class文件组成的jar包。如何把JUnit的jar添加到编译路径如图所示：
 {: id="20210309181757-8igpknw"}
