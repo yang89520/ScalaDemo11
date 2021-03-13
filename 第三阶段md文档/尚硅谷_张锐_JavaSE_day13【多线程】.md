@@ -60,7 +60,7 @@
 
 * {: id="20210313082711-4u33osu"}**并行**（parallel）：指两个或多个事件在**同一时刻**发生（同时发生）。指在同一时刻，有多条指令在多个处理器上同时执行。
   {: id="20210313082711-dncj0oi"}
-* {: id="20210313082711-c87u48m"}**并发**（concurrency）：指两个或多个事件在**同一个时间段内**发生。指在同一个时刻只能有一条指令执行，但多个进程的指令被快速轮换执行，使得在宏观上具有多个进程同时执行的效果。
+* {: id="20210313082711-c87u48m"}**并发**（concurrency）：指两个或多个事件在**同一个时间段内**发生。指在同一个时刻只能有一条指令执行，但**多个进程**{: style="background-color: rgb(255, 253, 56);"}的指令被快速**轮换执行**{: style="background-color: rgb(255, 253, 56);"}，使得在宏观上具有多个进程同时执行的效果。
   {: id="20210313082711-fmvl53v"}
 {: id="20210313082711-c25k4hg"}
 
@@ -73,7 +73,7 @@
 而在多个 CPU 系统中，则这些可以并发执行的程序便可以分配到多个处理器上（CPU），实现多任务并行执行，即利用每个处理器来处理一个可以并发执行的程序，这样多个程序便可以同时执行。目前电脑市场上说的多核 CPU，便是多核处理器，核越多，**并行**处理的程序越多，能大大的提高电脑运行的效率。
 {: id="20210313082711-84bpy5o"}
 
-> 注意：**单核**处理器的计算机肯定是**不能并行**的处理多个任务的，只能是多个任务在单个CPU上并发运行。同理，线程也是一样的，从宏观角度上理解线程是并行运行的，但是从微观角度上分析却是串行运行的，即一个线程一个线程的去运行，当系统只有一个CPU时，线程会以某种顺序执行多个线程，我们把这种情况称之为线程调度。
+> 注意：**单核**处理器的计算机肯定是**不能并行**的处理多个任务的，只能是多个任务在单个CPU上并发运行。同理，线程也是一样的，从宏观角度上理解线程是并行运行的，但是从微观角度上分析却是串行运行的，即一个线程一个线程的去运行，当系统只有一个CPU时，线程会以某种顺序执行多个线程，我们把这种情况称之为**线程调度**{: style="background-color: rgb(255, 253, 56);"}。
 > {: id="20210313082711-b0dyvqx"}
 {: id="20210313082711-izghkpz"}
 
@@ -84,13 +84,14 @@
   {: id="20210313082711-dl18qhe"}
 * {: id="20210313082711-sktam4j"}**软件**：**1个或多个**应用程序+相关的素材和资源文件等构成一个软件系统。
   {: id="20210313082711-cys7rie"}
-* {: id="20210313082711-u1wdsww"}**进程**：是指一个内存中运行的应用程序，每个进程都有一个独立的内存空间，进程也是程序的一次执行过程，是系统运行程序的基本单位；系统运行一个程序即是一个进程从创建、运行到消亡的过程。
+* {: id="20210313082711-u1wdsww"}**进程**：是指一个内存中运行的应用程序，每个进程都有一个**独立的内存空间**{: style="background-color: rgb(255, 253, 56);"}，进程也是程序的一次执行过程，是**系统运行程序的基本单位**{: style="background-color: rgb(255, 253, 56);"}；系统运行一个程序即是一个进程从创建、运行到消亡的过程。
   {: id="20210313082711-4r08mup"}
-* {: id="20210313082711-ywgu611"}**线程**：线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中是可以有多个线程的，这个应用程序也可以称之为多线程程序。
+* {: id="20210313082711-ywgu611"}**线程**：线程是进程中的一个执行单元，负责当前进程中程序的执行，**一个进程中至少有一个线程**{: style="background-color: rgb(255, 253, 56);"}。一个进程中是可以有多个线程的，这个应用程序也可以称之为多线程程序。
   {: id="20210313082711-ivl0t0t"}
+
   简而言之：一个软件中至少有一个应用程序，应用程序的一次运行就是一个进程，一个进程中至少有一个线程。
   {: id="20210313082711-1bies7u"}
-* {: id="20210313082711-pxqdfsx"}面试题：进程是操作系统调度和分配资源的最小单位，线程是CPU调度的最小单位。不同的进程之间是不共享内存的。进程之间的数据交换和通信的成本是很高。不同的线程是共享同一个进程的内存的。当然不同的线程也有自己独立的内存空间。对于方法区，堆中中的同一个对象的内存，线程之间是可以共享的，但是栈的局部变量永远是独立的。
+* {: id="20210313082711-pxqdfsx"}面试题：进程是操作系统调度和分配资源的最小单位，**线程是CPU调度的最小单位**{: style="background-color: rgb(255, 253, 56);"}。不同的进程之间是不共享内存的。**进程之间的数据交换和通信的成本是很高**{: style="background-color: rgb(255, 253, 56);"}。不同的线程是共享同一个进程的内存的。当然不同的线程也有自己独立的内存空间。对于方法区，堆中中的同一个对象的内存，线程之间是可以共享的，但是栈的局部变量永远是独立的。
   {: id="20210313082711-x5g62gw"}
 {: id="20210313082711-0yct3rd"}
 
@@ -134,16 +135,21 @@
   {: id="20210313082711-307aovr"}
 - {: id="20210313082711-2eapy3f"}抢占式调度
   {: id="20210313082711-88ndzf1"}
+
   优先让优先级高的线程使用 CPU，如果线程的优先级相同，那么会随机选择一个(线程随机性)，Java使用的为抢占式调度。
   {: id="20210313082711-za0bpqb"}
+
   - {: id="20210313082711-ns8u4h5"}抢占式调度详解
     {: id="20210313082711-sdbpkls"}
   {: id="20210313082711-cgwaujy"}
+
   大部分操作系统都支持多进程并发运行，现在的操作系统几乎都支持同时运行多个程序。比如：现在我们上课一边使用编辑器，一边使用录屏软件，同时还开着画图板，dos窗口等软件。此时，这些程序是在同时运行，”感觉这些软件好像在同一时刻运行着“。
   {: id="20210313082711-44hvh9n"}
+
   实际上，CPU(中央处理器)使用抢占式调度模式在多个线程间进行着高速的切换。对于CPU的一个核而言，某个时刻，只能执行一个线程，而 CPU的在多个线程间切换速度相对我们的感觉要快，看上去就是在同一时刻运行。
   其实，多线程程序并不能提高程序的运行速度，但能够提高程序运行效率，让CPU的使用率更高。
   {: id="20210313082711-vqfczaw"}
+
   ![抢占式调度](imgs13/抢占式调度.bmp)
   {: id="20210313082711-ja1u5pk"}
 {: id="20210313082711-hugllka"}
@@ -347,6 +353,7 @@ public Thread(Runnable target,String name) :分配一个带有指定目标新的
   {: id="20210313082711-0m68p38"}
 * {: id="20210313082711-tdc1mrf"}public final void setPriority(int newPriority) ：改变线程的优先级
   {: id="20210313082711-syr4n6k"}
+
   * {: id="20210313082711-wr9832y"}每个线程都有一定的优先级，优先级高的线程将获得较多的执行机会。每个线程默认的优先级都与创建它的父线程具有相同的优先级。Thread类提供了setPriority(int newPriority)和getPriority()方法类设置和获取线程的优先级，其中setPriority方法需要一个整数，并且范围在[1,10]之间，通常推荐设置Thread类的三个优先级常量：
     {: id="20210313082711-1fv6qnu"}
   * {: id="20210313082711-272ud3z"}MAX_PRIORITY（10）：最高优先级
@@ -367,7 +374,7 @@ public Thread(Runnable target,String name) :分配一个带有指定目标新的
 		};
 		t.setPriority(Thread.MAX_PRIORITY);
 		t.start();
-		
+	
 		System.out.println(Thread.currentThread().getName() +"的优先级：" + Thread.currentThread().getPriority());
 	}
 ```
@@ -384,8 +391,10 @@ public Thread(Runnable target,String name) :分配一个带有指定目标新的
   {: id="20210313082711-1dtiibr"}
 * {: id="20210313082711-eohrhei"}void join() ：等待该线程终止。
   {: id="20210313082711-y9uy0bo"}
+
   void join(long millis) ：等待该线程终止的时间最长为 millis 毫秒。如果millis时间到，将不再等待。
   {: id="20210313082711-yg88i88"}
+
   void join(long millis, int nanos) ：等待该线程终止的时间最长为 millis 毫秒 + nanos 纳秒。
   {: id="20210313082711-zs84l53"}
 * {: id="20210313082711-z9sfaq1"}public final void stop()：强迫线程停止执行。 该方法具有固有的不安全性，已经标记为@Deprecated不建议再使用，那么我们就需要通过其他方式来停止线程了，其中一种方式是使用变量的值的变化来控制线程是否结束。
@@ -429,7 +438,7 @@ public class TestJoin {
 	public static void main(String[] args) {
 		ChatThread t = new ChatThread();
 		t.start();
-		
+	
 		for (int i = 1; i <= 10; i++) {
 			System.out.println("main:" + i);
 			try {
@@ -512,7 +521,7 @@ class Tortoise implements Runnable{
 			}
 		}
 	}
-	
+
 }
 
 
@@ -541,7 +550,7 @@ class Rabbit implements Runnable{
 			}
 		}
 	}
-	
+
 }
 ```
 {: id="20210313082711-nlz7z6x"}
@@ -665,7 +674,7 @@ public class TestThread {
 		Ticket t1 = new Ticket("窗口一");
 		Ticket t2 = new Ticket("窗口二");
 		Ticket t3 = new Ticket("窗口三");
-		
+	
 		t1.start();
 		t2.start();
 		t3.start();
@@ -765,12 +774,18 @@ class Ticket extends Thread{
     {: id="20210313082711-cx6v26v"}
   {: id="20210313082711-z2eyyyz"}
 
-  ​	锁对象 可以是任意类型。
+  ```
+  锁对象 可以是任意类型。
+  ```
+
   {: id="20210313082711-wkmdk0t"}
 
-  ​	多个线程对象  要使用同一把锁。
+  ```
+  多个线程对象  要使用同一把锁。
   注意:在任何时候,最多允许一个线程拥有同步锁,谁拿到锁就进入代码块,其他的线程只能在外等着(BLOCKED)。
   使用同步代码块解决代码：
+  ```
+
   {: id="20210313082711-y93hul5"}
 
   ```java
@@ -1089,6 +1104,7 @@ class PrintLetter implements Runnable{
   {: id="20210313082711-wz6lcbs"}
 * {: id="20210313082711-22iv2ap"}线程的协调工作问题：
   {: id="20210313082711-yj1dww5"}
+
   * {: id="20210313082711-lyvy607"}要解决该问题，就必须让生产者线程在缓冲区满时等待(wait)，暂停进入阻塞状态，等到下次消费者消耗了缓冲区中的数据的时候，通知(notify)正在等待的线程恢复到就绪状态，重新开始往缓冲区添加数据。同样，也可以让消费者线程在缓冲区空时进入等待(wait)，暂停进入阻塞状态，等到生产者往缓冲区添加数据之后，再通知(notify)正在等待的线程恢复到就绪状态。通过这样的通信机制来解决此类问题。
     {: id="20210313082711-izylmfm"}
   {: id="20210313082711-0wg1han"}
@@ -1108,7 +1124,7 @@ public class TestThread {
 		Workbench bench = new Workbench();
 		Cook c1 = new Cook("大拿",bench);
 		Waiter w1 = new Waiter("翠花",bench);
-		
+	
 		c1.start();
 		w1.start();
 	}
@@ -1156,7 +1172,7 @@ class Workbench {
 }
 class Waiter extends Thread{
 	private Workbench workbench;
-	
+
 	public Waiter(String name,Workbench workbench) {
 		super(name);
 		this.workbench = workbench;
@@ -1170,7 +1186,7 @@ class Waiter extends Thread{
 }
 class Cook extends Thread{
 	private Workbench workbench;
-	
+
 	public Cook(String name,Workbench workbench) {
 		super(name);
 		this.workbench = workbench;
@@ -1199,7 +1215,7 @@ public class TestThread {
 		Workbench bench = new Workbench();
 		Cook c1 = new Cook("大拿",bench);
 		Waiter w1 = new Waiter("翠花",bench);
-		
+	
 		c1.start();
 		w1.start();
 	}
@@ -1247,7 +1263,7 @@ class Workbench {
 }
 class Waiter extends Thread{
 	private Workbench workbench;
-	
+
 	public Waiter(String name,Workbench workbench) {
 		super(name);
 		this.workbench = workbench;
@@ -1261,7 +1277,7 @@ class Waiter extends Thread{
 }
 class Cook extends Thread{
 	private Workbench workbench;
-	
+
 	public Cook(String name,Workbench workbench) {
 		super(name);
 		this.workbench = workbench;
