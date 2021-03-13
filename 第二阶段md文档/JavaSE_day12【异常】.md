@@ -86,11 +86,13 @@ Java中把不同的异常用不同的类表示，一旦发生某种异常，就�
 
 * {: id="20210309181757-q53bzzw"}**Error**:严重错误Error，无法通过处理的错误，只能事先避免，好比绝症。
   {: id="20210309181757-0tqm49f"}
+
   * {: id="20210309181757-h7ma3xp"}例如：StackOverflowError和OOM（OutOfMemoryError）。
     {: id="20210309181757-vyijscx"}
   {: id="20210309181757-ll8krjm"}
 * {: id="20210309181757-af28o6l"}**Exception**:表示异常，其它因编程错误或偶然的外在因素导致的一般性问题，程序员可以通过代码的方式纠正，使程序继续运行，是必须要处理的。好比感冒、阑尾炎。
   {: id="20210309181757-wpkxsz3"}
+
   * {: id="20210309181757-6muoiwc"}例如：空指针访问、试图读取不存在的文件、网络连接中断、数组角标越界
     {: id="20210309181757-plppnuf"}
   {: id="20210309181757-f9yabrg"}
@@ -106,6 +108,7 @@ Java中把不同的异常用不同的类表示，一旦发生某种异常，就�
   {: id="20210309181757-r2n8jae"}
 * {: id="20210309181757-kw3r3jn"}`public String getMessage()`:获取发生异常的原因。
   {: id="20210309181757-aezz5fz"}
+
   *提示给用户的时候,就提示错误原因。*
   {: id="20210309181757-hc5sb9d"}
 {: id="20210309181757-edonqxc"}
@@ -149,7 +152,7 @@ Java中把不同的异常用不同的类表示，一旦发生某种异常，就�
 		//StackOverflowError
 		digui();
 	}
-	
+
 	public void digui(){
 		digui();
 	}
@@ -185,14 +188,14 @@ Java中把不同的异常用不同的类表示，一旦发生某种异常，就�
 		int[][] arr = new int[3][];
 		System.out.println(arr[0].length);
 	}
-	
+
 	@Test
 	public void test02(){
 		//ClassCastException
 		Person p = new Man();
 		Woman w = (Woman) p;
 	}
-	
+
 	@Test
 	public void test03(){
 		//ArrayIndexOutOfBoundsException
@@ -201,7 +204,7 @@ Java中把不同的异常用不同的类表示，一旦发生某种异常，就�
 			System.out.println(arr[i]);
 		}
 	}
-	
+
 	@Test
 	public void test04(){
 		//InputMismatchException
@@ -209,7 +212,7 @@ Java中把不同的异常用不同的类表示，一旦发生某种异常，就�
 		System.out.print("请输入一个整数：");
 		int num = input.nextInt();
 	}
-	
+
 	@Test
 	public void test05(){
 		int a = 1;
@@ -228,12 +231,12 @@ Java中把不同的异常用不同的类表示，一旦发生某种异常，就�
 	public void test06() throws InterruptedException{
 		Thread.sleep(1000);//休眠1秒
 	}
-	
+
 	@Test
 	public void test07() throws FileNotFoundException{
 		FileInputStream fis = new FileInputStream("Java学习秘籍.txt");
 	}
-	
+
 	@Test
 	public void test08() throws SQLException{
 		Connection conn = DriverManager.getConnection("....");
@@ -316,6 +319,7 @@ Java程序的执行过程中如出现异常，会生成一个异常类对象，�
    {: id="20210309181757-xpngdfw"}
 2. {: id="20210309181757-60xdfes"}需要将这个异常对象告知给调用者。怎么告知呢？怎么将这个异常对象传递到调用者处呢？通过关键字throw就可以完成。throw 异常对象。
    {: id="20210309181757-3jhkkfp"}
+
    throw**用在方法内**，用来抛出一个异常对象，将这个异常对象传递到调用者处，并**结束**当前方法的执行。
    {: id="20210309181757-yfogcmb"}
 {: id="20210309181757-02ch2kh"}
@@ -439,7 +443,7 @@ public class ThrowDemo {
 {: id="20210309181757-u9y7mli"}
 
 ~~~
-修饰符 返回值类型 方法名(参数) throws 异常类名1,异常类名2…{   }	
+修饰符 返回值类型 方法名(参数) throws 异常类名1,异常类名2…{   }
 ~~~
 {: id="20210309181757-8bh6t5s"}
 
@@ -454,7 +458,7 @@ public class TestException {
 	public static void main(String[] args) throws FileNotFoundException {
 		readFile("不敲代码学会Java秘籍.txt");
 	}
-	
+
 	// 如果定义功能时有问题发生需要报告给调用者。可以通过在方法上使用throws关键字进行声明
 	public static void readFile(String filePath) throws FileNotFoundException{
 		File file = new File(filePath);
@@ -462,7 +466,7 @@ public class TestException {
 			throw new FileNotFoundException(filePath+"文件不存在");
 		}
 	}
-	
+
 }
 ~~~
 {: id="20210309181757-2pdm44b"}
@@ -478,7 +482,7 @@ public class TestException {
 	public static void main(String[] args) throws FileNotFoundException,IllegalAccessException {
 		readFile("不敲代码学会Java秘籍.txt");
 	}
-	
+
 	// 如果定义功能时有问题发生需要报告给调用者。可以通过在方法上使用throws关键字进行声明
 	public static void readFile(String filePath) throws FileNotFoundException,IllegalAccessException{
 		File file = new File(filePath);
@@ -490,7 +494,7 @@ public class TestException {
 		}
 		//...
 	}
-	
+
 }
 ~~~
 {: id="20210309181757-ea2zetb"}
@@ -581,10 +585,10 @@ public class TestException {
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} 
-		
+	
 		System.out.println("继续学习吧...");
 	}
-	
+
 	// 如果定义功能时有问题发生需要报告给调用者。可以通过在方法上使用throws关键字进行声明
 	public static void readFile(String filePath) throws FileNotFoundException, IllegalAccessException{
 		File file = new File(filePath);
@@ -596,7 +600,7 @@ public class TestException {
 		}
 		//...
 	}
-	
+
 }
 ~~~
 {: id="20210309181757-sqblro7"}
@@ -613,7 +617,10 @@ Throwable类中定义了一些查看方法:
   {: id="20210309181757-2vbqgsj"}
 {: id="20210309181757-k1cozcc"}
 
-​            *包含了异常的类型,异常的原因,还包括异常出现的位置,在开发和调试阶段,都得使用printStackTrace。*
+```
+```
+
+*包含了异常的类型,异常的原因,还包括异常出现的位置,在开发和调试阶段,都得使用printStackTrace。*
 {: id="20210309181757-zm8ya7r"}
 
 ### 8.5.4 finally块
@@ -633,16 +640,16 @@ finally的语法:
 
 ```java
  try{
-     
+   
  }catch(...){
-     
+   
  }finally{
      无论try中是否发生异常，也无论catch是否捕获异常，也不管try和catch中是否有return语句，都一定会执行
  }
  
  或
   try{
-     
+   
  }finally{
      无论try中是否发生异常，也不管try中是否有return语句，都一定会执行
  } 
@@ -670,13 +677,13 @@ public class TestException {
 		readFile("不敲代码学会Java秘籍.txt");
 		System.out.println("继续学习吧...");
 	}
-	
+
 	// 如果定义功能时有问题发生需要报告给调用者。可以通过在方法上使用throws关键字进行声明
 	public static void readFile(String filePath) {
 		File file = new File(filePath);
 		FileInputStream fis = null;
 		try {
-			
+		
 			if(!file.exists()){
 				throw new FileNotFoundException(filePath+"文件不存在");
 			}
@@ -699,7 +706,7 @@ public class TestException {
 				throw new RuntimeException(e);
 			}
 		}
-		
+	
 	}
 }
 ```
@@ -818,7 +825,7 @@ public class TestReturn {
   ```
   {: id="20210309181757-vsbaipc"}
 
-  > 注意:这种异常处理方式，要求多个catch中的异常不能相同，并且若catch中的多个异常之间有子父类异常的关系，那么子类异常要求在上面的catch处理，父类异常在下面的catch处理。
+  > 注意:这种异常处理方式，要求多个catch中的异常不能相同，并且若catch中的多个异常之间有子父类异常的关系，那么**子类异常要求在上面的catch处理**{: style="background-color: rgb(255, 253, 56);"}，父类异常在下面的catch处理。
   > {: id="20210309181757-ddpd0vm"}
   >
   {: id="20210309181757-ppckv8l"}
@@ -887,7 +894,7 @@ public class Demo {
     // 模拟数据库中已存在账号
     private static String[] names = {"bill","hill","jill"};
    
-    public static void main(String[] args) {     
+    public static void main(String[] args) {   
         //调用方法
         try{
               // 可能出现异常的代码
