@@ -69,7 +69,7 @@ Java 语言提供对字符串串联符号（"+"）以及将其他对象转换为
 String str = "abc";
 
 相当于： 
-char data[] = {'a', 'b', 'c'};     
+char data[] = {'a', 'b', 'c'};   
 String str = new String(data);
 // String底层是靠字符数组实现的。
 ```
@@ -138,12 +138,12 @@ String str1 = new String（）；
 String str2 = new String("hello");
 
 //通过字符数组构造
-char chars[] = {'a', 'b', 'c','d','e'};     
+char chars[] = {'a', 'b', 'c','d','e'};   
 String str3 = new String(chars);
 String str4 = new String(chars,0,3);
 
 // 通过字节数组构造
-byte bytes[] = {97, 98, 99 };     
+byte bytes[] = {97, 98, 99 };   
 String str5 = new String(bytes);
 String str6 = new String(bytes,"GBK");
 ```
@@ -152,7 +152,7 @@ String str6 = new String(bytes,"GBK");
 #### 2、使用静态方法
 {: id="20210313082711-cj8pm29"}
 
-* {: id="20210313082711-yzmcrch"}static String copyValueOf(char[] data)： 返回指定数组中表示该字符序列的 String
+* {: id="20210313082711-yzmcrch"}static String **copyValueOf**{: style="color: rgb(252, 13, 27);"}(char[] data)： 返回指定数组中表示该字符序列的 String
   {: id="20210313082711-lv1da4c"}
 * {: id="20210313082711-k5rqfin"}static String copyValueOf(char[] data, int offset, int count)：返回指定数组中表示该字符序列的 String
   {: id="20210313082711-2wbaik0"}
@@ -189,7 +189,7 @@ String str6 = new String(bytes,"GBK");
 		int num = 123456;
 		String s = num + "";
 		System.out.println(s);
-		
+	
 		Student stu = new Student();
 		String s2 = stu + "";//自动调用对象的toString()，然后与""进行拼接
 		System.out.println(s2);
@@ -268,39 +268,39 @@ String s = new String(arr,0,3);
 		String s1 = "hello";
 		String s2 = "world";
 		String s3 = "helloworld";
-		
+	
 		String s4 = (s1 + "world").intern();//把拼接的结果放到常量池中
 		String s5 = (s1 + s2).intern();
-		
+	
 		System.out.println(s3 == s4);//true
 		System.out.println(s3 == s5);//true
 	}
-	
+
 	@Test
 	public void test05(){
 		final String s1 = "hello";
 		final String s2 = "world";
 		String s3 = "helloworld";
-		
+	
 		String s4 = s1 + "world";//s4字符串内容也helloworld，s1是常量，"world"常量，常量+ 常量 结果在常量池中
 		String s5 = s1 + s2;//s5字符串内容也helloworld，s1和s2都是常量，常量+ 常量 结果在常量池中
 		String s6 = "hello" + "world";//常量+ 常量 结果在常量池中，因为编译期间就可以确定结果
-		
+	
 		System.out.println(s3 == s4);//true
 		System.out.println(s3 == s5);//true
 		System.out.println(s3 == s6);//true
 	}
-	
+
 	@Test
 	public void test04(){
 		String s1 = "hello";
 		String s2 = "world";
 		String s3 = "helloworld";
-		
+	
 		String s4 = s1 + "world";//s4字符串内容也helloworld，s1是变量，"world"常量，变量 + 常量的结果在堆中
 		String s5 = s1 + s2;//s5字符串内容也helloworld，s1和s2都是变量，变量 + 变量的结果在堆中
 		String s6 = "hello" + "world";//常量+ 常量 结果在常量池中，因为编译期间就可以确定结果
-		
+	
 		System.out.println(s3 == s4);//false
 		System.out.println(s3 == s5);//false
 		System.out.println(s3 == s6);//true
@@ -353,10 +353,10 @@ public class TestString {
 		String str = "hello";
 		String str2 = "world";
 		String str3 ="helloworld";
-		
+	
 		String str4 = "hello".concat("world");
 		String str5 = "hello"+"world";
-		
+	
 		System.out.println(str3 == str4);//false
 		System.out.println(str3 == str5);//true
 	}
@@ -382,7 +382,7 @@ public class TestString {
 String str1 = "hello";
 String str2 = "hello";
 System.out.println(str1 == str2);//true
-    
+  
 String str3 = new String("hello");
 String str4 = new String("hello");
 System.out.println(str1 == str4); //false
@@ -400,7 +400,7 @@ System.out.println(str3 == str4); //false
 String str1 = "hello";
 String str2 = "hello";
 System.out.println(str1.equals(str2));//true
-    
+  
 String str3 = new String("hello");
 String str4 = new String("hello");
 System.out.println(str1.equals(str3));//true
@@ -544,7 +544,7 @@ if(str!=null && str.length()==0)
 		Scanner input = new Scanner(System.in);
 		System.out.print("请输入验证码：");
 		String inputCode = input.nextLine();
-		
+	
 		if(!code.equalsIgnoreCase(inputCode)){
 			System.out.println("验证码输入不正确");
 		}
@@ -642,7 +642,7 @@ if(str!=null && str.length()==0)
 		str = new String(array);
 		System.out.println(str);
 	}
-	
+
 	@Test
 	public void test02(){
 		//将首字母转为大写
@@ -659,13 +659,19 @@ if(str!=null && str.length()==0)
 （24）byte[] getBytes()：编码，把字符串变为字节数组，按照平台默认的字符编码进行编码
 {: id="20210313082711-h6qr6ab"}
 
-​	byte[] getBytes(字符编码方式)：按照指定的编码方式进行编码
+```
+byte[] getBytes(字符编码方式)：按照指定的编码方式进行编码
+```
+
 {: id="20210313082711-bvye8n7"}
 
 （25）new String(byte[] ) 或 new String(byte[], int, int)：解码，按照平台默认的字符编码进行解码
 {: id="20210313082711-i3du7s8"}
 
-​           new String(byte[]，字符编码方式 ) 或 new String(byte[], int, int，字符编码方式)：解码，按照指定的编码方式进行解码
+```
+new String(byte[]，字符编码方式 ) 或 new String(byte[], int, int，字符编码方式)：解码，按照指定的编码方式进行解码
+```
+
 {: id="20210313082711-b0bzk9h"}
 
 ```java
@@ -802,7 +808,7 @@ Unicode符号范围         | UTF-8编码方式
 		String name = "张三";
 		System.out.println(name.startsWith("张"));
 	}
-	
+
 	@Test
 	public void test(){
 		String file = "Hello.txt";
@@ -957,18 +963,18 @@ Unicode符号范围         | UTF-8编码方式
 	public void test1(){
 		//简单判断是否全部是数字，这个数字可以是1~n位
 		String str = "12a345";
-		
+	
 		//正则不是Java的语法，它是独立与Java的规则
 		//在正则中\是表示转义，
 		//同时在Java中\也是转义
 		boolean flag = str.matches("\\d+");
 		System.out.println(flag);
 	}
-	
+
 	@Test
 	public void test2(){
 		String str = "123456789";
-		
+	
 		//判断它是否全部由数字组成，并且第1位不能是0，长度为9位
 		//第一位不能是0，那么数字[1-9]
 		//接下来8位的数字，那么[0-9]{8}+
@@ -1051,7 +1057,7 @@ Unicode符号范围         | UTF-8编码方式
 		String str = "张三.23|李四.24|王五.25";
 		//|在正则中是有特殊意义，我这里要把它当做普通的|
 		String[] all = str.split("\\|");
-		
+	
 		//转成一个一个学生对象
 		Student[] students = new Student[all.length];
 		for (int i = 0; i < students.length; i++) {
@@ -1061,13 +1067,13 @@ Unicode符号范围         | UTF-8编码方式
 			int age = Integer.parseInt(strings[1]);
 			students[i] = new Student(name,age);
 		}
-		
+	
 		for (int i = 0; i < students.length; i++) {
 			System.out.println(students[i]);
 		}
-		
-	}
 	
+	}
+
 	@Test
 	public void test3(){
 		String str = "1Hello2World3java4atguigu5";
@@ -1077,7 +1083,7 @@ Unicode符号范围         | UTF-8编码方式
 			System.out.println(all[i]);
 		}
 	}
-	
+
 	@Test
 	public void test2(){
 		String str = "1Hello2World3java4atguigu";
@@ -1088,8 +1094,8 @@ Unicode符号范围         | UTF-8编码方式
 			System.out.println(all[i]);
 		}
 	}
-	
-	
+
+
 	@Test
 	public void test1(){
 		String str = "Hello World java atguigu";
@@ -1149,13 +1155,22 @@ StringBuffer deleteCharAt(int index)：删除[index]位置字符
 （8）int indexOf(String str)：在当前字符序列中查询str的第一次出现下标
 {: id="20210313082711-xsjpwhn"}
 
-​          int indexOf(String str, int fromIndex)：在当前字符序列[fromIndex,最后]中查询str的第一次出现下标
+```
+int indexOf(String str, int fromIndex)：在当前字符序列[fromIndex,最后]中查询str的第一次出现下标
+```
+
 {: id="20210313082711-p3oeiqz"}
 
-​         int lastIndexOf(String str)：在当前字符序列中查询str的最后一次出现下标
+```
+int lastIndexOf(String str)：在当前字符序列中查询str的最后一次出现下标
+```
+
 {: id="20210313082711-9friwlf"}
 
-​         int lastIndexOf(String str, int fromIndex)：在当前字符序列[fromIndex,最后]中查询str的最后一次出现下标
+```
+int lastIndexOf(String str, int fromIndex)：在当前字符序列[fromIndex,最后]中查询str的最后一次出现下标
+```
+
 {: id="20210313082711-i3vipph"}
 
 （9）String substring(int start)：截取当前字符序列[start,最后]
@@ -1180,15 +1195,15 @@ StringBuffer deleteCharAt(int index)：删除[index]位置字符
 		s.setCharAt(2, 'a');
 		System.out.println(s);
 	}
-	
-	
+
+
 	@Test
 	public void test4(){
 		StringBuilder s = new StringBuilder("helloworld");
 		s.reverse();
 		System.out.println(s);
 	}
-	
+
 	@Test
 	public void test3(){
 		StringBuilder s = new StringBuilder("helloworld");
@@ -1196,8 +1211,8 @@ StringBuffer deleteCharAt(int index)：删除[index]位置字符
 		s.deleteCharAt(4);
 		System.out.println(s);
 	}
-	
-	
+
+
 	@Test
 	public void test2(){
 		StringBuilder s = new StringBuilder("helloworld");
@@ -1205,7 +1220,7 @@ StringBuffer deleteCharAt(int index)：删除[index]位置字符
 		s.insert(5, "chailinyan");
 		System.out.println(s);
 	}
-	
+
 	@Test
 	public void test1(){
 		StringBuilder s = new StringBuilder();
@@ -1238,7 +1253,7 @@ public class TestTime {
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("String拼接+用时："+(end-start));//444
-		
+	
 		long memory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
         System.out.println("String拼接+memory占用内存: " + memory);//53185144字节
 	}
@@ -1282,11 +1297,13 @@ public class TestTime {
 
 <img src="imgs15/1563201668749.png" alt="1563201668749" style="zoom:200%;" />
 
+{: id="20210316151939-c8bqcmo"}
+
 ```java
 class TEXT{
 	public int num;
 	public String str;
-	
+
 	public TEXT(int num, String str){
 		this.num = num;
 		this.str = str;
@@ -1308,9 +1325,9 @@ public class Class4 {
 		int intIn = 100;
 		Integer integerIn = 100;
 		String strIn = "abc";
-		
+	
 		f1(tIn,intIn,integerIn,strIn);
-		
+	
 		System.out.println(tIn.num + tIn.str + intIn + integerIn + strIn);
 		//200 + bcd + 100 + 100 + abc
 	}
@@ -1367,14 +1384,14 @@ public class Class4 {
 public class TestExer1 {
 	public static void main(String[] args) {
 		String str = "abcd12345cd125se123456789";
-		
+	
 		//去掉最前和最后的字母
 		str =	str.replaceAll("^[a-zA-Z]+", "");
-		
+	
 		//[a-zA-Z]：表示字母范围
 		//+：一次或多次
 		String[] strings = str.split("[a-zA-Z]+");
-		
+	
 		String max = "";
 		for (String string : strings) {
 			if(string.length() > max.length()) {
@@ -1400,13 +1417,13 @@ public class TestExer1 {
 		System.out.println(myTrim2(str));
 		System.out.println(myTrim3(str));
 	}
-	
+
 	public static String myTrim3(String str){
 		//利用正则表达式
 		//^表示开头    \s表示  空白符   *表示0次或多次     |表示或者    $表示结尾
 		return str.replaceAll("(^\\s*)|(\\s*$)", "");
 	}
-	
+
 	public static String myTrim2(String str){
 		while(str.startsWith(" ")){
 			str = str.replaceFirst(" ", "");
@@ -1416,7 +1433,7 @@ public class TestExer1 {
 		}
 		return str;
 	}
-	
+
 	public static String myTrim(String str){
 		char[] array = str.toCharArray();
 		int start =0;
@@ -1435,9 +1452,9 @@ public class TestExer1 {
 				break;
 			}
 		}
-		
+	
 		String result = str.substring(start,end+1);
-		
+	
 		return result;
 	}
 ```
@@ -1456,7 +1473,7 @@ public class TestExer1 {
 		System.out.println(reverse(str,2,5));
 
 	}
-	
+
 	//从第start个字符，到第end个字符
 	public static String reverse(String str,int start,int end){
 		char[] array = str.toCharArray();
@@ -1485,7 +1502,10 @@ public class TestExer1 {
 获取一个字符串在另一个字符串中出现的次数。
 {: id="20210313082711-9ttlc0e"}
 
-​     比如：获取"ab"在 “abababkkcadkabkebfkabkskab”中出现的次数
+```
+比如：获取"ab"在 “abababkkcadkabkebfkabkskab”中出现的次数
+```
+
 {: id="20210313082711-1ps7tzg"}
 
 ```java
@@ -1494,7 +1514,7 @@ public class TestExer1 {
 		String str2="abababkkcadkabkebfkabkskab";
 		System.out.println(count(str1,str2));
 	}
-	
+
 	public static int count(String str1,String str2){
 		int count =0;
 		do{
@@ -1505,7 +1525,7 @@ public class TestExer1 {
 			}else{
 				break;
 			}
-			
+		
 		}while(true);
 		return count;
 	}
@@ -1529,14 +1549,14 @@ public class TestExer1 {
 		String str=findMaxSubString("abcwerthelloyuiodef","cvhellobnm");
 		System.out.println(str);
 	}
-	
+
 	//提示：将短的那个串进行长度依次递减的子串与较长的串比较。
 	public static String findMaxSubString(String str1,String str2){
 		String result="";
-		
+	
 		String mixStr = str1.length()<str2.length()?str1:str2;
 		String maxStr = str1.length()>str2.length()?str1:str2;
-		
+	
 		//外循环控制从左到右的下标，内循环控制从右到左的下标
 		for(int i=0;i<mixStr.length();i++){
 			for(int j=mixStr.length();j>=i;j--){
@@ -1608,14 +1628,14 @@ public static String replace(String text, String target, String replace){
 ```java
 	public static void main(String[] args) {
 		String str = "aabbyolhljlhlxxmnbwyteuhfhjloiqqbhrg";
-		
+	
 		//统计每个字母的次数
 		int[] counts = new int[26];
 		char[] letters = str.toCharArray();
 		for (int i = 0; i < letters.length; i++) {
 			counts[letters[i]-97]++;
 		}
-		
+	
 		//找出最多次数值
 		int max = counts[0];
 		for (int i = 1; i < counts.length; i++) {
@@ -1653,24 +1673,24 @@ public static String replace(String text, String target, String replace){
 	public static void main(String[] args) {
 		String date1Start = "201401";
 		String date1End = "201406";
-		
+	
 		String date2Start = "201403";
 		String date2End = "201409";
-		
+	
 		int date1StartMonth = Integer.parseInt(date1Start.substring(4));
 		int date1EndMonth = Integer.parseInt(date1End.substring(4));
-		
+	
 		int date2StartMonth = Integer.parseInt(date2Start.substring(4));
 		int date2EndMonth = Integer.parseInt(date2End.substring(4));
-		
+	
 		int start = date1StartMonth >= date2StartMonth ? date1StartMonth : date2StartMonth;
 		int end = date1EndMonth <= date2EndMonth ? date1EndMonth : date2EndMonth;
         System.out.println("重叠月份数："+(end-start+1));
-        
+      
 		System.out.println("重叠的月份有：");
 		for (int i = start; i <= end; i++) {
 			System.out.println(i);
-		}        
+		}      
 	}
 ```
 {: id="20210313082711-qua4fhk"}
@@ -1682,15 +1702,15 @@ public static String replace(String text, String target, String replace){
 	public static void main(String[] args) {
 		String date1Start = "201401";
 		String date1End = "201506";
-		
+	
 		String date2Start = "201403";
 		String date2End = "201505";
-		
+	
 		String date1 = handleDate(date1Start,date1End);
 		String date2 = handleDate(date2Start,date2End);
 		System.out.println(date1);
 		System.out.println(date2);
-		
+	
 		String sameDate = findMaxSubString(date1,date2);
 
 		System.out.println("重叠的月份数：" + sameDate.length()/6);
@@ -1701,16 +1721,16 @@ public static String replace(String text, String target, String replace){
 				System.out.println(sameMonth);
 				sameDate = sameDate.substring(6);
 			}
-			
+		
 		}
 	}
-	
+
 	public static String findMaxSubString(String str1,String str2){
 		String result="";
-		
+	
 		String mixStr = str1.length()<str2.length()?str1:str2;
 		String maxStr = str1.length()>str2.length()?str1:str2;
-		
+	
 		//外循环控制从左到右的下标，内循环控制从右到左的下标
 		for(int i=0;i<mixStr.length();i++){
 			for(int j=mixStr.length();j>=i;j--){
@@ -1725,13 +1745,13 @@ public static String replace(String text, String target, String replace){
 		}
 		return result;
 	}
-	
+
 	public static String handleDate(String dateStart, String dateEnd) {
 		int dateStartYear = Integer.parseInt(dateStart.substring(0,4));
 		int dateEndYear = Integer.parseInt(dateEnd.substring(0,4));
 		int dateStartMonth = Integer.parseInt(dateStart.substring(4));
 		int dateEndMonth = Integer.parseInt(dateEnd.substring(4));
-		
+	
 		String date = "";
 		if(dateStartYear == dateEndYear) {//一年之内
 			for (int i = dateStartMonth; i <=dateEndMonth; i++) {
