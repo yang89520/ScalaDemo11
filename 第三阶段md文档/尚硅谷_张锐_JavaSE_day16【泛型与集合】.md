@@ -103,7 +103,7 @@ class Circle{
 	public String toString() {
 		return "Circle [radius=" + radius + "]";
 	}
-	
+
 }
 ```
 {: id="20210313082711-wf350di"}
@@ -123,7 +123,7 @@ public class CircleComparator implements Comparator{
 		Circle c2 = (Circle) o2;
 		return Double.compare(c1.getRadius(), c2.getRadius());
 	}
-	
+
 }
 ```
 {: id="20210313082711-ryt2a3c"}
@@ -136,7 +136,7 @@ public class TestGeneric {
 	public static void main(String[] args) {
 		CircleComparator com = new CircleComparator();
 		System.out.println(com.compare(new Circle(1), new Circle(2)));
-		
+	
 		System.out.println(com.compare("圆1", "圆2"));//运行时异常：ClassCastException
 	}
 }
@@ -157,7 +157,7 @@ class CircleComparator implements Comparator<Circle>{
 		//不再需要强制类型转换，代码更简洁
 		return Double.compare(o1.getRadius(), o2.getRadius());
 	}
-	
+
 }
 ```
 {: id="20210313082711-i1bsq1h"}
@@ -172,7 +172,7 @@ public class TestGeneric {
 	public static void main(String[] args) {
 		CircleComparator com = new CircleComparator();
 		System.out.println(com.compare(new Circle(1), new Circle(2)));
-		
+	
 //		System.out.println(com.compare("圆1", "圆2"));//编译错误，因为"圆1", "圆2"不是Circle类型，编译器提前报错，而不是冒着风险在运行时再报错
 	}
 }
@@ -200,10 +200,10 @@ public class TestGeneric {
 
 ```java
 【修饰符】 class 类名<类型变量列表>{
-    
+  
 }
 【修饰符】 interface 接口名<类型变量列表>{
-    
+  
 }
 ```
 {: id="20210313082711-k3b9ehd"}
@@ -227,7 +227,7 @@ public class TestGeneric {
 public class Student<T>{
 	private String name;
 	private T score;
-	
+
 	public Student() {
 		super();
 	}
@@ -273,14 +273,14 @@ public class TestGeneric{
 	public static void main(String[] args) {
 		//语文老师使用时：
 		Student<String> stu1 = new Student<String>("张三", "良好");
-        
+      
 		//数学老师使用时：
         //Student<double> stu2 = new Student<double>("张三", 90.5);//错误，必须是引用数据类型
 		Student<Double> stu2 = new Student<Double>("张三", 90.5);
-        
+      
 		//英语老师使用时：
 		Student<Character> stu3 = new Student<Character>("张三", 'C');
-        
+      
         //错误的指定
         //Student<Object> stu = new Student<String>();//错误的
 	}
@@ -308,7 +308,7 @@ class ChineseStudent extends Student<String>{
 	public ChineseStudent(String name, String score) {
 		super(name, score);
 	}
-	
+
 }
 ```
 {: id="20210313082711-n5db9f2"}
@@ -345,12 +345,12 @@ class Circle implements Comparable<Circle>{
 	public String toString() {
 		return "Circle [radius=" + radius + "]";
 	}
-    
+  
     @Override
     public int compareTo(Circle c){
         return Double.compare(radius,c.radius);
     }
-	
+
 }
 ```
 {: id="20210313082711-tasb89s"}
@@ -427,7 +427,7 @@ class SumTools<T extends Number & Comparable<T>>{
 		SumTools<Integer> s = new SumTools<Integer>(1,2);
 		Integer sum = s.getSum();
 		System.out.println(sum);
-		
+	
 //		SumTools<String> s = new SumTools<String>("1","2");//错误，因为String类型不是extends Number
 	}
 ```
@@ -463,7 +463,7 @@ public class CircleComparator implements Comparator{
 		Circle c2 = (Circle) o2;
 		return Double.compare(c1.getRadius(), c2.getRadius());
 	}
-	
+
 }
 ```
 {: id="20210313082711-3bcgd4y"}
@@ -484,7 +484,7 @@ public class TestExer1 {
 	public static void main(String[] args) {
 		Coordinate<String> c1 = new Coordinate<>("北纬38.6", "东经36.8");
 		System.out.println(c1);
-		
+	
 //		Coordinate<Double> c2 = new Coordinate<>(38.6, 38);//自动装箱与拆箱只能与对应的类型 38是int，自动装为Integer
 		Coordinate<Double> c2 = new Coordinate<>(38.6, 36.8);
 		System.out.println(c2);
@@ -517,7 +517,7 @@ class Coordinate<T>{
 	public String toString() {
 		return "Coordinate [x=" + x + ", y=" + y + "]";
 	}
-	
+
 }
 ```
 {: id="20210313082711-0swfgdp"}
@@ -539,7 +539,7 @@ public class TestExer3 {
 	public static void main(String[] args) {
 		Person<Demon> xu = new Person<Demon>("许仙",new Demon("白娘子"));
 		System.out.println(xu);
-		
+	
 		Person<Person> xie = new Person<Person>("谢学建",new Person("徐余龙"));
 		Person fere = xie.getFere();
 		fere.setFere(xie);
@@ -624,21 +624,21 @@ public class TestExer3 {
 		arr[0] = new Employee("Irene", 18000, 18);
 		arr[1] = new Employee("Jack", 14000, 28);
 		arr[2] = new Employee("Alice", 14000, 24);
-		
+	
 		Arrays.sort(arr);
-		
+	
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
 	}
-	
+
 	@Test
 	public void test02() {
 		Employee[] arr = new Employee[3];
 		arr[0] = new Employee("Irene", 18000, 18);
 		arr[1] = new Employee("Jack", 14000, 28);
 		arr[2] = new Employee("Alice", 14000, 24);
-		
+	
 		//Arrays.sort(T[] arr,Comparator<T> c)
 		Arrays.sort(arr, new Comparator<Employee>() {
 
@@ -650,9 +650,9 @@ public class TestExer3 {
 				}
 				return o1.getName().compareTo(o2.getName());
 			}
-			
-		});
 		
+		});
+	
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
@@ -693,7 +693,7 @@ class Employee implements Comparable<Employee>{
 	public String toString() {
 		return "Employee [name=" + name + ", salary=" + salary + ", age=" + age + "]";
 	}
-	
+
 	//重写抽象方法，按照薪资比较大小，薪资相同的按照姓名的自然顺序比较大小。
 	@Override
 	public int compareTo(Employee o) {
@@ -702,7 +702,7 @@ class Employee implements Comparable<Employee>{
 		}
 		return this.name.compareTo(o.name);//name是String类型，有compareTo方法
 	}
-	
+
 }
 ```
 {: id="20210313082711-g91ex7x"}
@@ -769,11 +769,11 @@ public class TestGeneric{
 	public static void main(String[] args) {
 		int[] arr = {3,2,5,1,4};
 //		MyArrays.sort(arr);//错误的，因为int[]不是对象数组
-		
+	
 		String[] strings = {"hello","java","chai"};
 		MyArrays.sort(strings);
 		System.out.println(Arrays.toString(strings));
-		
+	
 		Circle[] circles = {new Circle(2.0),new Circle(1.2),new Circle(3.0)};
 		MyArrays.sort(circles);
 		System.out.println(Arrays.toString(circles));
@@ -798,7 +798,7 @@ public class TestGeneric{
 public class Student<T>{
 	private String name;
 	private T score;
-	
+
 	public Student() {
 		super();
 	}
@@ -913,7 +913,7 @@ public class TestGeneric {
 		arr[0] = new Student<Double>("张三", 90.5);
 		arr[1] = new Student<Double>("李四", 80.5);
 		arr[2] = new Student<Double>("王五", 94.5);
-		
+	
 		Student<? extends Comparable> max = StudentService.max(arr);
 		System.out.println(max);
 	}
@@ -1003,7 +1003,7 @@ class Student extends Person{
 	public String toString() {
 		return super.toString() + ",score=" + score;
 	}
-	
+
 }
 ```
 {: id="20210313082711-loh7v9v"}
@@ -1018,7 +1018,7 @@ public class TestGeneric {
 		all[0] = new Student("张三", 23, 89);
 		all[1] = new Student("李四", 22, 99);
 		all[2] = new Student("王五", 25, 67);
-		
+	
 		MyArrays.sort(all, new Comparator<Person>() {
 
 			@Override
@@ -1026,9 +1026,9 @@ public class TestGeneric {
 				return o1.getAge() - o2.getAge();
 			}
 		});
-		
+	
 		System.out.println(Arrays.toString(all));
-		
+	
 		MyArrays.sort(all, new Comparator<Student>() {
 
 			@Override
@@ -1047,6 +1047,8 @@ public class TestGeneric {
 
 <?>：不可变，因为<?>类型不确定，编译时，任意类型都是错
 
+{: id="20210317092524-8vrwiet"}
+
 <? extends 上限>：不可变，因为<? extends 上限>的?可能是上限或上限的子类，即类型不确定，编译按任意类型处理都是错。
 
 <? super 下限>：可以将值修改为下限或下限子类的对象，因为<? super 下限>?代表是下限或下限的父类，那么设置为下限或下限子类的对象是安全的。
@@ -1056,13 +1058,15 @@ public class TestGeneric {
 	public static void main(String[] args) {
 		Student<?> stu1 = new Student<>();
 
+{: id="20210317092524-5n7sysn"}
+
 ```
 	stu1.setScore(null);//除了null，无法设置为其他值
-	
-	
+
+
 	Student<? extends Number> stu2 = new Student<>();
 	stu2.setScore(null);//除了null，无法设置为其他值
-	
+
 	Student<? super Number> stu3 = new Student<>();
 	stu3.setScore(56);//可以设置Number或其子类的对象
 }
@@ -1135,7 +1139,7 @@ public class MyArrays {
 		}
 		return -1;
 	}
-	
+
 	//可以在任意类型的对象数组中，查找最大值，要求元素必须实现Comparable接口
 	public static <T extends Comparable<? super T>> T max(T[] arr) {
 		T max = arr[0];
@@ -1146,7 +1150,7 @@ public class MyArrays {
 		}
 		return max;
 	}
-	
+
 	//可以在任意类型的对象数组中，查找最大值，按照指定定制比较器来比较元素大小
 	public static <T> T max(T[] arr, Comparator<? super T> c) {
 		T max = arr[0];
@@ -1157,7 +1161,7 @@ public class MyArrays {
 		}
 		return max;
 	}
-	
+
 	//可以给任意对象数组进行从小到大排序，要求数组元素类型必须实现Comparable接口
 	public static <T extends Comparable<? super T>> void sort(T[] arr) {
 		for (int i = 0; i < arr.length-1; i++) {
@@ -1174,7 +1178,7 @@ public class MyArrays {
 			}
 		}
 	}
-	
+
 	//可以给任意对象数组进行从小到大排序，只要你指定定制比较器对象，不要求数组元素实现Comparable接口
 	public static <T> void sort(T[] arr, Comparator<? super T> c) {
 		for (int i = 0; i < arr.length-1; i++) {
@@ -1191,7 +1195,7 @@ public class MyArrays {
 			}
 		}
 	}
-	
+
 	//可以将任意对象数组的元素拼接为一个字符串返回
 	public static <T> String toString(T[] arr) {
 		String str = "[";
@@ -1309,7 +1313,7 @@ public class Demo1Collection {
     	//boolean remove(E e) 删除在集合中的o元素
     	System.out.println("删除石破天："+coll.remove("石破天"));
     	System.out.println("操作之后集合中元素:"+coll);
-    	
+  
     	// size() 集合中有几个元素
 		System.out.println("集合中有"+coll.size()+"个元素");
 
@@ -1324,7 +1328,7 @@ public class Demo1Collection {
 		coll.clear();
 		System.out.println("集合中内容为："+coll);
 		// boolean  isEmpty()  判断是否为空
-		System.out.println(coll.isEmpty());  	
+		System.out.println(coll.isEmpty());  
 	}
 }
 ~~~
@@ -1336,14 +1340,14 @@ public class Demo1Collection {
 		Collection coll = new ArrayList();
 		coll.add(1);
 		coll.add(2);
-		
+	
 		System.out.println("coll集合元素的个数：" + coll.size());
-		
+	
 		Collection other = new ArrayList();
 		other.add(1);
 		other.add(2);
 		other.add(3);
-		
+	
 		coll.addAll(other);
 //		coll.add(other);
 		System.out.println("coll集合元素的个数：" + coll.size());
@@ -1368,12 +1372,12 @@ public class Demo1Collection {
 		coll.add(4);
 		coll.add(5);
 		System.out.println("coll集合元素的个数：" + coll.size());//5
-		
+	
 		Collection other = new ArrayList();
 		other.add(1);
 		other.add(2);
 		other.add(8);
-		
+	
 		coll.retainAll(other);//保留交集
 		System.out.println("coll集合元素的个数：" + coll.size());//2
 	}
@@ -1463,7 +1467,10 @@ Iterator迭代器对象在遍历集合时，内部采用指针的方式来跟踪
 java.util.Iterator迭代器中有一个方法：
 {: id="20210313082711-fyuerza"}
 
-​	void remove() ;
+```
+void remove() ;
+```
+
 {: id="20210313082711-gl313e0"}
 
 那么，既然Collection已经有remove(xx)方法了，为什么Iterator迭代器还要提供删除方法呢？
@@ -1483,21 +1490,21 @@ java.util.Iterator迭代器中有一个方法：
 		coll.add(2);
 		coll.add(3);
 		coll.add(4);
-		
+
 //		coll.remove(?)//无法编写
-		
+
 		Iterator<Integer> iterator = coll.iterator();
 		while(iterator.hasNext()){
 			Integer element = iterator.next();
 			if(element%2 == 0){
-//				coll.remove(element);//错误的
-				iterator.remove();
+//				coll.remove(element);//错误的 集合移除iter.next()会找不到对象
+				iterator.remove();// 迭代器移除会考虑next()的操作
 			}
 		}
 		System.out.println(coll);
 	}
 ```
-{: id="20210313082711-8iuz1ku"}
+{: id="20210313082711-8iuz1ku" updated="20210317112442"}
 
 > 注意：不要在使用Iterator迭代器进行迭代时，调用Collection的remove(xx)方法，否则会报异常java.util.ConcurrentModificationException，或出现不确定行为。
 > {: id="20210313082711-9xemmsw"}
@@ -1546,7 +1553,7 @@ public class NBForDemo1 {
 
 ~~~java
 public class NBFor {
-    public static void main(String[] args) {        
+    public static void main(String[] args) {      
     	Collection<String> coll = new ArrayList<String>();
     	coll.add("小河神");
     	coll.add("老河神");
@@ -1596,7 +1603,7 @@ class MyArrayList<T> implements Iterable<T>{
 	public Iterator<T> iterator() {
 		return null;
 	}
-	
+
 }
 ```
 {: id="20210313082711-7imjm2p"}
@@ -1618,7 +1625,7 @@ public class TestForeach {
 		coll.add("李晨");
 		coll.add("邓超");
 		coll.add("黄晓明");
-		
+	
 		//调用ArrayList里面的Iterator iterator()
 		for (String str : coll) {
 			System.out.println(str);
@@ -1659,7 +1666,7 @@ public class TestForeach {
 		list.add("java");
 		list.add("atguigu");
 		list.add("world");
-		
+	
 		Iterator<String> iterator = list.iterator();
 		while(iterator.hasNext()){
 			list.remove(iterator.next());
@@ -1675,7 +1682,7 @@ public class TestForeach {
 这样设计是因为，迭代器代表集合中某个元素的位置，内部会存储某些能够代表该位置的信息。当集合发生改变时，该信息的含义可能会发生变化，这时操作迭代器就可能会造成不可预料的事情。因此，果断抛异常阻止，是最好的方法。这就是Iterator迭代器的快速失败（fail-fast）机制。
 {: id="20210313082711-ejote7q"}
 
-注意，迭代器的快速失败行为不能得到保证，一般来说，存在不同步的并发修改时，不可能作出任何坚决的保证。快速失败迭代器尽最大努力抛出 `ConcurrentModificationException`。因此，编写依赖于此异常的程序的方式是错误的，正确做法是：*迭代器的快速失败行为应该仅用于检测 bug。*例如：
+注意，迭代器的快速失败行为不能得到保证，一般来说，存在不同步的并发修改时，不可能作出任何坚决的保证。**快速失败迭代器尽最大努力抛出**{: style="color: rgb(252, 13, 27);"} `ConcurrentModificationException`。因此，编写依赖于此异常的程序的方式是错误的，正确做法是：***迭代器的快速失败行为应该仅用于检测 bug**{: style="color: rgb(252, 13, 27);"}。*例如：
 {: id="20210313082711-rzu6grp"}
 
 ```java
@@ -1686,12 +1693,12 @@ public class TestForeach {
 		list.add("java");
 		list.add("atguigu");
 		list.add("world");
-		
+	
         //以下代码没有发生ConcurrentModificationException异常
 		Iterator<String> iterator = list.iterator();
 		while(iterator.hasNext()){
 			String str = iterator.next();
-			
+		
 			if("atguigu".equals(str)){
 				list.remove(str);
 			}
@@ -1762,7 +1769,7 @@ Arraylist的Itr迭代器：
 
 ```java
    private class Itr implements Iterator<E> {
-        int cursor;      
+        int cursor;    
         int lastRet = -1; 
         int expectedModCount = modCount;//在创建迭代器时，expectedModCount初始化为当前集合的modCount的值
 
