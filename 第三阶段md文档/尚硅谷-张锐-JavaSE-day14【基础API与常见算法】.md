@@ -47,8 +47,8 @@ double d2 = Math.abs(5); //d2的值为5
 ```
 {: id="20210313082711-mz1dybj"}
 
-* {: id="20210313082711-w7x3vfx"}`public static double ceil(double a)` ：返回大于等于参数的最小的整数。
-  {: id="20210313082711-e402ucz"}
+* {: id="20210313082711-w7x3vfx"}`public static double ceil(double a)` ：向上取整。
+  {: id="20210313082711-e402ucz" updated="20210318154440"}
 {: id="20210313082711-1ckzm46"}
 
 ```java
@@ -58,8 +58,8 @@ double d3 = Math.ceil(5.1); //d3的值为 6.0
 ```
 {: id="20210313082711-7kl632u"}
 
-* {: id="20210313082711-f84looi"}`public static double floor(double a) ` ：返回小于等于参数最大的整数。
-  {: id="20210313082711-6m8haq9"}
+* {: id="20210313082711-f84looi"}`public static double floor(double a) ` ：向下取整。
+  {: id="20210313082711-6m8haq9" updated="20210318154449"}
 {: id="20210313082711-g41osry"}
 
 ```java
@@ -69,8 +69,8 @@ double d3 = Math.floor(5.1); //d3的值为 5.0
 ```
 {: id="20210313082711-slbuls3"}
 
-* {: id="20210313082711-yjylneb"}`public static long round(double a)` ：返回最接近参数的 long。(相当于四舍五入方法)
-  {: id="20210313082711-q5ohq7h"}
+* {: id="20210313082711-yjylneb"}`public static long round(double a)` ：四舍五入。(相当于四舍五入方法)
+  {: id="20210313082711-q5ohq7h" updated="20210318154512"}
 {: id="20210313082711-uba4e0a"}
 
 ```java
@@ -159,12 +159,12 @@ public class MathTest {
 	@Test
 	public void test01(){
 //		long bigNum = 123456789123456789123456789L;
-		
+	
 		BigInteger b1 = new BigInteger("123456789123456789123456789");
 		BigInteger b2 = new BigInteger("78923456789123456789123456789");
-		
+	
 //		System.out.println("和：" + (b1+b2));//错误的，无法直接使用+进行求和
-		
+	
 		System.out.println("和：" + b1.add(b2));
 		System.out.println("减：" + b1.subtract(b2));
 		System.out.println("乘：" + b1.multiply(b2));
@@ -218,12 +218,12 @@ UP：远离零方向舍入的舍入模式。
 	public void test02(){
 		/*double big = 12.123456789123456789123456789;
 		System.out.println("big = " + big);*/
-		
+	
 		BigDecimal b1 = new BigDecimal("123.45678912345678912345678912345678");
 		BigDecimal b2 = new BigDecimal("7.8923456789123456789123456789998898888");
-		
+	
 //		System.out.println("和：" + (b1+b2));//错误的，无法直接使用+进行求和
-		
+	
 		System.out.println("和：" + b1.add(b2));
 		System.out.println("减：" + b1.subtract(b2));
 		System.out.println("乘：" + b1.multiply(b2));
@@ -294,7 +294,7 @@ new Date(long 毫秒)：把该毫秒值换算成日期时间对象
 		Date d = new Date(time);
 		System.out.println(d);
 	}
-	
+
 	@Test
 	public void test4(){
 		long time = 1559807047979L;
@@ -307,14 +307,14 @@ new Date(long 毫秒)：把该毫秒值换算成日期时间对象
 		long time = d.getTime();
 		System.out.println(time);//1559807047979
 	}
-	
+
 	@Test
 	public void test2(){
 		long time = System.currentTimeMillis();
 		System.out.println(time);//1559806982971
 		//当前系统时间距离1970-1-1 0:0:0 0毫秒的时间差，毫秒为单位
 	}
-	
+
 	@Test
 	public void test1(){
 		Date d = new Date();
@@ -340,7 +340,7 @@ new Date(long 毫秒)：把该毫秒值换算成日期时间对象
 			System.out.println(all[i]);
 		}
 	}
-	
+
 	@Test
 	public void test7(){
 		TimeZone t = TimeZone.getTimeZone("America/Los_Angeles");
@@ -375,20 +375,20 @@ America/New_York
 	public void test6(){
 		Calendar c = Calendar.getInstance();
 		System.out.println(c);
-		
+	
 		int year = c.get(Calendar.YEAR);
 		System.out.println(year);
-		
+	
 		int month = c.get(Calendar.MONTH)+1;
 		System.out.println(month);
-		
+	
 		//...
 	}
 
 	@Test
 	public void test7(){
 		TimeZone t = TimeZone.getTimeZone("America/Los_Angeles");
-		
+	
 		//getInstance(TimeZone zone)
 		Calendar c = Calendar.getInstance(t);
 		System.out.println(c);
@@ -413,7 +413,7 @@ SimpleDateFormat用于日期时间的格式化。
 		Date d = sf.parse(str);
 		System.out.println(d);
 	}
-	
+
 	@Test
 	public void test9(){
 		Date d = new Date();
@@ -467,7 +467,7 @@ Java 8 吸收了 Joda-Time 的精华，以一个新的开始为 Java 创建优�
 {: id="20210313082711-mbu3bug"}
 
 | 方法                                                               | **描述**                                                     |
-| ------------------------------------------------------------------ | ------------------------------------------------------------ |
+| -------------------------------------------------------------------- | -------------------------------------------------------------- |
 | now() / now(ZoneId zone)                                           | 静态方法，根据当前时间创建对象/指定时区的对象                |
 | of()                                                               | 静态方法，根据指定日期/时间创建对象                          |
 | getDayOfMonth()/getDayOfYear()                                     | 获得月份天数(1-31) /获得年份天数(1-366)                      |
@@ -493,39 +493,39 @@ Java 8 吸收了 Joda-Time 的精华，以一个新的开始为 Java 创建优�
 		LocalDate before = now.minusDays(100);
 		System.out.println(before);//2019-02-26
 	}
-	
+
 	@Test
 	public void test06(){
 		LocalDate lai = LocalDate.of(2019, 5, 13);
 		LocalDate go = lai.plusDays(160);
 		System.out.println(go);//2019-10-20
 	}
-	
+
 	@Test
 	public void test05(){
 		LocalDate lai = LocalDate.of(2019, 5, 13);
 		System.out.println(lai.getDayOfYear());
 	}
-	
-	
+
+
 	@Test
 	public void test04(){
 		LocalDate lai = LocalDate.of(2019, 5, 13);
 		System.out.println(lai);
 	}
-	
+
 	@Test
 	public void test03(){
 		LocalDateTime now = LocalDateTime.now();
 		System.out.println(now);
 	}
-	
+
 	@Test
 	public void test02(){
 		LocalTime now = LocalTime.now();
 		System.out.println(now);
 	}
-	
+
 	@Test
 	public void test01(){
 		LocalDate now = LocalDate.now();
@@ -555,7 +555,7 @@ public class TestZonedDateTime {
 	public static void main(String[] args) {
 		ZonedDateTime t = ZonedDateTime.now();
 		System.out.println(t);
-		
+	
 		ZonedDateTime t1 = ZonedDateTime.now(ZoneId.of("America/New_York"));
 		System.out.println(t1);
 	}
@@ -575,7 +575,7 @@ public static void main(String[] args) {
 		LocalDate t2 = LocalDate.of(2018, 12, 31);
 		Period between = Period.between(t1, t2);
 		System.out.println(between);
-		
+	
 		System.out.println("相差的年数："+between.getYears());//1年
 		System.out.println("相差的月数："+between.getMonths());//又7个月
 		System.out.println("相差的天数："+between.getDays());//零25天
@@ -593,7 +593,7 @@ Duration:用于计算两个“时间”间隔
 		LocalDateTime t2 = LocalDateTime.of(2017, 8, 29, 0, 0, 0, 0);
 		Duration between = Duration.between(t1, t2);
 		System.out.println(between);
-		
+	
 		System.out.println("相差的总天数："+between.toDays());
 		System.out.println("相差的总小时数："+between.toHours());
 		System.out.println("相差的总分钟数："+between.toMinutes());
@@ -624,7 +624,7 @@ Duration:用于计算两个“时间”间隔
 	@Test
 	public void test10(){
 		LocalDateTime now = LocalDateTime.now();
-		
+	
 //		DateTimeFormatter df = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG);//2019年6月6日 下午04时40分03秒
 		DateTimeFormatter df = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);//19-6-6 下午4:40
 		String str = df.format(now);
@@ -633,16 +633,16 @@ Duration:用于计算两个“时间”间隔
 	@Test
 	public void test9(){
 		LocalDateTime now = LocalDateTime.now();
-		
+	
 		DateTimeFormatter df = DateTimeFormatter.ISO_DATE_TIME;//2019-06-06T16:38:23.756
 		String str = df.format(now);
 		System.out.println(str);
 	}
-	
+
 	@Test
 	public void test8(){
 		LocalDateTime now = LocalDateTime.now();
-		
+	
 		DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy年MM月dd日 HH时mm分ss秒  SSS毫秒  E 是这一年的D天");
 		String str = df.format(now);
 		System.out.println(str);
@@ -663,6 +663,7 @@ Duration:用于计算两个“时间”间隔
   {: id="20210313082711-mzwj85n"}
 * {: id="20210313082711-35y3u0u"}static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)：
   {: id="20210313082711-ptzjcga"}
+
   从指定源数组中复制一个数组，复制从指定的位置开始，到目标数组的指定位置结束。常用于数组的插入和删除
   {: id="20210313082711-1itqokc"}
 * {: id="20210313082711-5gntg50"}static void exit(int status) ：退出当前系统
@@ -680,7 +681,7 @@ public class Test{
     public static void main(String[] args){
     	long time = System.currentTimeMillis();
     	System.out.println("现在的系统时间距离1970年1月1日凌晨：" + time + "毫秒");
-    	
+  
     	System.exit(0);
 
     	System.out.println("over");//不会执行
@@ -979,7 +980,7 @@ class Exam2{
 	public static void main(String[] args){
 		int[] arr = {2,5,7,8,10,15,18,20,22,25,28};//数组是有序的
 		int value = 18;
-		
+	
         int index = -1;
 		int left = 0;
         int right = arr.length - 1;
@@ -996,16 +997,16 @@ class Exam2{
             }else if(value < arr[mid]){//往左边继续查找
                 right = mid - 1;
             }
-            
+          
             mid = (left + right)/2;
         }
-        
+      
         if(index==-1){
     		System.out.println(value + "不存在");
 		}else{
     		System.out.println(value + "的下标是" + index);
 		}
-        
+      
 	}
 }
 ```
@@ -1034,7 +1035,7 @@ for(int i=1; i<arr.length; i++){//外循环的次数 = 轮数 = 数组的长度-
     第2轮：i=2,未排序，[1,7]，本轮未排序元素第一个元素是[1]
     ...
     第7轮：i=7,未排序，[6,7]，本轮未排序元素第一个元素是[6]
-    
+  
     每一轮未排序元素的起始下标：0,1,2,3,4,5,6，正好是i-1的
     未排序的后面的元素依次：
     第1轮：[1,7]  j=1,2,3,4,5,6,7
@@ -1051,7 +1052,7 @@ for(int i=1; i<arr.length; i++){//外循环的次数 = 轮数 = 数组的长度-
             index = j;
         }
     }
-    
+  
     //（2）如果这个最值没有在它应该在的位置，就与这个位置的元素交换
     /*
     第1轮，最大值应该在[0]
@@ -1118,21 +1119,21 @@ public class Test{
   		System.out.println(arr); // [I@2ac1fdc4
   		// 数组内容转为字符串
     	System.out.println("arr数组初始状态："+ Arrays.toString(arr));
-    	
+  
     	Arrays.fill(arr, 3);
     	System.out.println("arr数组现在状态："+ Arrays.toString(arr));
-    	
+  
     	Random rand = new Random();
     	for (int i = 0; i < arr.length; i++) {
 			arr[i] = rand.nextInt(100);//赋值为100以内的随机整数
 		}
     	System.out.println("arr数组现在状态："+ Arrays.toString(arr));
-    	
+  
     	int[] arr2 = Arrays.copyOf(arr, 10);
     	System.out.println("新数组：" + Arrays.toString(arr2));
-    	
+  
     	System.out.println("两个数组的比较结果：" + Arrays.equals(arr, arr2));
-    	
+  
     	Arrays.sort(arr);
     	System.out.println("arr数组现在状态："+ Arrays.toString(arr));
     }
@@ -1149,16 +1150,22 @@ public class Test{
 找出数组中一个值，使其左侧值的加和等于右侧值的加和，
 {: id="20210313082711-fuevbt7"}
 
-​	例如：[1,2,5,3,2,4,2]，结果为：第4个值3
+```
+例如：[1,2,5,3,2,4,2]，结果为：第4个值3
+```
+
 {: id="20210313082711-3cfc1eu"}
 
-​			    [9, 6, 8, 8, 7, 6, 9, 5, 2, 5]，结果是没有
+```
+[9, 6, 8, 8, 7, 6, 9, 5, 2, 5]，结果是没有
+```
+
 {: id="20210313082711-7swywks"}
 
 ```java
 	public static void main(String[] args) {
 		int[] arr = {1,2,5,3,2,4,2};
-			
+		
 		int index = leftSumEqualsRightSum(arr);
 		if(index!=-1) {
 			System.out.println(arr[index]);
@@ -1166,7 +1173,7 @@ public class Test{
 			System.out.println("没有");
 		}
 	}
-	
+
 	public static int leftSumEqualsRightSum(int[] arr) {
 		for (int mid = 0; mid < arr.length; mid++) {
 			int leftSum = 0;
@@ -1199,10 +1206,12 @@ public class Test{
   {: id="20210313082711-vofe9t0"}
 - {: id="20210313082711-7md6562"}代码实现，效果如图所示：
   {: id="20210313082711-fy1tioe"}
+
   ![](imgs14/9.jpg)
   {: id="20210313082711-8ixgyeu"}
 - {: id="20210313082711-10xe7wz"}开发提示：
   {: id="20210313082711-8h45qio"}
+
   - {: id="20210313082711-mf4s1ud"}左边的偶数与右边的奇数换位置：
     {: id="20210313082711-c6he8bh"}
   - {: id="20210313082711-rhxg33r"}定义两个变量left和right，从左边开始查找偶数的位置，找到后用left记录，从右边开始找奇数的位置，找到后用right记录，如果left<right，那么就交换，然后在上一次的基础上继续查找，直到left与right擦肩。
@@ -1296,10 +1305,12 @@ public void order(int[] arr){
   {: id="20210313082711-r0aoh5r"}
 * {: id="20210313082711-vfk5cn2"}按步骤编写代码，效果如图所示：
   {: id="20210313082711-rfd11ra"}
+
   ![](imgs14/10.jpg)
   {: id="20210313082711-ly7rzoh"}
 * {: id="20210313082711-0aekadr"}开发提示：
   {: id="20210313082711-1o01xcn"}
+
   - {: id="20210313082711-kruopva"}定义一个变量count，初始化为数组的长度
     {: id="20210313082711-2zch0dd"}
   - {: id="20210313082711-vpis206"}遍历每一个元素，如果该元素与前面的某个元素相等，那么通过移动数组，把该元素覆盖掉，并修改count--。
@@ -1320,16 +1331,16 @@ import java.util.Arrays;
 
 public class TestExer4 {
 	public static void main(String[] args) {
-		
+	
 		double[] arr = new double[10];
 		for (int i = 0; i < arr.length-1; i++) {
 			arr[i] = Math.random() * 100;//[0,100)之间的小数
 		}
 		arr[arr.length-1] = 0;
 		System.out.println("直线上每一个点距离下一个点的距离："+Arrays.toString(arr));
-		
+	
 		double length = 150.5;
-		
+	
 		int count = 0;
 		double sum = 0;
 		for (int i = 0; i < arr.length; i++) {
@@ -1475,21 +1486,21 @@ public static void selectSort(int[] arr) {
                 while(arr[left]<=arr[start] && left<end){
                     left++;
                 }
-                
+              
                 //从右往左，从[end]开始找比比arr[start]小的数arr[right]，让它与arr[left]交换
                //当arr[right]小于arr[start]就停止循环，因为此时找到了比arr[start]小的数arr[right]
                 while(arr[right]>=arr[start] && right>start){
                     right--;
                 }
-                
-                
+              
+              
                 if(left < right){
                     int temp = arr[left];
                     arr[left] = arr[right];
                     arr[right] = temp;
                 }
             }
-            
+          
             //经过上面的while，//如果right>start+1，那么说明在[start+1,end]之间的数分为两拨
             //[start+1,right]之间的是比arr[start]小的数
             //[right,end]之间的是比arr[start]大的数
