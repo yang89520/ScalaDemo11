@@ -124,32 +124,32 @@ public class ListDemo {
     public static void main(String[] args) {
 		// 创建List集合对象
     	List<String> list = new ArrayList<String>();
-    	
+  
     	// 往 尾部添加 指定元素
     	list.add("图图");
     	list.add("小美");
     	list.add("不高兴");
-    	
+  
     	System.out.println(list);
     	// add(int index,String s) 往指定位置添加
     	list.add(1,"没头脑");
-    	
+  
     	System.out.println(list);
     	// String remove(int index) 删除指定位置元素  返回被删除元素
     	// 删除索引位置为2的元素 
     	System.out.println("删除索引位置为2的元素");
     	System.out.println(list.remove(2));
-    	
+  
     	System.out.println(list);
-    	
+  
     	// String set(int index,String s)
     	// 在指定位置 进行 元素替代（改） 
     	// 修改指定位置元素
     	list.set(0, "三毛");
     	System.out.println(list);
-    	
+  
     	// String get(int index)  获取指定位置元素
-    	
+  
     	// 跟size() 方法一起用  来 遍历的 
     	for(int i = 0;i<list.size();i++){
     		System.out.println(list.get(i));
@@ -157,7 +157,7 @@ public class ListDemo {
     	//还可以使用增强for
     	for (String string : list) {
 			System.out.println(string);
-		}  	
+		}  
 	}
 }
 ```
@@ -222,7 +222,7 @@ List 集合额外提供了一个 listIterator() 方法，该方法返回一个 L
 		c.add(new Student(3,"王五"));
 		c.add(new Student(4,"赵六"));
 		c.add(new Student(5,"钱七"));
-		
+	
 		//从指定位置往前遍历
 		ListIterator<Student> listIterator = c.listIterator(c.size());
 		while(listIterator.hasPrevious()){
@@ -401,7 +401,7 @@ public class TestHashSet {
 		//重复元素无法添加，因为MyDate和Employee重写了hashCode和equals方法
 		set.add(new Employee("张三", new MyDate(1990,1,1)));
 		set.add(new Employee("李四", new MyDate(1992,2,2)));
-		
+	
 		for (Employee object : set) {
 			System.out.println(object);
 		}
@@ -422,7 +422,7 @@ set.add("张三");
 set.add("李四");
 set.add("王五");
 set.add("张三");
-		
+	
 System.out.println("元素个数：" + set.size());
 for (String name : set) {
 	System.out.println(name);
@@ -489,7 +489,7 @@ for (String name : set) {
 		set.add("lisi");
 		set.add("wangwu");
 		set.add("zhangsan");
-				
+			
 		System.out.println("元素个数：" + set.size());
 		for (String str : set) {
 			System.out.println(str);
@@ -540,13 +540,13 @@ public class Student{
 			public int compare(Student o1, Student o2) {
 				return o1.getId() - o2.getId();
 			}
-			
+		
 		});
 		set.add(new Student(3,"张三"));
 		set.add(new Student(1,"李四"));
 		set.add(new Student(2,"王五"));
 		set.add(new Student(3,"张三风"));
-		
+	
 		System.out.println("元素个数：" + set.size());
 		for (Student stu : set) {
 			System.out.println(stu);
