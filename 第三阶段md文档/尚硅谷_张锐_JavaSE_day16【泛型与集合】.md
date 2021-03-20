@@ -810,6 +810,9 @@ public class TestGeneric{
 [**泛型通配符详解**](https://www.jianshu.com/p/e3d58360e51f)
 {: id="20210320165223-tl8xdf5" bookmark="✨" updated="20210320165250"}
 
+[泛型各种使用方式差异](https://blog.csdn.net/qq_31429205/article/details/103817506?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161625043816780264093594%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=161625043816780264093594&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-1-103817506.pc_v2_rank_blog_default&utm_term=%E6%B3%9B%E5%9E%8B%E5%AE%9E%E7%8E%B0%E7%94%9F%E4%BA%A7%E6%B6%88%E8%B4%B9%E8%80%85)
+{: id="20210320224431-b9ieogw" updated="20210320224513" bookmark="✨"}
+
 例如：
 {: id="20210313082711-8o0ke3q"}
 
