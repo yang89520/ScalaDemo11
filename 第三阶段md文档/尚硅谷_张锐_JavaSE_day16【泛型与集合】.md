@@ -195,7 +195,7 @@ public class TestGeneric {
 {: id="20210313082711-2768swi"}
 
 > 1.类和接口的  泛型
-> {: id="20210320150644-jlczmy5" updated="20210320150712" bookmark="✨"}
+> {: id="20210320150644-jlczmy5" bookmark="✨" updated="20210320150712"}
 >
 > 子类、子接口可以有自己独有的泛型，也可以继承实现父类父接口的泛型
 > {: id="20210320150644-kba2kmw" updated="20210320152113"}
@@ -764,6 +764,7 @@ class Employee implements Comparable<Employee>{
 
 ```java
 public class MyArrays{
+	//这里static后的<...>定义的是形参列表泛型 T的泛型范围，如果不写编译器会默认T[]是一个类的数组，
 	public static <T extends Comparable<T>> void sort(T[] arr){
 		for (int i = 1; i < arr.length; i++) {
 			for (int j = 0; j < arr.length-i; j++) {
@@ -777,7 +778,7 @@ public class MyArrays{
 	}
 }
 ```
-{: id="20210313082711-0yey49g"}
+{: id="20210313082711-0yey49g" updated="20210320210444"}
 
 测试类
 {: id="20210313082711-qd9by4c"}
@@ -807,7 +808,7 @@ public class TestGeneric{
 {: id="20210313082711-i5hz1gq"}
 
 [**泛型通配符详解**](https://www.jianshu.com/p/e3d58360e51f)
-{: id="20210320165223-tl8xdf5" updated="20210320165250" bookmark="✨"}
+{: id="20210320165223-tl8xdf5" bookmark="✨" updated="20210320165250"}
 
 例如：
 {: id="20210313082711-8o0ke3q"}
