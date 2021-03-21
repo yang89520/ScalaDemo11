@@ -208,6 +208,9 @@ public class TestGeneric {
 >
 > 返回类型，参数类型，参数返回类型
 > {: id="20210320151105-480ij69" updated="20210320152014"}
+>
+> 迭代器也需要挂泛型
+> {: id="20210321090220-99a4y0a" updated="20210321090228"}
 {: id="20210320150525-fwzdps0"}
 
 ### 11.2.1 声明泛型类与泛型接口
@@ -291,14 +294,14 @@ public class TestGeneric{
 	public static void main(String[] args) {
 		//语文老师使用时：
 		Student<String> stu1 = new Student<String>("张三", "良好");
-    
+  
 		//数学老师使用时：
         //Student<double> stu2 = new Student<double>("张三", 90.5);//错误，必须是引用数据类型
 		Student<Double> stu2 = new Student<Double>("张三", 90.5);
-    
+  
 		//英语老师使用时：
 		Student<Character> stu3 = new Student<Character>("张三", 'C');
-    
+  
         //错误的指定
         //Student<Object> stu = new Student<String>();//错误的
 	}
@@ -668,7 +671,7 @@ public class TestExer3 {
 				}
 				return o1.getName().compareTo(o2.getName());
 			}
-	
+
 		});
 
 		for (int i = 0; i < arr.length; i++) {
@@ -811,7 +814,7 @@ public class TestGeneric{
 {: id="20210320165223-tl8xdf5" bookmark="✨" updated="20210320165250"}
 
 [泛型各种使用方式差异](https://blog.csdn.net/qq_31429205/article/details/103817506?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161625043816780264093594%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=161625043816780264093594&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-1-103817506.pc_v2_rank_blog_default&utm_term=%E6%B3%9B%E5%9E%8B%E5%AE%9E%E7%8E%B0%E7%94%9F%E4%BA%A7%E6%B6%88%E8%B4%B9%E8%80%85)
-{: id="20210320224431-b9ieogw" updated="20210320224513" bookmark="✨"}
+{: id="20210320224431-b9ieogw" bookmark="✨" updated="20210320224513"}
 
 例如：
 {: id="20210313082711-8o0ke3q"}
@@ -1577,7 +1580,7 @@ public class NBForDemo1 {
 
 ~~~java
 public class NBFor {
-    public static void main(String[] args) {    
+    public static void main(String[] args) {  
     	Collection<String> coll = new ArrayList<String>();
     	coll.add("小河神");
     	coll.add("老河神");
@@ -1722,7 +1725,7 @@ public class TestForeach {
 		Iterator<String> iterator = list.iterator();
 		while(iterator.hasNext()){
 			String str = iterator.next();
-	
+
 			if("atguigu".equals(str)){
 				list.remove(str);
 			}
