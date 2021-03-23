@@ -303,8 +303,8 @@ Java反射机制是在运行状态中，对于任意一个类，都能够知道�
 ### 2、获取Class对象的四种方式
 {: id="20210313082711-4r6akyi"}
 
-（1）类型名.class
-{: id="20210313082711-6azycwp"}
+（1）类名.class
+{: id="20210313082711-6azycwp" updated="20210323163913"}
 
 要求编译期间已知类型
 {: id="20210313082711-uogu7t5"}
@@ -322,7 +322,7 @@ Java反射机制是在运行状态中，对于任意一个类，都能够知道�
 {: id="20210313082711-r8cpsv1"}
 
 （4）ClassLoader的类加载器对象.loadClass(类型全名称)
-{: id="20210313082711-8xstubq"}
+{: id="20210313082711-8xstubq" updated="20210323163959"}
 
 可以用系统类加载对象或自定义加载器对象加载指定路径下的类型
 {: id="20210313082711-tpm3jh5"}
@@ -331,9 +331,9 @@ Java反射机制是在运行状态中，对于任意一个类，都能够知道�
 public class TestClass {
 	@Test
 	public void test05() throws ClassNotFoundException{
+		// 类加载器对象的loadClass方法
 		Class c = TestClass.class;
 		ClassLoader loader = c.getClassLoader();
-	
 		Class c2 = loader.loadClass("com.atguigu.test05.Employee");
 		Class c3 = Employee.class;
 		System.out.println(c2 == c3);
@@ -341,16 +341,17 @@ public class TestClass {
 
 	@Test
 	public void test03() throws ClassNotFoundException{
+		// forName注册类名获取反射
 		Class c2 = String.class;
 		Class c1 = "".getClass();
 		Class c3 = Class.forName("java.lang.String");
-	
+
 		System.out.println(c1 == c2);
 		System.out.println(c1 == c3);
 	}
 }
 ```
-{: id="20210313082711-qishoue"}
+{: id="20210313082711-qishoue" updated="20210323164132"}
 
 ## 16.3 反射的应用
 {: id="20210313082711-1iwl3qb"}
