@@ -98,13 +98,13 @@
 `java.net` 包中提供了两种常见的网络协议的支持：
 {: id="20210313082711-u3prka6"}
 
-- {: id="20210313082711-ogyv692"}**UDP**：用户数据报协议(User Datagram Protocol)。
+- {: id="20210313082711-ogyv692"}**UDP**：**用户数据报协议**{: style="color: rgb(252, 13, 27);"}(User Datagram Protocol)。
   {: id="20210313082711-7rd6555"}
 
-  - {: id="20210313082711-qc6fw8c"}**非面向连的，不可靠的：**UDP是无连接通信协议，即在数据传输时，数据的发送端和接收端不建立逻辑连接。简单来说，当一台计算机向另外一台计算机发送数据时，发送端不会确认接收端是否存在，就会发出数据，同样接收端在收到数据时，也不会向发送端反馈是否收到数据。
-    {: id="20210313082711-hjt4z0a"}
+  - {: id="20210313082711-qc6fw8c"}**非面向连接的，不可靠的：**UDP是**无连接通信协议，即在数据传输时，数据的发送端和接收端不建立逻辑连接。**{: style="color: rgb(253, 191, 45);"}简单来说，当一台计算机向另外一台计算机发送数据时，发送端不会确认接收端是否存在，就会发出数据，同样接收端在收到数据时，也不会向发送端反馈是否收到数据。
+    {: id="20210313082711-hjt4z0a" updated="20210323091313"}
 
-    由于使用UDP协议消耗资源小，通信效率高，所以通常都会用于音频、视频和普通数据的传输例如视频会议都使用UDP协议，因为这种情况即使偶尔丢失一两个数据包，也不会对接收结果产生太大影响。
+    **由于使用UDP协议消耗资源小，通信效率高**{: style="color: rgb(253, 191, 45);"}，所以通常都会用于音频、视频和普通数据的传输例如视频会议都使用UDP协议，因为这种情况即使偶尔丢失一两个数据包，也不会对接收结果产生太大影响。
     {: id="20210313082711-sfxjooe"}
 
     但是在使用UDP协议传送数据时，由于UDP的面向无连接性，不能保证数据的完整性，因此在传输重要数据时不建议使用UDP协议。
@@ -116,6 +116,7 @@
   {: id="20210313082711-8179xne"}
 - {: id="20210313082711-4d5q6um"}**TCP**：传输控制协议 (Transmission Control Protocol)。
   {: id="20210313082711-xq6k3zj"}
+
   - {: id="20210313082711-nweuxdf"}**面向连接的，可靠的**：TCP协议是面向连接的通信协议，即传输数据之前，在发送端和接收端建立逻辑连接，然后再传输数据，它提供了两台计算机之间可靠无差错的数据传输。是一种面向连接的、可靠的、基于字节流的传输层的通信协议，可以连续传输大量的数据。类似于打电话的效果。
     {: id="20210313082711-lx8tk9r"}
 
@@ -127,6 +128,7 @@
   {: id="20210313082711-m1qs142"}
 - {: id="20210313082711-px5gcda"}**三次握手：**TCP协议中，在发送数据的准备阶段，客户端与服务器之间的三次交互，以保证连接的可靠。
   {: id="20210313082711-xl32kmb"}
+
   - {: id="20210313082711-ngcxvx2"}第一次握手，客户端向服务器端发出连接请求，等待服务器确认。
     {: id="20210313082711-l23cln8"}
   - {: id="20210313082711-wk0t331"}第二次握手，服务器端向客户端回送一个响应，通知客户端收到了连接请求。
@@ -141,6 +143,7 @@
 
 * {: id="20210313082711-6nd4j84"}**四次挥手：**TCP协议中，在发送数据结束后，释放连接时需要经过四次挥手。
   {: id="20210313082711-gnbk077"}
+
   * {: id="20210313082711-mrd1luz"}第一次挥手：客户端向服务器端提出结束连接，让服务器做最后的准备工作。此时，客户端处于半关闭状态，即表示不再向服务器发送数据了，但是还可以接受数据。
     {: id="20210313082711-l6r59r9"}
   * {: id="20210313082711-dc3ch6y"}第二次挥手：服务器接收到客户端释放连接的请求后，会将最后的数据发给客户端。并告知上层的应用进程不再接收数据。
@@ -181,6 +184,7 @@
   {: id="20210313082711-ybnj0jp"}
 - {: id="20210313082711-gj4lcev"}IPv6：由于互联网的蓬勃发展，IP地址的需求量愈来愈大，但是网络地址资源有限，使得IP的分配越发紧张。
   {: id="20210313082711-e1r2txj"}
+
   为了扩大地址空间，拟通过IPv6重新定义地址空间，采用128位地址长度，每16个字节一组，分成8组十六进制数，表示成`ABCD:EF01:2345:6789:ABCD:EF01:2345:6789`，号称可以为全世界的每一粒沙子编上一个网址，这样就解决了网络地址资源数量不够的问题。
   {: id="20210313082711-v8qsp37"}
 {: id="20210313082711-bm9xy3t"}
@@ -242,6 +246,7 @@ ping 220.181.57.216
 
 - {: id="20210313082711-oxa581s"}**端口号：用两个字节表示的整数，它的取值范围是0~65535**。
   {: id="20210313082711-0vd8vvc"}
+
   - {: id="20210313082711-t3beyz3"}公认端口：0~1023。被预先定义的服务通信占用，如：HTTP（80），FTP（21），Telnet（23）
     {: id="20210313082711-0tnygo1"}
   - {: id="20210313082711-8074m0m"}注册端口：1024~49151。分配给用户进程或应用程序。如：Tomcat（8080），MySQL（3306），Oracle（1521）。
@@ -304,7 +309,7 @@ public class TestInetAddress {
 		InetAddress localHost = InetAddress.getLocalHost();
 		System.out.println(localHost);
 	}
-	
+
 	@Test
 	public void test02()throws UnknownHostException{
 		InetAddress atguigu = InetAddress.getByName("www.atguigu.com");
@@ -332,6 +337,7 @@ public class TestInetAddress {
 
 * {: id="20210313082711-wtnnsxt"}流套接字（stream socket）：使用TCP提供可依赖的字节流服务
   {: id="20210313082711-p6th5l5"}
+
   * {: id="20210313082711-x4v4k2r"}ServerSocket：此类实现TCP服务器套接字。服务器套接字等待请求通过网络传入。
     {: id="20210313082711-85jabq9"}
   * {: id="20210313082711-hnaqwi5"}Socket：此类实现客户端套接字（也可以就叫“套接字”）。套接字是两台机器间通信的端点。
@@ -339,6 +345,7 @@ public class TestInetAddress {
   {: id="20210313082711-vkm421j"}
 * {: id="20210313082711-qpxe6v5"}数据报套接字（datagram socket）：使用UDP提供“尽力而为”的数据报服务
   {: id="20210313082711-ygz477j"}
+
   * {: id="20210313082711-lv5gzlu"}DatagramSocket：此类表示用来发送和接收UDP数据报包的套接字。
     {: id="20210313082711-f6pvkrp"}
   {: id="20210313082711-tql587u"}
@@ -472,7 +479,7 @@ public class Client {
 		out.write("lalala".getBytes());
 		//会在流末尾写入一个“流的末尾”标记，对方才能读到-1，否则对方的读取方法会一致阻塞
 		socket.shutdownOutput();
-		
+	
 		//3、获取输入流，用来接收服务器发送给该客户端的数据
 		InputStream input = socket.getInputStream();
 		// 接收数据
@@ -483,7 +490,7 @@ public class Client {
 			s.append(new String(data, 0, len));
 		}
 		System.out.println("服务器返回的消息是：" + s);
-		
+	
 		//4、关闭socket，不再与服务器通信，即断开与服务器的连接
 		//socket关闭，意味着InputStream和OutputStream也关闭了
 		socket.close();
@@ -507,11 +514,11 @@ public class Server {
 		//1、准备一个ServerSocket对象，并绑定8888端口
 		ServerSocket server =  new ServerSocket(8888);
 		System.out.println("等待连接....");
-		
+	
 	//2、在8888端口监听客户端的连接，该方法是个阻塞的方法，如果没有客户端连接，将一直等待
 		Socket socket = server.accept();
 		System.out.println("一个客户端连接成功！！");
-		
+	
 		//3、获取输入流，用来接收该客户端发送给服务器的数据
 		InputStream input = socket.getInputStream();
 		//接收数据
@@ -522,17 +529,17 @@ public class Server {
 			s.append(new String(data, 0, len));
 		}
 		System.out.println("客户端发送的消息是：" + s);
-				
+			
 		//4、获取输出流，用来发送数据给该客户端
 		OutputStream out = socket.getOutputStream();
 		//发送数据
 		out.write("欢迎登录".getBytes());
 		out.flush();
-		
+	
 		//5、关闭socket，不再与该客户端通信
 		//socket关闭，意味着InputStream和OutputStream也关闭了
 		socket.close();
-		
+	
 		//6、如果不再接收任何客户端通信，可以关闭ServerSocket
 		server.close();
 	}
@@ -590,11 +597,11 @@ public class Client2 {
 		// 2、获取输出流，用来发送数据给服务器
 		OutputStream out = socket.getOutputStream();
 		PrintStream ps = new PrintStream(out);
-		
+	
 		// 3、获取输入流，用来接收服务器发送给该客户端的数据
 		InputStream input = socket.getInputStream();
 		BufferedReader br = new BufferedReader(new InputStreamReader(input));
-		
+	
 		Scanner scanner = new Scanner(System.in);
 		while(true){
 			System.out.println("输入发送给服务器的单词或成语：");
@@ -603,14 +610,14 @@ public class Client2 {
 				socket.shutdownOutput();
 				break;
 			}
-			
+		
 			// 4、 发送数据
 			ps.println(message);
 			// 接收数据
 			String feedback  = br.readLine();
 			System.out.println("从服务器收到的反馈是：" + feedback);
 		}
-		
+	
 		//5、关闭socket，断开与服务器的连接
 		scanner.close();
 		socket.close();
@@ -636,17 +643,17 @@ public class Server2 {
 		// 1、准备一个ServerSocket
 		ServerSocket server = new ServerSocket(8888);
 		System.out.println("等待连接...");
-		
+	
 		int count = 0;
 		while(true){
 			// 2、监听一个客户端的连接
 			Socket socket = server.accept();
 			System.out.println("第" + ++count + "个客户端"+socket.getInetAddress().getHostAddress()+"连接成功！！");
-			
+		
 			ClientHandlerThread ct = new ClientHandlerThread(socket);
 			ct.start();
 		}
-		
+	
 		//这里没有关闭server，永远监听
 	}
 	static class ClientHandlerThread extends Thread{
@@ -656,9 +663,9 @@ public class Server2 {
 			super();
 			this.socket = socket;
 		}
-		
+	
 		public void run(){
-			
+		
 			try{
 				//（1）获取输入流，用来接收该客户端发送给服务器的数据
 				BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -670,7 +677,7 @@ public class Server2 {
 					//（4）反转
 					StringBuilder word = new StringBuilder(str);
 					word.reverse();
-					
+				
 					//（5）返回给客户端
 					ps.println(word);
 				}
@@ -760,14 +767,14 @@ public class Send {
 	public static void main(String[] args)throws Exception {
 //		1、建立发送端的DatagramSocket
 		DatagramSocket ds = new DatagramSocket();
-		
+	
 		//要发送的数据
 		ArrayList<String> all = new ArrayList<String>();
 		all.add("尚硅谷让天下没有难学的技术！");
 		all.add("学高端前沿的IT技术来尚硅谷！");
 		all.add("尚硅谷让你的梦想变得更具体！");
 		all.add("尚硅谷让你的努力更有价值！");
-		
+	
 		//接收方的IP地址
 		InetAddress ip = InetAddress.getByName("127.0.0.1");
 		//接收方的监听端口号
@@ -780,7 +787,7 @@ public class Send {
 //			3、调用Socket的发送方法
 			ds.send(dp);
 		}
-		
+	
 //		4、关闭Socket
 		ds.close();
 	}
@@ -802,16 +809,16 @@ public class Receive {
 	public static void main(String[] args) throws Exception {
 //		1、建立接收端的DatagramSocket，需要指定本端的监听端口号
 		DatagramSocket ds = new DatagramSocket(9999);
-		
+	
 		//一直监听数据
 		while(true){
 	//		2、建立数据包DatagramPacket
 			byte[] buffer = new byte[1024*64];
 			DatagramPacket dp = new DatagramPacket(buffer , buffer.length);
-			
+		
 	//		3、调用Socket的接收方法
 			ds.receive(dp);
-			
+		
 			//4、拆封数据
 			String str = new String(buffer,0,dp.getLength());
 			System.out.println(str);
