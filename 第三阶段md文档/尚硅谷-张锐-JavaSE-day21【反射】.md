@@ -216,7 +216,7 @@ class G{
 它负责加载jre/rt.jar核心库
 它本身不是Java代码实现的，也不是ClassLoader的子类，获取它的对象时往往返回null
 ```
-{: id="20210313082711-u16u9qh" updated="20210323162724"}
+{: id="20210313082711-u16u9qh" updated="20210323162841"}
 
 （2）扩展类加载器（Extension ClassLoader）
 {: id="20210313082711-71udn8w"}
@@ -230,12 +230,11 @@ class G{
 （3）应用程序类加载器（Application Classloader）
 {: id="20210313082711-bljd4dz"}
 
-```
+```java
 它负责加载项目的classpath路径下的类
-
 它是ClassLoader的子类
 ```
-{: id="20210313082711-3d1smqi"}
+{: id="20210313082711-3d1smqi" updated="20210323162743"}
 
 （4）自定义类加载器
 {: id="20210313082711-bxrqxjn"}
