@@ -209,23 +209,23 @@ class G{
 **1、类加载器分为：**
 {: id="20210313082711-mz85xb9"}
 
-（1）引导类加载器（Bootstrap Classloader）又称为根类加载器
-{: id="20210313082711-qt9lutf"}
+（1）引导类加载器（Bootstrap Classloader）又称为根类加载器 C语言编写，获取不到
+{: id="20210313082711-qt9lutf" updated="20210323162652"}
 
-```
+```java
 它负责加载jre/rt.jar核心库
 它本身不是Java代码实现的，也不是ClassLoader的子类，获取它的对象时往往返回null
 ```
-{: id="20210313082711-u16u9qh"}
+{: id="20210313082711-u16u9qh" updated="20210323162724"}
 
 （2）扩展类加载器（Extension ClassLoader）
 {: id="20210313082711-71udn8w"}
 
-```
+```java
 它负责加载jre/lib/ext扩展库
 它是ClassLoader的子类
 ```
-{: id="20210313082711-dxvxukq"}
+{: id="20210313082711-dxvxukq" updated="20210323162733"}
 
 （3）应用程序类加载器（Application Classloader）
 {: id="20210313082711-bljd4dz"}
