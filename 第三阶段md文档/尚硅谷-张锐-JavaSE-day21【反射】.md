@@ -55,25 +55,25 @@
 类的加载又分为三个阶段：
 {: id="20210313082711-p0u8b3s"}
 
-（1）加载：load
+（1）**加载**{: style="color: rgb(253, 191, 45);"}：load
 {: id="20210313082711-pcxgecm"}
 
-就是指将类型的clas字节码数据读入内存
-{: id="20210313082711-x8bdxyo"}
+就是指将类型的class字节码数据读入内存
+{: id="20210313082711-x8bdxyo" updated="20210323152047"}
 
-（2）连接：link
+（2）**连接**{: style="color: rgb(253, 191, 45);"}：link
 {: id="20210313082711-5503nso"}
 
-①验证：校验合法性等
+①**验证**{: style="color: rgb(252, 13, 27);"}：校验合法性等
 {: id="20210313082711-ljmyeyn"}
 
 ②准备：准备对应的内存（方法区），创建Class对象，为类变量赋默认值，为静态常量赋初始值。
 {: id="20210313082711-k830qzs"}
 
-③解析：把字节码中的符号引用替换为对应的直接地址引用
+③**解析**{: style="color: rgb(252, 13, 27);"}：把字节码中的符号引用替换为对应的直接地址引用
 {: id="20210313082711-p4itahn"}
 
-（3）初始化：initialize（类初始化）即执行<clinit>类初始化方法，大多数情况下，类的加载就完成了类的初始化，有些情况下，会延迟类的初始化。
+（3）**初始化**{: style="color: rgb(253, 191, 45);"}：initialize（类初始化）即执行<clinit>类初始化方法，大多数情况下，类的加载就完成了类的初始化，有些情况下，会延迟类的初始化。
 {: id="20210313082711-s3zmuap"}
 
 ![1560767438339](imgs21/1560767438339.png)
@@ -115,12 +115,12 @@ public class TestClinit1 extends Father{
 	static{
 		System.out.println("main方法所在的类(2)");//主方法所在的类会初始化
 	}
-	
+
 	public static void main(String[] args) throws ClassNotFoundException {
 		new A();//第一次使用A就是创建它的对象，会初始化A类
-		
+	
 		B.test();//直接使用B类的静态成员会初始化B类
-		
+	
 		Class clazz = Class.forName("com.atguigu.test02.C");//通过反射操作C类，会初始化C类
 	}
 }
@@ -161,10 +161,10 @@ class C{
 public class TestClinit2 {
 	public static void main(String[] args) {
 		System.out.println(D.NUM);//D类不会初始化，因为NUM是final的
-		
+	
 		System.out.println(F.num);
 		F.test();//F类不会初始化，E类会初始化，因为num和test()是在E类中声明的
-		
+	
 		//G类不会初始化，此时还没有正式用的G类
 		G[] arr = new G[5];//没有创建G的对象，创建的是准备用来装G对象的数组对象
         //G[]是一种新的类型，是数组类想，动态编译生成的一种新的类型
@@ -334,18 +334,18 @@ public class TestClass {
 	public void test05() throws ClassNotFoundException{
 		Class c = TestClass.class;
 		ClassLoader loader = c.getClassLoader();
-		
+	
 		Class c2 = loader.loadClass("com.atguigu.test05.Employee");
 		Class c3 = Employee.class;
 		System.out.println(c2 == c3);
 	}
-	
+
 	@Test
 	public void test03() throws ClassNotFoundException{
 		Class c2 = String.class;
 		Class c1 = "".getClass();
 		Class c3 = Class.forName("java.lang.String");
-		
+	
 		System.out.println(c1 == c2);
 		System.out.println(c1 == c3);
 	}
@@ -371,12 +371,12 @@ public class TestClassInfo {
 		//1、先得到某个类型的Class对象
 		Class clazz = String.class;
 		//比喻clazz好比是镜子中的影子
-		
+	
 		//2、获取类信息
 		//（1）获取包对象，即所有java的包，都是Package的对象
 		Package pkg = clazz.getPackage();
 		System.out.println("包名：" + pkg.getName());
-		
+	
 		//（2）获取修饰符
 		//其实修饰符是Modifier，里面有很多常量值
 		/*
@@ -396,21 +396,21 @@ public class TestClassInfo {
 		 */
 		int mod = clazz.getModifiers();
 		System.out.println(Modifier.toString(mod));
-		
+	
 		//（3）类型名
 		String name = clazz.getName();
 		System.out.println(name);
-		
+	
 		//（4）父类，父类也有父类对应的Class对象
 		Class superclass = clazz.getSuperclass();
 		System.out.println(superclass);
-		
+	
 		//（5）父接口们
 		Class[] interfaces = clazz.getInterfaces();
 		for (Class class1 : interfaces) {
 			System.out.println(class1);
 		}
-		
+	
 		//（6）类的属性，  你声明的一个属性，它是Field的对象
 /*		Field clazz.getField(name)  根据属性名获取一个属性对象，但是只能得到公共的
 		Field[] clazz.getFields();  获取所有公共的属性
@@ -419,16 +419,16 @@ public class TestClassInfo {
 		*/
 		Field valueField = clazz.getDeclaredField("value");
 //		System.out.println("valueField = " +valueField);
-		
+	
 		Field[] declaredFields = clazz.getDeclaredFields();
 		for (Field field : declaredFields) {
-			//修饰符、数据类型、属性名    
+			//修饰符、数据类型、属性名  
 			int modifiers = field.getModifiers();
 			System.out.println("属性的修饰符：" + Modifier.toString(modifiers));
-			
+		
 			String name2 = field.getName();
 			System.out.println("属性名：" + name2);
-			
+		
 			Class<?> type = field.getType();
 			System.out.println("属性的数据类型：" + type);
 		}
@@ -439,17 +439,17 @@ public class TestClassInfo {
 			//修饰符、构造器名称、构造器形参列表  、抛出异常列表
 			int modifiers = constructor.getModifiers();
 			System.out.println("构造器的修饰符：" + Modifier.toString(modifiers));
-			
+		
 			String name2 = constructor.getName();
 			System.out.println("构造器名：" + name2);
-			
+		
 			//形参列表
 			System.out.println("形参列表：");
 			Class[] parameterTypes = constructor.getParameterTypes();
 			for (Class parameterType : parameterTypes) {
 				System.out.println(parameterType);
 			}
-            
+          
             //异常列表
 			System.out.println("异常列表：");
 			Class<?>[] exceptionTypes = constructor.getExceptionTypes();
@@ -464,20 +464,20 @@ public class TestClassInfo {
 			//修饰符、返回值类型、方法名、形参列表 、异常列表 
 			int modifiers = method.getModifiers();
 			System.out.println("方法的修饰符：" + Modifier.toString(modifiers));
-			
+		
 			Class<?> returnType = method.getReturnType();
 			System.out.println("返回值类型:" + returnType);
-			
+		
 			String name2 = method.getName();
 			System.out.println("方法名：" + name2);
-			
+		
 			//形参列表
 			System.out.println("形参列表：");
 			Class[] parameterTypes = method.getParameterTypes();
 			for (Class parameterType : parameterTypes) {
 				System.out.println(parameterType);
 			}
-			
+		
 			//异常列表
 			System.out.println("异常列表：");
 			Class<?>[] exceptionTypes = method.getExceptionTypes();
@@ -485,7 +485,7 @@ public class TestClassInfo {
 				System.out.println(exceptionType);
 			}
 		}
-		
+	
 	}
 }
 ```
@@ -518,11 +518,11 @@ public class TestClassInfo {
 		Object stu = clazz.newInstance();
 		System.out.println(stu);
 	}
-	
+
 	@Test
 	public void test1() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
 //		AtGuigu obj = new AtGuigu();//编译期间无法创建
-		
+	
 		Class<?> clazz = Class.forName("com.atguigu.test.AtGuigu");
 		//clazz代表com.atguigu.test.AtGuigu类型
 		//clazz.newInstance()创建的就是AtGuigu的对象
@@ -558,13 +558,13 @@ public class TestNewInstance {
 		 */
 		//(2)获取构造器对象
 		Constructor<?> constructor = clazz.getDeclaredConstructor(int.class,String.class);
-		
+	
 		//(3)创建实例对象
 		// T newInstance(Object... initargs)  这个Object...是在创建对象时，给有参构造的实参列表
 		Object obj = constructor.newInstance(2,"张三");
 		System.out.println(obj);
 	}
-	
+
 }
 ```
 {: id="20210313082711-ziuyk10"}
@@ -610,16 +610,16 @@ public class TestField {
 	public static void main(String[] args)throws Exception {
 		//1、获取Student的Class对象
 		Class clazz = Class.forName("com.atguigu.test.Student");
-		
+	
 		//2、获取属性对象，例如：id属性
 		Field idField = clazz.getDeclaredField("id");
-        
+      
         //3、如果id是私有的等在当前类中不可访问access的，我们需要做如下操作
 		idField.setAccessible(true);
-		
+	
 		//4、创建实例对象，即，创建Student对象
 		Object stu = clazz.newInstance();
-				
+			
 		//5、获取属性值
 		/*
 		 * 以前：int 变量= 学生对象.getId()
@@ -627,14 +627,14 @@ public class TestField {
 		 */
 		Object value = idField.get(stu);
 		System.out.println("id = "+ value);
-		
+	
 		//6、设置属性值
 		/*
 		 * 以前：学生对象.setId(值)
 		 * 现在：id属性对象.set(学生对象,值)
 		 */
 		idField.set(stu, 2);
-		
+	
 		value = idField.get(stu);
 		System.out.println("id = "+ value);
 	}
@@ -671,7 +671,7 @@ public class TestMethod {
 	public void test()throws Exception {
 		// 1、获取Student的Class对象
 		Class<?> clazz = Class.forName("com.atguigu.test.Student");
-		
+	
 		//2、获取方法对象
 		/*
 		 * 在一个类中，唯一定位到一个方法，需要：（1）方法名（2）形参列表，因为方法可能重载
@@ -679,17 +679,17 @@ public class TestMethod {
 		 * 例如：void setName(String name)
 		 */
 		Method method = clazz.getDeclaredMethod("setName", String.class);
-		
+	
 		//3、创建实例对象
 		Object stu = clazz.newInstance();
-		
+	
 		//4、调用方法
 		/*
 		 * 以前：学生对象.setName(值)
 		 * 现在：方法对象.invoke(学生对象，值)
 		 */
 		method.invoke(stu, "张三");
-		
+	
 		System.out.println(stu);
 	}
 }
@@ -717,15 +717,15 @@ public class TestMethod {
  * 		ArrayList<? extends 上限>
  * （5）GenericArrayType
  * 		例如：T[]
- * 	
+ * 
  */
 public class TestGeneric {
 	public static void main(String[] args) {
 		//需求：在运行时，获取Son类型的泛型父类的泛型实参<String,Integer>
-		
+	
 		//（1）还是先获取Class对象
 		Class clazz = Son.class;//四种形式任意一种都可以
-		
+	
 		//（2）获取泛型父类
 //		Class sc = clazz.getSuperclass();
 //		System.out.println(sc);
@@ -733,10 +733,10 @@ public class TestGeneric {
 		 * getSuperclass()只能得到父类名，无法得到父类的泛型实参列表
 		 */
 		Type type = clazz.getGenericSuperclass();
-		
+	
 		// Father<String,Integer>属于ParameterizedType
 		ParameterizedType pt = (ParameterizedType) type;
-		
+	
 		//（3）获取泛型父类的泛型实参列表
 		Type[] typeArray = pt.getActualTypeArguments();
 		for (Type type2 : typeArray) {
@@ -746,11 +746,11 @@ public class TestGeneric {
 }
 //泛型形参：<T,U>
 class Father<T,U>{
-	
+
 }
 //泛型实参：<String,Integer>
 class Son extends Father<String,Integer>{
-	
+
 }
 ```
 {: id="20210313082711-h0ix2gf"}
@@ -765,15 +765,15 @@ class Son extends Father<String,Integer>{
 public class TestAnnotation {
 	public static void main(String[] args) {
 		//需求：可以获取MyClass类型上面配置的注解@MyAnnotation的value值
-		
+	
 		//读取注解
 //		（1）获取Class对象
 		Class<MyClass> clazz = MyClass.class;
-		
+	
 		//（2）获取注解对象
 		//获取指定注解对象
 		MyAnnotation my = clazz.getAnnotation(MyAnnotation.class);
-		
+	
 		//（3）获取配置参数值
 		String value = my.value();
 		System.out.println(value);
@@ -790,7 +790,7 @@ public class TestAnnotation {
 //使用注解
 @MyAnnotation("/login")
 class MyClass{
-	
+
 }
 ```
 {: id="20210313082711-e4733pi"}
@@ -815,7 +815,7 @@ public Class<?> getDeclaringClass()：如果此 Class 对象所表示的类或�
 		for (Class<?> inner : inners) {
 			System.out.println(inner);
 		}
-		
+	
 		Class<?> ec = Map.Entry.class;
 		Class<?> outer = ec.getDeclaringClass();
 		System.out.println(outer);
