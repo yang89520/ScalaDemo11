@@ -248,11 +248,14 @@ unzip -d 解压到指定目录
 #gzip/gunzip
 压缩解压gz文件
 #tar
+	 tar [opt] 压缩后的名字.gz.tar 要压缩的内容
 	-z 打包同时压缩
 	-f 指定压缩后的文件名
 	-v 显示详细信息
 	-c 生成tar包
 	-x 解压tar包
+	-zcvf
+	-zxvf
 ```
 
 ## 远程分发指令
